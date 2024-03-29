@@ -1,11 +1,21 @@
 # c17-56-T-Java
 
-## 🚀 Título:
+## 🚀 Título: MyDoctorApp
 
-## 🏭 Industría o rubro:
+## 🏭 Industría o rubro: Health Tech
 
 ## 👥 Colaboradores:
+- Kevin Flores
+- Adrian Sanchez
+- Susana Cucurullo
+- Belen Gimenez
+- Julio Rivas
+- Emiliano Barrientos
+- Diego Paez
+- Alexander Franco
+- Juan Reyes
+- Lautaro Tintez
 
-## 💻 Tecnologías:
+## 💻 Tecnologías: 
 
-## 🔗 Enlaces de proyectos:
+## 🔗 Enlaces de proyectos: - 
