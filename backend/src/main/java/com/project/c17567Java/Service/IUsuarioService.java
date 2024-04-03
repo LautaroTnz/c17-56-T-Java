@@ -1,6 +1,6 @@
-package com.project.c17567Java.service;
+package com.project.c17567Java.Service;
 
-import com.project.c17567Java.model.Usuario;
+import com.project.c17567Java.Entity.Usuario;
 
 import java.util.List;
 

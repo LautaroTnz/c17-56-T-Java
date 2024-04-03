@@ -1,6 +1,6 @@
-package com.project.c17567Java.repository;
+package com.project.c17567Java.Repository;
 
-import com.project.c17567Java.model.Usuario;
+import com.project.c17567Java.Entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

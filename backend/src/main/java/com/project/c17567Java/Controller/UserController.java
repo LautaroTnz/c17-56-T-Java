@@ -1,7 +1,7 @@
-package com.project.c17567Java.controller;
+package com.project.c17567Java.Controller;
 
-import com.project.c17567Java.model.Usuario;
-import com.project.c17567Java.service.IUsuarioService;
+import com.project.c17567Java.Entity.Usuario;
+import com.project.c17567Java.Service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

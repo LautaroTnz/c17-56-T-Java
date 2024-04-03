@@ -1,7 +1,7 @@
-package com.project.c17567Java.service;
+package com.project.c17567Java.Service;
 
-import com.project.c17567Java.model.Usuario;
-import com.project.c17567Java.repository.IUsuarioRepository;
+import com.project.c17567Java.Entity.Usuario;
+import com.project.c17567Java.Repository.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

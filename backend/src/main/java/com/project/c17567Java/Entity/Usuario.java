@@ -1,4 +1,4 @@
-package com.project.c17567Java.model;
+package com.project.c17567Java.Entity;
 
 import com.project.c17567Java.user.Rol;
 import jakarta.persistence.*;
