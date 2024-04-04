@@ -1,5 +1,6 @@
-package com.project.c17567Java.Auth.User;
+package com.project.c17567Java.Auth.Entity;
 
+import com.project.c17567Java.Auth.User.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,17 +19,17 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     @GeneratedValue
-     Integer id;
+    private Integer id;
     @Column(nullable = false)
-     String username;
-     String password;
-     String email;
-     String firstname;
-     String lastname;
-     String country;
-     Long dni;
+    private String username;
+    private String password;
+    private String email;
+    private String firstname;
+    private String lastname;
+    private String country;
+    private Long dni;
     @Enumerated(EnumType.STRING)
-     Role role;
+    private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

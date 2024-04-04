@@ -1,4 +1,4 @@
-package com.project.c17567Java.Auth.User;
+package com.project.c17567Java.Auth.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
-    int id;
+@NoArgsConstructor
+public class RegisterRequest {
     String username;
+    String password;
     String firstname;
     String lastname;
     String country;

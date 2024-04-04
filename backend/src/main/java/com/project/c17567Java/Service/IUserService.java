@@ -1,6 +1,6 @@
 package com.project.c17567Java.Service;
 
-import com.project.c17567Java.Auth.User.User;
+import com.project.c17567Java.Auth.Entity.User;
 
 import java.util.List;
 
