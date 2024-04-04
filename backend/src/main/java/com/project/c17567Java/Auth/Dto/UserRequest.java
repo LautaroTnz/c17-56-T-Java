@@ -1,4 +1,4 @@
-package com.project.c17567Java.Auth.Entity;
+package com.project.c17567Java.Auth.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

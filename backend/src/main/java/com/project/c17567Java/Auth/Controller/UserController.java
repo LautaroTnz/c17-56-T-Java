@@ -1,7 +1,7 @@
 package com.project.c17567Java.Auth.Controller;
 
 import com.project.c17567Java.Auth.Dto.UserDTO;
-import com.project.c17567Java.Auth.Entity.UserRequest;
+import com.project.c17567Java.Auth.Dto.UserRequest;
 import com.project.c17567Java.Auth.Dto.UserResponse;
 import com.project.c17567Java.Auth.Service.UserService;
 import lombok.RequiredArgsConstructor;

@@ -3,7 +3,7 @@ package com.project.c17567Java.Auth.Service;
 import com.project.c17567Java.Auth.Dto.UserDTO;
 import com.project.c17567Java.Auth.Dto.UserResponse;
 import com.project.c17567Java.Auth.Entity.User;
-import com.project.c17567Java.Auth.Entity.UserRequest;
+import com.project.c17567Java.Auth.Dto.UserRequest;
 import com.project.c17567Java.Auth.Repository.UserRepository;
 import com.project.c17567Java.Auth.User.*;
 import jakarta.transaction.Transactional;
