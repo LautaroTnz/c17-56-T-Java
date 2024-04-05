@@ -10,6 +10,7 @@ export default {
      colors: {
       'primary': '#FFFFFF',
       'secondary': '#000000',
+      'primarygrey': '#757575',
     },
     // Extiende los colores de texto
     textColor: {
