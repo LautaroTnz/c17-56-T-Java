@@ -4,10 +4,10 @@ import { FormLogin } from '../../components';
 const Login = () => {
     return (
         <div>
-            <div className='grid grid-cols-2'>
+            <div className='xl:grid xl:grid-cols-2'>
 
 
-                <div className='h-[768px]'>
+                <div className='xl:h-auto'>
 
                     <FormLogin />
 
@@ -15,7 +15,8 @@ const Login = () => {
 
 
 
-                <div className='bg-primarygrey h-[768px] flex justify-center items-center'>
+                <div className=' hidden
+                bg-primarygrey xl:h-auto xl:flex justify-center xl:items-center'>
                     Imagen
                 </div>
 

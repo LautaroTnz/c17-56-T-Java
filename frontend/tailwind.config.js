@@ -44,6 +44,10 @@ export default {
       6: '1.5rem',
       8: '2rem',
     },
+    //Extiende las alturas
+    height: {
+      '18': '4.5rem', // Aproximadamente 70px
+    },
     // Extiende los anchos de borde
     borderWidth: {
       DEFAULT: '1px',
