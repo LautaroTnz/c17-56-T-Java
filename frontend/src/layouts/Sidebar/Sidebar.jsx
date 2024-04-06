@@ -9,7 +9,7 @@ function Sidebar() {
     };
 
     return (
-        <div className={`hidden xl:block absolute h-[690px] w-[90px] bg-white mt-[78px] border-r border-black ${expanded ? 'w-[292px]' : ''}`}>
+        <div className={`hidden xl:block absolute h-screen w-[90px] bg-white mt-[78px] border-r border-black ${expanded ? 'w-[292px]' : ''}`}>
             <button
                 className="absolute top-10 h-6 w-6 transform -translate-y-1/2 right-[-12px] bg-primarygrey text-white rounded-full"
                 onClick={toggleSidebar}
