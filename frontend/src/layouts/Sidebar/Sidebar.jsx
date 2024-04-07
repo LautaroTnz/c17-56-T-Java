@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconAyuda, IconInicio, IconPerfilMedico, IconPerfilRecepcionista, IconRegistroMedico, IconRegistroRecepcionista } from "../../assets";
+import { IconAyuda, IconBookMedical, IconBookReception, IconDoctor, IconInicio, IconReception, } from "../../assets";
 
 function Sidebar() {
     const [expanded, setExpanded] = useState(false);
@@ -9,7 +9,7 @@ function Sidebar() {
     };
 
     return (
-        <div className={`hidden xl:block absolute h-screen bg-white mt-[78px] border-r border-black ${expanded ? 'w-[292px]' : 'w-[90px]'}`}>
+        <div className={`hidden xl:block z-10 absolute h-screen bg-white mt-[78px] border-r border-black ${expanded ? 'w-[292px]' : 'w-[90px]'}`}>
             <button
                 className="absolute top-10 h-6 w-6 transform -translate-y-1/2 right-[-12px] bg-primarygrey text-white rounded-full"
                 onClick={toggleSidebar}
@@ -21,10 +21,10 @@ function Sidebar() {
                 {!expanded && (
                     <div className="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
                         <div className="h-10"><img className="h-6 w-6" src={IconInicio} alt="Inicio" /></div>
-                        <div className="h-10"><img className="h-6 w-6" src={IconPerfilMedico} alt="Inicio" /></div>
-                        <div className="h-10"><img className="h-6 w-6" src={IconPerfilRecepcionista} alt="Inicio" /></div>
-                        <div className="h-10"><img className="h-6 w-6" src={IconRegistroMedico} alt="Inicio" /></div>
-                        <div className="h-10"><img className="h-6 w-6" src={IconRegistroRecepcionista} alt="Inicio" /></div>
+                        <div className="h-10"><img className="h-6 w-6" src={IconDoctor} alt="Inicio" /></div>
+                        <div className="h-10"><img className="h-6 w-6" src={IconReception} alt="Inicio" /></div>
+                        <div className="h-10"><img className="h-6 w-6" src={IconBookMedical} alt="Inicio" /></div>
+                        <div className="h-10"><img className="h-6 w-6" src={IconBookReception} alt="Inicio" /></div>
                     </div>
 
                 )}
@@ -36,19 +36,19 @@ function Sidebar() {
                             <span className="ml-10 text-sm">Inicio</span>
                         </div>
                         <div className="mb-4 flex items-center h-11">
-                            <img className="h-6 w-6" src={IconPerfilMedico} alt="Inicio" />
+                            <img className="h-6 w-6" src={IconDoctor} alt="Inicio" />
                             <span className="ml-10 text-sm">Crear perfil médico</span>
                         </div>
                         <div className="mb-4 flex items-center h-11">
-                            <img className="h-6 w-6" src={IconPerfilRecepcionista} alt="Inicio" />
+                            <img className="h-6 w-6" src={IconReception} alt="Inicio" />
                             <span className="ml-10 text-sm">Crear perfil recepcionista</span>
                         </div>
                         <div className="mb-4 flex items-center h-11">
-                            <img className="h-6 w-6" src={IconRegistroMedico} alt="Inicio" />
+                            <img className="h-6 w-6" src={IconBookMedical} alt="Inicio" />
                             <span className="ml-10 text-sm">Registro de médicos</span>
                         </div>
                         <div className="mb-4 flex items-center h-11">
-                            <img className="h-6 w-6" src={IconRegistroRecepcionista} alt="Inicio" />
+                            <img className="h-6 w-6" src={IconBookReception} alt="Inicio" />
                             <span className="ml-10 text-sm">Registro de recepcionistas</span>
                         </div>
 
