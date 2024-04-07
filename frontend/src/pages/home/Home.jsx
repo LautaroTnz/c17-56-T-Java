@@ -16,17 +16,13 @@ const data = [
 
 function Home() {
     return (
-        <div className='flex'>
+        <div className='flex justify-center'>
             <div className='mt-16 ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0'>
-
-                <div className='xl:mt-[72px] xl:ml-[50px] xl:flex  xl:flex-row xl:gap-x-9
-                mt-[55px] flex flex-col gap-y-9 '>
-                <InicioTable data={data} />
-                <CardRecepcionista />
+                <div className='xl:mt-[72px] xl:ml-[50px] xl:flex xl:flex-row xl:gap-x-9 mt-[55px] flex flex-col gap-y-9'>
+                    <InicioTable data={data} />
+                    <CardRecepcionista />
                 </div>
-                
             </div>
-
         </div>
     )
 }
