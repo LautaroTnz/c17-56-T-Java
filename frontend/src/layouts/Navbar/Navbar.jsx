@@ -63,15 +63,15 @@ function Navbar() {
                         <div className="md:hidden mt-2 relative z-50 flex flex-col ">
                             <div className="flex flex-row">
                                 <img className="h-6 w-6 mt-1.5" src={IconInicio} alt="Inicio" />
-                                <a href="#" className="block text-black px-3 py-2">Inicio</a>
+                                <a href="/inicio" className="block text-black px-3 py-2">Inicio</a>
                             </div>
                             <div className="flex flex-row">
                                 <img className="h-6 w-6 mt-1.5" src={IconDoctor} alt="Inicio" />
-                                <a href="#" className="block text-black px-3 py-2">Crear perfil médico</a>
+                                <a href="/perfilmedico" className="block text-black px-3 py-2">Crear perfil médico</a>
                             </div>
                             <div className="flex flex-row">
                                 <img className="h-6 w-6 mt-1.5" src={IconReception} alt="Inicio" />
-                                <a href="#" className="block text-black px-3 py-2">Crear perfil recepcionista</a>
+                                <a href="/perfilrecepcionista" className="block text-black px-3 py-2">Crear perfil recepcionista</a>
                             </div>
                             <div className="flex flex-row">
                                 <img className="h-6 w-6 mt-1.5" src={IconBookMedical} alt="Inicio" />

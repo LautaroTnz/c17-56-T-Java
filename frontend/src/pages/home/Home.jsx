@@ -42,7 +42,7 @@ const estadisticas2 = {
 const estadisticas3 = {
     titulo: 'Recepcionistas',
     pacientes: '105+',
-    descripcion: '10 rec. se crearon esta semana'
+    descripcion: '10 recepcionistas se crearon esta semana'
 };
 
 function Home() {

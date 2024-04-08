@@ -20,9 +20,15 @@ function Sidebar() {
                 {/* Mostrar iconos en columna cuando la barra lateral no está expandida */}
                 {!expanded && (
                     <div className="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
-                        <div className="h-10"><img className="h-6 w-6" src={IconInicio} alt="Inicio" /></div>
-                        <div className="h-10"><img className="h-6 w-6" src={IconDoctor} alt="Inicio" /></div>
+                        <a href="/inicio">
+                            <div className="h-10"><img className="h-6 w-6" src={IconInicio} alt="Inicio" /></div>
+                        </a>
+                        <a href="/perfilmedico">
+                            <div className="h-10"><img className="h-6 w-6" src={IconDoctor} alt="Inicio" /></div>
+                        </a>
+                        <a href="/perfilrecepcionista">
                         <div className="h-10"><img className="h-6 w-6" src={IconReception} alt="Inicio" /></div>
+                        </a>
                         <div className="h-10"><img className="h-6 w-6" src={IconBookMedical} alt="Inicio" /></div>
                         <div className="h-10"><img className="h-6 w-6" src={IconBookReception} alt="Inicio" /></div>
                     </div>
@@ -32,16 +38,25 @@ function Sidebar() {
                 {expanded && (
                     <div className="flex flex-col items-start ml-9 ">
                         <div className="mb-4 flex items-center h-11">
+                            <a href="/inicio">
                             <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                            </a>
                             <span className="ml-10 text-sm">Inicio</span>
+                            
                         </div>
                         <div className="mb-4 flex items-center h-11">
+                        <a href="/perfilmedico">
                             <img className="h-6 w-6" src={IconDoctor} alt="Inicio" />
+                            </a>
                             <span className="ml-10 text-sm">Crear perfil médico</span>
+                            
                         </div>
                         <div className="mb-4 flex items-center h-11">
+                        <a href="/perfilrecepcionista">
                             <img className="h-6 w-6" src={IconReception} alt="Inicio" />
+                            </a>
                             <span className="ml-10 text-sm">Crear perfil recepcionista</span>
+                            
                         </div>
                         <div className="mb-4 flex items-center h-11">
                             <img className="h-6 w-6" src={IconBookMedical} alt="Inicio" />

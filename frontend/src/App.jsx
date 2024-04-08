@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
-import { Home, Login } from './pages';
+import { Home, Login, PerfilMedico, PerfilRecepcionista } from './pages';
 import { NotFound } from './errors';
 import { Navbar, Sidebar } from './layouts';
 
@@ -29,8 +29,11 @@ function AppContent() {
       )}
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/inicio' element={<Home />} />
         <Route path='/*' element={<NotFound />} />
+        <Route path='/inicio' element={<Home />} />
+        <Route path='/perfilmedico' element={<PerfilMedico />} />
+        <Route path='/perfilrecepcionista' element={<PerfilRecepcionista />} />
+        
       </Routes>
     </>
   );
