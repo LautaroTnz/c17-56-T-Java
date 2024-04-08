@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
-import { Home, Login, PerfilMedico, PerfilRecepcionista } from './pages';
+import { Home, Login, PerfilMedico, PerfilRecepcionista, RegistroMedico, RegistroRecepcionista } from './pages';
 import { NotFound } from './errors';
 import { Navbar, Sidebar } from './layouts';
 
@@ -33,6 +33,8 @@ function AppContent() {
         <Route path='/inicio' element={<Home />} />
         <Route path='/perfilmedico' element={<PerfilMedico />} />
         <Route path='/perfilrecepcionista' element={<PerfilRecepcionista />} />
+        <Route path='/registromedico' element={<RegistroMedico />} />
+        <Route path='/registrorecepcionista' element={<RegistroRecepcionista />} />
         
       </Routes>
     </>

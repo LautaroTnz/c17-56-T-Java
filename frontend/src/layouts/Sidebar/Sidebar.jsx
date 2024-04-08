@@ -29,8 +29,12 @@ function Sidebar() {
                         <a href="/perfilrecepcionista">
                         <div className="h-10"><img className="h-6 w-6" src={IconReception} alt="Inicio" /></div>
                         </a>
+                        <a href="/registromedico">
                         <div className="h-10"><img className="h-6 w-6" src={IconBookMedical} alt="Inicio" /></div>
+                        </a>
+                        <a href="/registrorecepcionista">
                         <div className="h-10"><img className="h-6 w-6" src={IconBookReception} alt="Inicio" /></div>
+                        </a>
                     </div>
 
                 )}
@@ -59,11 +63,15 @@ function Sidebar() {
                             
                         </div>
                         <div className="mb-4 flex items-center h-11">
+                            <a href="/registromedico">
                             <img className="h-6 w-6" src={IconBookMedical} alt="Inicio" />
+                            </a>
                             <span className="ml-10 text-sm">Registro de médicos</span>
                         </div>
                         <div className="mb-4 flex items-center h-11">
+                            <a href="/registorecepcionista">
                             <img className="h-6 w-6" src={IconBookReception} alt="Inicio" />
+                            </a>
                             <span className="ml-10 text-sm">Registro de recepcionistas</span>
                         </div>
 

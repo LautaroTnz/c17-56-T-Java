@@ -75,11 +75,11 @@ function Navbar() {
                             </div>
                             <div className="flex flex-row">
                                 <img className="h-6 w-6 mt-1.5" src={IconBookMedical} alt="Inicio" />
-                                <a href="#" className="block text-black px-3 py-2">Registro de médicos</a>
+                                <a href="/registromedico" className="block text-black px-3 py-2">Registro de médicos</a>
                             </div>
                             <div className="flex flex-row">
                                 <img className="h-6 w-6 mt-1.5" src={IconBookReception} alt="Inicio" />
-                                <a href="#" className="block text-black px-3 py-2">Registro de recepcionistas</a>
+                                <a href="/registrorecepcionista" className="block text-black px-3 py-2">Registro de recepcionistas</a>
                             </div>
                         </div>
                     </>

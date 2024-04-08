@@ -4,3 +4,6 @@ export { default as CardRecepcionista} from './CardRecepcionista/CardRecepcionis
 export { default as CardUniones} from './CardUniones/CardUniones'
 export { default as CardForm } from './CardForm/CardForm'
 export { default as Form } from './Form/Form'
+export { default as Searchbar } from './Searchbar/Searchbar'
+export { default as TableRegistros } from './TableRegistros/TableRegistros'
+export { default as TableRegistrosMobile } from './TableRegistros/TableRegistrosMobile'
