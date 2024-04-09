@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/patient")
 @RequiredArgsConstructor
+@CrossOrigin(origins = {"https://mydoctorapp.vercel.app/"})
 public class PatientController {
 
     private PatientService patientService;
