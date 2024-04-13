@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Patient extends User {
     @Column(nullable = false)
-    private Long patientId;
+    private long patientId;
 }

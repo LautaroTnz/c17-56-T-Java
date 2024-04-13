@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin(origins = {"https://mydoctorapp.vercel.app/"})
 public class PatientController {
 
-    private PatientService patientService;
+    private final PatientService patientService;
 
     @PostMapping("/save")
     public ResponseEntity<PatientDto> savePatient(@RequestBody PatientDto patientDto){
