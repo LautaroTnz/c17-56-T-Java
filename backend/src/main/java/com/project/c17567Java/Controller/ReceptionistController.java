@@ -1,7 +1,6 @@
 package com.project.c17567Java.Controller;
 
 import com.project.c17567Java.Dto.ReceptionistDTO;
-import com.project.c17567Java.Auth.Entity.User;
 import com.project.c17567Java.Service.ReceptionistService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +12,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/receptionist")
 @RequiredArgsConstructor
+@CrossOrigin(origins = {"https://mydoctorapp.vercel.app/"})
+
 public class ReceptionistController {
     @Autowired
-    private  final ReceptionistService receptionistService;
+    private  ReceptionistService receptionistService;
 
     @PostMapping("/save")
     public ResponseEntity<ReceptionistDTO> saveReceptionist(@RequestBody ReceptionistDTO receptionistDTO ){
