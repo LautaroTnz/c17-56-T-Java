@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom"
 import { useState } from "react"
 
-function FormLogin() {
+function FormLogin({ onLogin }) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -9,14 +8,22 @@ function FormLogin() {
 
     const handleSubmit = (event) => {
         event.preventDefault(); // Evita el envío del formulario
-
-        // Verifica si las credenciales coinciden con las hardcoded
+    
         if (email === 'admin@gmail.com' && password === 'admin') {
-            // Redirige al usuario a la página de inicio
+            console.log("Iniciando sesión como admin...");
+            onLogin('admin'); // Llamar a onLogin con el rol 'admin'
             window.location.href = "/inicio";
+        } else if (email === 'medico@gmail.com' && password === 'medico') {
+            console.log("Iniciando sesión como médico...");
+            onLogin('medico'); // Llamar a onLogin con el rol 'medico'
+            window.location.href = "/agendamedico";
+        } else if (email === 'recepcionista@gmail.com' && password === 'recepcionista') {
+            console.log("Iniciando sesión como recepcionista...");
+            onLogin('recepcionista'); // Llamar a onLogin con el rol 'recepcionista'
+            window.location.href = "/agendarecepcionista";
         } else {
+            console.log("Credenciales incorrectas");
             setError("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
-            // Limpia los campos de email y contraseña
             setEmail('');
             setPassword('');
         }

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { IconBookMedical, IconBookReception, IconCampana, IconDoctor, IconInicio, IconReception, LogoBaja } from "../../assets";
+import { IconBookMedical, IconBookReception, IconCampana, IconDoctor, IconInicio, IconReception, LogoBaja, } from "../../assets";
+import LogoutButton from "./LogoutButton";
 
-function Navbar() {
+function Navbar({ onLogout, redirectToLogin }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -50,9 +51,13 @@ function Navbar() {
                             <div className="flex items-center">
 
                                 <img className="h-5 w-5 text-primarygrey mr-4" src={IconCampana} alt="" />
-                                <div className="h-8 w-8 bg-gray-400 rounded-full xl:hidden"></div>
-                                <div className="hidden bg-gray-400 w-52 h-11 rounded-[5px] text-center text-white justify-center gap-x-5 items-center xl:flex"><div className="h-6 w-6 bg-gray-100 rounded-full"></div>
+                                <LogoutButton onLogout={onLogout} redirectToLogin={redirectToLogin} className="hidden xl:flex xl:mr-5 xl:ml-5" />
+                                <div className="h-8 w-8 bg-gray-400 rounded-full xl:hidden ml-3"></div>
+
+                                <div className="hidden bg-gray-400 w-52 h-11 rounded-[5px] text-center text-white justify-center gap-x-5 items-center xl:flex xl:ml-5">
+                                    <div className="h-6 w-6 bg-gray-100 rounded-full"></div>
                                     Administrador</div>
+
                             </div>
                         </>
                     )}

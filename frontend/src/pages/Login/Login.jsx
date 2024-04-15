@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormLogin } from '../../components';
 
-const Login = () => {
+const Login = ( { onLogin } ) => {
     return (
         <div className='flex justify-center'>
             <div className='xl:grid xl:grid-cols-2'>
@@ -9,7 +9,7 @@ const Login = () => {
 
                 <div className='xl:h-auto xl:w-[683px] w-[360px]'>
 
-                    <FormLogin />
+                    <FormLogin onLogin={onLogin}  />
 
                 </div>
 
