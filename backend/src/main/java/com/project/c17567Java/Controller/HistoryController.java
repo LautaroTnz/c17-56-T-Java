@@ -22,6 +22,16 @@ public class HistoryController {
         List<HistoryDto> historyDto = historyService.getHistoryByPatient(id);
         return ResponseEntity.ok(historyDto);
     }
+    @GetMapping("/findlast/{id}")
+    public ResponseEntity<HistoryDto> findLastPatientHistory(@PathVariable Integer id){
+        HistoryDto historyDto = historyService.getLastPatientHistory(id);
+        return ResponseEntity.ok(historyDto);
+    }
+    @GetMapping("/findbydoctor/{id}")
+    public ResponseEntity<List<HistoryDto>> findHistoriesByDoctor(@PathVariable Integer id){
+        List<HistoryDto> historyDtoList = historyService.getHistoriesByDoctor(id);
+        return ResponseEntity.ok(historyDtoList);
+    }
     @PostMapping("/save")
     public ResponseEntity<HistoryDto> saveHistory(@RequestBody HistoryDto historyDto){
         historyService.saveHistory(historyDto);

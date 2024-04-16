@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface IHistoryRepository extends JpaRepository<History, Integer> {
     public List<History> findHistoriesByPatientId(Integer id);
+    public List<History> findHistoriesByDoctorId(Integer id);
+    public History findTopByPatientId(Integer id);
 }

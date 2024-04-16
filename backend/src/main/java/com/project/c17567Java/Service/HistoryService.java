@@ -67,4 +67,33 @@ public class HistoryService implements IHistoryService{
     public void deleteHistory(Integer id) {
         iHistoryRepository.deleteById(id);
     }
+
+    @Override
+    public HistoryDto getLastPatientHistory(Integer id) {
+        History history = iHistoryRepository.findTopByPatientId(id);
+
+        HistoryDto historyDto = HistoryDto.builder()
+                .patient(history.getPatient())
+                .doctor(history.getDoctor())
+                .description(history.getDescription())
+                .date(history.getDate())
+                .build();
+
+        return historyDto;
+    }
+
+    @Override
+    public List<HistoryDto> getHistoriesByDoctor(Integer id) {
+        List<HistoryDto> historyDtoList = iHistoryRepository.findHistoriesByDoctorId(id)
+                .stream()
+                .map(history -> HistoryDto.builder()
+                        .patient(history.getPatient())
+                        .doctor(history.getDoctor())
+                        .date(history.getDate())
+                        .description(history.getDescription())
+                        .build())
+                .toList();
+
+        return historyDtoList;
+    }
 }

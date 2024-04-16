@@ -10,5 +10,6 @@ public interface IHistoryService {
     public List<HistoryDto> getHistoryByPatient(Integer id);
     public void editHistory(Integer id, HistoryDto historyDto);
     public void deleteHistory(Integer id);
-
+    public HistoryDto getLastPatientHistory(Integer id);
+    public List<HistoryDto> getHistoriesByDoctor(Integer id);
 }
