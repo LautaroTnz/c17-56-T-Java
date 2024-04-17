@@ -72,13 +72,13 @@ public class ReceptionistService implements IReceptionistService{
         return receptionistDTO;
     }
     @Override
-    public void editReceptionist(Integer id){
+    public void editReceptionist(Integer id, ReceptionistDTO receptionistDTO){
        Receptionist receptionist=iReceptionistRepository.findById(id).orElse(null);
 
         if (receptionist!=null){
-          receptionist.setLastname(receptionist.getLastname());
-          receptionist.setFirstname(receptionist.getFirstname());
-          receptionist.setCountry(receptionist.getCountry());
+          receptionist.setLastname(receptionistDTO.getLastname());
+          receptionist.setFirstname(receptionistDTO.getFirstname());
+          receptionist.setCountry(receptionistDTO.getCountry());
           iReceptionistRepository.save(receptionist);
         }
 

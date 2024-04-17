@@ -1,19 +1,22 @@
 package com.project.c17567Java.Entity;
 
-import com.project.c17567Java.Auth.Entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import lombok.*;
+import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Doctor extends User {
+public class Specialty extends Doctor{
+
     @Column(nullable = false)
-    @ManyToOne
+    @OneToMany(mappedBy="specialityId")
     private String specialityId;
     @Column(nullable = false)
-    private long medicalId;
+    private String description;
+
 }

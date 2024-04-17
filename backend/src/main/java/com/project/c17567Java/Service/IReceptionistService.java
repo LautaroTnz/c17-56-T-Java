@@ -16,6 +16,6 @@ public interface IReceptionistService {
     public void deleteReceptionist(Integer id);
 
     public List<ReceptionistDTO> getAllReceptionists();
-    public void editReceptionist(Integer id);
+    public void editReceptionist(Integer id, ReceptionistDTO receptionistDTO);
 
 }

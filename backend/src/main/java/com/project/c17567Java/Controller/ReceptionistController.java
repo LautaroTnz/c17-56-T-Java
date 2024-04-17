@@ -42,12 +42,12 @@ public class ReceptionistController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> editReceptionist(@PathVariable Integer id){
-        receptionistService.editReceptionist(id);
+    public ResponseEntity<?> editReceptionist(@PathVariable Integer id, @RequestBody ReceptionistDTO receptionistDTO){
+        receptionistService.editReceptionist(id, receptionistDTO);
         return ResponseEntity.ok("recepcionista editado con exito");
     }
 
-    @GetMapping("/findAll")
+    @GetMapping("/findall")
     public ResponseEntity<List<ReceptionistDTO>> getAllReceptionist(){
         List<ReceptionistDTO> receptionisList= receptionistService.getAllReceptionists();
     return ResponseEntity.ok(receptionisList);

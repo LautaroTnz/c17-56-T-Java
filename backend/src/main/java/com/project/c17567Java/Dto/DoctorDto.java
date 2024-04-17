@@ -19,6 +19,6 @@ public class DoctorDto {
     private Long dni;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private String speciality;
+    private String specialityId;
     private long medicalId;
 }

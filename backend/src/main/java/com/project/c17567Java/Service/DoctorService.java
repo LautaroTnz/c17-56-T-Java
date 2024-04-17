@@ -27,7 +27,7 @@ public class DoctorService implements IDoctorService{
         doctor.setCountry(doctorDto.getCountry());
         doctor.setDni(doctorDto.getDni());
         doctor.setRole(doctorDto.getRole());
-        doctor.setSpeciality(doctorDto.getSpeciality());
+        doctor.setSpecialityId(doctorDto.getSpecialityId());
         doctor.setMedicalId(doctorDto.getMedicalId());
 
         iDoctorRepository.save(doctor);
@@ -46,7 +46,7 @@ public class DoctorService implements IDoctorService{
                 .country(doctor.getCountry())
                 .dni(doctor.getDni())
                 .role(doctor.getRole())
-                .speciality(doctor.getSpeciality())
+                .specialityId(doctor.getSpecialityId())
                 .medicalId(doctor.getMedicalId())
                 .build();
 
@@ -72,7 +72,7 @@ public class DoctorService implements IDoctorService{
                         .country(doctor.getCountry())
                         .dni(doctor.getDni())
                         .role(doctor.getRole())
-                        .speciality(doctor.getSpeciality())
+                        .specialityId(doctor.getSpecialityId())
                         .medicalId(doctor.getMedicalId())
                         .build())
                 .toList();
@@ -96,11 +96,13 @@ public class DoctorService implements IDoctorService{
             doctor.setCountry(doctorDto.getCountry());
             doctor.setDni(doctorDto.getDni());
             doctor.setRole(doctorDto.getRole());
-            doctor.setSpeciality(doctorDto.getSpeciality());
+            doctor.setSpecialityId(doctorDto.getSpecialityId());
             doctor.setMedicalId(doctorDto.getMedicalId());
 
             iDoctorRepository.save(doctor);
 
         }
     }
+
+
 }
