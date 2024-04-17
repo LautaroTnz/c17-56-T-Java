@@ -9,10 +9,8 @@
 - Adrian Sanchez
 - Susana Cucurullo
 - Belen Gimenez
-- Julio Rivas
 - Emiliano Barrientos
 - Diego Paez
-- Alexander Franco
 - Juan Reyes
 - Lautaro Tintez
 
