@@ -1,4 +1,4 @@
-package com.project.c17567Java.Controller.dto;
+package com.project.c17567Java.Dto;
 
 import com.project.c17567Java.Auth.User.Role;
 import jakarta.persistence.EnumType;

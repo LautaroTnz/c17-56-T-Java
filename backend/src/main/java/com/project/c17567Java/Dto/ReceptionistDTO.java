@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReceptionistDTO {
-    int id;
+    private int id;
     private String username;
     private String password;
     private String email;

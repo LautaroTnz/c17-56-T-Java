@@ -1,12 +1,11 @@
 package com.project.c17567Java.Service;
 
-import com.project.c17567Java.Controller.dto.DoctorDto;
-import com.project.c17567Java.Entity.Doctor;
-import org.springframework.stereotype.Service;
+import com.project.c17567Java.Dto.DoctorDto;
+
 
 import java.util.List;
 
-@Service
+
 public interface IDoctorService {
 
     public void saveDoctor(DoctorDto doctorDto);
