@@ -16,7 +16,7 @@ public class SpecialtyService implements ISpecialtyService{
 
     public void saveSpecialty(SpecialtyDto specialtyDto){
         Specialty specialty=new Specialty();
-        specialty.setSpecialityId(specialtyDto.getSpecialityId());
+        specialty.setId(specialtyDto.getSpecialityId());
         specialty.setDescription(specialtyDto.getDescription());
         iSpecialtyRepository.save(specialty);
 
@@ -27,7 +27,7 @@ public class SpecialtyService implements ISpecialtyService{
         List<SpecialtyDto>  specialtyDtoList = iSpecialtyRepository.findAll()
                 .stream()
                 .map(specialties-> SpecialtyDto.builder()
-                        .specialityId(specialties.getSpecialityId())
+                        .specialityId(specialties.getId())
                         .description(specialties.getDescription())
                         .build())
                         .toList();
@@ -40,7 +40,7 @@ public class SpecialtyService implements ISpecialtyService{
     public  void editSpecialty(Integer id, SpecialtyDto specialtyDto){
         Specialty specialty=iSpecialtyRepository.findById(id).orElse(null);
         if(specialty!=null){
-            specialty.setSpecialityId(specialtyDto.getSpecialityId());
+            specialty.setId(specialtyDto.getSpecialityId());
             specialty.setDescription(specialtyDto.getDescription());
             iSpecialtyRepository.save(specialty);
         }
@@ -61,7 +61,7 @@ public class SpecialtyService implements ISpecialtyService{
         Specialty specialty=iSpecialtyRepository.findById(id).orElse(null);
 
         SpecialtyDto specialtyDto= SpecialtyDto.builder()
-                .specialityId(specialty.getSpecialityId())
+                .specialityId(specialty.getId())
                 .description(specialty.getDescription())
                 .build();
 

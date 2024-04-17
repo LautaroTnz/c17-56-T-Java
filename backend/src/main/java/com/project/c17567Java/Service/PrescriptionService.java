@@ -33,7 +33,7 @@ public class PrescriptionService implements IPrescriptionService{
 
     @Override
     public List<PrescriptionDto> getPrescriptionsByDoctor(Integer id) {
-        List<PrescriptionDto> prescriptions = iPrescriptionRepository.findPrescriptionsByDoctor(id)
+        List<PrescriptionDto> prescriptions = iPrescriptionRepository.findPrescriptionsByDoctorId(id)
                 .stream()
                 .map(prescription -> PrescriptionDto.builder()
                         .date(prescription.getDate())
@@ -47,7 +47,7 @@ public class PrescriptionService implements IPrescriptionService{
 
     @Override
     public List<PrescriptionDto> getPrescriptionsByPatient(Integer id) {
-        List<PrescriptionDto> prescriptions = iPrescriptionRepository.findPrescriptionsByPatient(id)
+        List<PrescriptionDto> prescriptions = iPrescriptionRepository.findPrescriptionsByPatientId(id)
                 .stream()
                 .map(prescription -> PrescriptionDto.builder()
                         .date(prescription.getDate())
