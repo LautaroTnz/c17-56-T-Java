@@ -1,12 +1,11 @@
 package com.project.c17567Java.Service;
 
-import com.project.c17567Java.Controller.dto.DoctorDto;
+import com.project.c17567Java.Dto.DoctorDto;
 import com.project.c17567Java.Entity.Doctor;
 import com.project.c17567Java.Repository.IDoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

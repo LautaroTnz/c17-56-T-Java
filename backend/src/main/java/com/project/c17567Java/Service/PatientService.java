@@ -1,7 +1,9 @@
 package com.project.c17567Java.Service;
 
+import com.project.c17567Java.Dto.HistoryDto;
 import com.project.c17567Java.Dto.PatientDto;
 import com.project.c17567Java.Entity.Patient;
+import com.project.c17567Java.Repository.IHistoryRepository;
 import com.project.c17567Java.Repository.IPatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,6 @@ public class PatientService implements IPatientService{
 
     @Autowired
     private IPatientRepository iPatientRepository;
-
     @Override
     public void savePatient(PatientDto patientDto) {
 
@@ -80,4 +81,5 @@ public class PatientService implements IPatientService{
 
         }
     }
+
 }

@@ -33,6 +33,7 @@ public class SecurityConfig {
                                 .requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/api/doctor/**").permitAll()
                                 .requestMatchers("/api/receptionist/**").permitAll()
+                                .requestMatchers("/api/patient/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->

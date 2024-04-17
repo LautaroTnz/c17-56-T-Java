@@ -1,6 +1,6 @@
 package com.project.c17567Java.Controller;
 
-import com.project.c17567Java.Controller.dto.DoctorDto;
+import com.project.c17567Java.Dto.DoctorDto;
 import com.project.c17567Java.Service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

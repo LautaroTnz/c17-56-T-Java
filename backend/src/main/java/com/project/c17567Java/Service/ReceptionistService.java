@@ -6,7 +6,7 @@ import com.project.c17567Java.Repository.IReceptionistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+
 import  java.util.List;
 
 @Service
@@ -29,7 +29,7 @@ public class ReceptionistService implements IReceptionistService{
         iReceptionistRepository.save(receptionist);
 
     }
-
+    @Override
     public ReceptionistDTO getReceptionistById(Integer id){
         Receptionist receptionist =iReceptionistRepository.findById(id).orElse(null);
 
@@ -48,11 +48,12 @@ public class ReceptionistService implements IReceptionistService{
 
         return receptionistDto;
     }
+    @Override
     public void deleteReceptionist(Integer id){
         iReceptionistRepository.deleteById(id);
     }
 
-
+    @Override
     public List<ReceptionistDTO> getAllReceptionists(){
 
         List<ReceptionistDTO> receptionistDTO=iReceptionistRepository.findAll()
@@ -70,7 +71,7 @@ public class ReceptionistService implements IReceptionistService{
 
         return receptionistDTO;
     }
-
+    @Override
     public void editReceptionist(Integer id){
        Receptionist receptionist=iReceptionistRepository.findById(id).orElse(null);
 
