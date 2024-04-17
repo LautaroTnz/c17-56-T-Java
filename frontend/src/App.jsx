@@ -1,15 +1,22 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import './App.css';
-import { Home, Login, PerfilMedico, PerfilRecepcionista, RegistroMedico, RegistroRecepcionista, AgendaRecepcionista, AgendaMedico, HistoriaClinica, RegistroPaciente } from './pages';
-import { NotFound } from './errors';
-import { Navbar, Sidebar, LoadingPage } from './layouts';
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import "./App.css";
+import {
+  Home,
+  Login,
+  PerfilMedico,
+  PerfilRecepcionista,
+  RegistroMedico,
+  RegistroRecepcionista,
+  AgendaRecepcionista,
+  AgendaMedico,
+  HistorialClinica,
+  RegistroPaciente,
+} from "./pages";
+import { NotFound } from "./errors";
+import { Navbar, Sidebar, LoadingPage } from "./layouts";
 
 function App() {
-
-
-
-
   return (
     <BrowserRouter>
       <AppContent />
@@ -20,13 +27,13 @@ function App() {
 function AppContent() {
   const location = useLocation();
   // Definir un estado para controlar la visibilidad de la Navbar y la Sidebar
-  const showNavbarAndSidebar = !['/'].includes(location.pathname);
+  const showNavbarAndSidebar = !["/"].includes(location.pathname);
 
   const [userRole, setUserRole] = useState(null);
   const [loading, setLoading] = useState(true); // Estado para controlar si se está cargando
 
   useEffect(() => {
-    const storedUserRole = localStorage.getItem('userRole');
+    const storedUserRole = localStorage.getItem("userRole");
     if (storedUserRole) {
       setUserRole(storedUserRole);
     }
@@ -35,20 +42,19 @@ function AppContent() {
 
   const handleLogin = (role) => {
     // Guardar el rol del usuario en el localStorage después de iniciar sesión
-    localStorage.setItem('userRole', role);
+    localStorage.setItem("userRole", role);
     setUserRole(role);
   };
 
   const handleLogout = () => {
     // Eliminar el rol del usuario del localStorage al cerrar sesión
-    localStorage.removeItem('userRole');
+    localStorage.removeItem("userRole");
     setUserRole(null);
   };
 
   const redirectToLogin = () => {
-    window.location.href = '/'; // Redirige al usuario a la página de inicio de sesión
+    window.location.href = "/"; // Redirige al usuario a la página de inicio de sesión
   };
-
 
   console.log("userRole", userRole);
 
@@ -73,20 +79,32 @@ function AppContent() {
               <>
                 <Route path="/inicio" element={<Home />} />
                 <Route path="/perfilmedico" element={<PerfilMedico />} />
-                <Route path="/perfilrecepcionista" element={<PerfilRecepcionista />} />
+                <Route
+                  path="/perfilrecepcionista"
+                  element={<PerfilRecepcionista />}
+                />
                 <Route path="/registromedico" element={<RegistroMedico />} />
-                <Route path="/registrorecepcionista" element={<RegistroRecepcionista />} />
+                <Route
+                  path="/registrorecepcionista"
+                  element={<RegistroRecepcionista />}
+                />
               </>
             )}
             {userRole === "medico" && (
               <>
-              <Route path="/agendamedico" element={<AgendaMedico />} />
-              <Route path="/historiaclinica" element={<HistoriaClinica />} />
-              <Route path="/registropaciente" element={<RegistroPaciente />} />
+                <Route path="/agendamedico" element={<AgendaMedico />} />
+                <Route path="/historiaclinica" element={<HistorialClinica />} />
+                <Route
+                  path="/registropaciente"
+                  element={<RegistroPaciente />}
+                />  
               </>
             )}
             {userRole === "recepcionista" && (
-              <Route path="/agendarecepcionista" element={<AgendaRecepcionista />} />
+              <Route
+                path="/agendarecepcionista"
+                element={<AgendaRecepcionista />}
+              />
             )}
           </>
         )}

@@ -10,3 +10,4 @@ export { default as TableRegistrosMobile } from './TableRegistros/TableRegistros
 export { default as HistoriaClinica } from './HistoriaClinica/HistoriaClinica'
 export { default as SearchbarSola } from './Searchbar/SearchbarSola/SearchbarSola'
 export { default as TablaPacientes } from './TablaPacientes/TablaPacientes'
+export {default as TablaHistoriaClinica } from './TablaHistoriaClinica/TablaHistoriaClinica'
