@@ -1,9 +1,8 @@
 import React from "react";
 import { FiEye, FiEdit } from "react-icons/fi"; // Importar los íconos de react-icons
 
-function TablaHistoriaClinica( { registros } ) {
+function TablaHistoriaClinica({ registros }) {
   return (
-
     <div className="overflow-x-auto xl:w-[1164px] xl:h-[306px] h-[196px] mb-[85px]">
       <table className="table-auto w-full">
         <thead>
@@ -16,10 +15,12 @@ function TablaHistoriaClinica( { registros } ) {
         </thead>
         <tbody>
           {registros.map((registro, index) => (
-            <tr key={index} >
+            <tr key={index}>
               <td className="px-4 py-2">{registro.fecha}</td>
               <td className="px-4 py-2">{registro.especialidad}</td>
-              <td className="px-4 py-2 hidden xl:table-cell">{registro.doctor}</td>
+              <td className="px-4 py-2 hidden xl:table-cell">
+                {registro.doctor}
+              </td>
               <td className="px-4 py-2 flex justify-center">
                 <button className="mr-2 text-blue-500 hover:text-blue-700">
                   <FiEye />
@@ -33,7 +34,6 @@ function TablaHistoriaClinica( { registros } ) {
         </tbody>
       </table>
     </div>
-
   );
 }
 
