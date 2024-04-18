@@ -6,6 +6,7 @@ import com.project.c17567Java.Entity.Specialty;
 import com.project.c17567Java.Repository.IDoctorRepository;
 import com.project.c17567Java.Repository.ISpecialtyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,13 +19,16 @@ public class DoctorService implements IDoctorService{
     private IDoctorRepository iDoctorRepository;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     private ISpecialtyRepository iSpecialtyRepository;
     @Override
     public void saveDoctor(DoctorDto doctorDto) {
 
         Doctor doctor = new Doctor();
         doctor.setUsername(doctorDto.getUsername());
-        doctor.setPassword(doctorDto.getPassword());
+        doctor.setPassword(passwordEncoder.encode(doctorDto.getPassword()));
         doctor.setEmail(doctorDto.getEmail());
         doctor.setFirstname(doctorDto.getFirstname());
         doctor.setLastname(doctorDto.getLastname());

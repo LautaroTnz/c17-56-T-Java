@@ -6,6 +6,7 @@ import com.project.c17567Java.Entity.Patient;
 import com.project.c17567Java.Repository.IHistoryRepository;
 import com.project.c17567Java.Repository.IPatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,12 +17,16 @@ public class PatientService implements IPatientService{
 
     @Autowired
     private IPatientRepository iPatientRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public void savePatient(PatientDto patientDto) {
 
         Patient patient = new Patient();
         patient.setUsername(patientDto.getUsername());
-        patient.setPassword(patientDto.getPassword());
+        patient.setPassword(passwordEncoder.encode(patientDto.getPassword()));
         patient.setEmail(patientDto.getEmail());
         patient.setFirstname(patientDto.getFirstname());
         patient.setLastname(patientDto.getLastname());
