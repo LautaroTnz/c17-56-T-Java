@@ -235,6 +235,44 @@ function Sidebar() {
         </div>
       )}
 
+      {userRole === "paciente" && (
+        <div className="mt-20">
+          {/* Mostrar iconos en columna cuando la barra lateral no está expandida */}
+          {!expanded && (
+            <div className="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
+              <a href="/agendapaciente">
+                <div className="h-10">
+                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                </div>
+              </a>
+              <a href="/elegirturnopaciente">
+                <div className="h-10">
+                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                </div>
+              </a>
+              
+            </div>
+          )}
+          {/* Mostrar iconos con etiqueta cuando la barra lateral está expandida */}
+          {expanded && (
+            <div className="flex flex-col items-start ml-9 ">
+              <div className="mb-4 flex items-center h-11">
+                <a href="/agendapaciente">
+                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                </a>
+                <span className="ml-10 text-sm">Inicio</span>
+              </div>
+              <div className="mb-4 flex items-center h-11">
+                <a href="/elegirturnopaciente">
+                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                </a>
+                <span className="ml-10 text-sm">Elegir Turno</span>
+              </div>              
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Este es el icono ayuda para todos */}
       {!expanded && (
         <div className="absolute bottom-10 ml-9 mb-0">

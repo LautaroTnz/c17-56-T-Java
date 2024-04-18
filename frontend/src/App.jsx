@@ -10,10 +10,12 @@ import {
   RegistroRecepcionista,
   AgendaRecepcionista,
   AgendaMedico,
+  AgendaPaciente,
   HistorialClinica,
   RegistroPaciente,
   SeleccionTurno,
   PerfilPaciente,
+  TurnoPaciente,
 } from "./pages";
 import { NotFound } from "./errors";
 import { Navbar, Sidebar, LoadingPage } from "./layouts";
@@ -112,14 +114,14 @@ function AppContent() {
                   path="/registropaciente"
                   element={<RegistroPaciente />}
                 />
-                <Route
-                  path="/seleccionturno"
-                  element={<SeleccionTurno />}
-                />
-                <Route
-                  path="/perfilpaciente"
-                  element={<PerfilPaciente />}
-                />
+                <Route path="/seleccionturno" element={<SeleccionTurno />} />
+                <Route path="/perfilpaciente" element={<PerfilPaciente />} />
+              </>
+            )}
+            {userRole === "paciente" && (
+              <>
+                <Route path="/agendapaciente" element={<AgendaPaciente />} />
+                <Route path="/elegirturnopaciente" element={<TurnoPaciente />} />
               </>
             )}
           </>

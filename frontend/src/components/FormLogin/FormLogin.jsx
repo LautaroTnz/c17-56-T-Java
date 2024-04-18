@@ -21,7 +21,12 @@ function FormLogin({ onLogin }) {
             console.log("Iniciando sesión como recepcionista...");
             onLogin('recepcionista'); // Llamar a onLogin con el rol 'recepcionista'
             window.location.href = "/agendarecepcionista";
-        } else {
+        } else if (email === 'paciente@gmail.com' && password === 'paciente') {
+            console.log("Iniciando sesión como paciente...");
+            onLogin('paciente'); // Llamar a onLogin con el rol 'paciente'
+            window.location.href = "/agendapaciente";
+        }
+         else {
             console.log("Credenciales incorrectas");
             setError("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
             setEmail('');
