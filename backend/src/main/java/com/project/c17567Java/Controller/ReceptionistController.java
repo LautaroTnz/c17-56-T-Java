@@ -12,8 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/receptionist")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"https://mydoctorapp.vercel.app/", "http://localhost:5173"})
-
+@CrossOrigin(origins = {"http://localhost:5173"})
 public class ReceptionistController {
     @Autowired
     private  ReceptionistService receptionistService;
