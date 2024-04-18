@@ -38,9 +38,7 @@ public class SpecialtyController {
 
     @GetMapping("/findall")
     public ResponseEntity<List<SpecialtyDto>> findAllSpecialties(){
-
         List<SpecialtyDto> specialtyDtoList=specialtyService.getSpecialties();
-
         return ResponseEntity.ok(specialtyDtoList);
     }
 

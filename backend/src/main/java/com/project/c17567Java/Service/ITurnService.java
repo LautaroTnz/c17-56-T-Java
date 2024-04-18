@@ -10,14 +10,14 @@ import java.util.List;
 public interface ITurnService {
 
     public void saveTurn(TurnDto turnDto);
-    public void deleteTurn(Integer id);
-    public List<TurnDto> getAllTurns();
-    public TurnDto findTurnById(Integer id);
-    public List<TurnDto> getTurnsByDoctor(Integer id);
-    public List<TurnDto> getTurnsByDoctorByDay(Integer id, LocalDate date);
-//    public List<TurnDto> getTurnsByDoctorByWeek(Integer id, LocalDate starDate);
-    public List<TurnDto> getTurnsByPatient(Integer id);
-    public List<TurnDto> getTurnsByPatientByDay(Integer id, LocalDate date);
-//    public List<TurnDto> getTurnsByPatientByWeek(Integer id, LocalDate starDate);
-    public void editTurn(Integer id, TurnDto turnDto);
+//    public void deleteTurn(Integer id);
+//    public List<TurnDto> getAllTurns();
+//    public TurnDto findTurnById(Integer id);
+//    public List<TurnDto> getTurnsByDoctor(Integer id);
+//    public List<TurnDto> getTurnsByDoctorByDay(Integer id, LocalDate date);
+////    public List<TurnDto> getTurnsByDoctorByWeek(Integer id, LocalDate starDate);
+//    public List<TurnDto> getTurnsByPatient(Integer id);
+//    public List<TurnDto> getTurnsByPatientByDay(Integer id, LocalDate date);
+////    public List<TurnDto> getTurnsByPatientByWeek(Integer id, LocalDate starDate);
+//    public void editTurn(Integer id, TurnDto turnDto);
 }
