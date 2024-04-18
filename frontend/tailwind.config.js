@@ -11,6 +11,7 @@ export default {
       'primary': '#FFFFFF',
       'secondary': '#000000',
       'primarygrey': '#757575',
+      'primaryazul': '#0D47A1',
     },
     // Extiende los colores de texto
     textColor: {
