@@ -23,15 +23,13 @@ public class SpecialtyService implements ISpecialtyService{
     }
     @Override
     public List<SpecialtyDto> getSpecialties() {
-
         List<SpecialtyDto>  specialtyDtoList = iSpecialtyRepository.findAll()
                 .stream()
                 .map(specialties-> SpecialtyDto.builder()
                         .specialityId(specialties.getId())
                         .description(specialties.getDescription())
                         .build())
-                        .toList();
-
+                .toList();
 
         return specialtyDtoList;
     }

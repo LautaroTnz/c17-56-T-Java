@@ -15,9 +15,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class TurnDto {
 
-    private Patient patient;
-    private Doctor doctor;
-    private LocalDate date;
-    private LocalDate time;
+    private Integer patient;
+    private Integer doctor;
+//    private LocalDate date;
+//    private LocalDate time;
     private Boolean state;
 }
