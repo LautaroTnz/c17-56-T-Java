@@ -4,6 +4,7 @@ import com.project.c17567Java.Dto.ReceptionistDTO;
 import com.project.c17567Java.Entity.Receptionist;
 import com.project.c17567Java.Repository.IReceptionistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -14,11 +15,15 @@ public class ReceptionistService implements IReceptionistService{
 
     @Autowired
     private IReceptionistRepository iReceptionistRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public void saveReceptionist(ReceptionistDTO receptionistDTO){
         Receptionist receptionist = new Receptionist();
         receptionist.setUsername(receptionistDTO.getUsername());
-        receptionist.setPassword(receptionistDTO.getPassword());
+        receptionist.setPassword(passwordEncoder.encode(receptionistDTO.getPassword()));
         receptionist.setEmail(receptionistDTO.getEmail());
         receptionist.setFirstname(receptionistDTO.getFirstname());
         receptionist.setLastname(receptionistDTO.getLastname());

@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SpecialtyDto {
-    private String specialityId;
+    private Integer specialityId;
     private String description;
 }

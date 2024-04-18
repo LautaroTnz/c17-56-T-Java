@@ -1,8 +1,6 @@
 package com.project.c17567Java.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,12 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Specialty extends Doctor{
-
-    @Column(nullable = false)
-    @OneToMany(mappedBy="specialityId")
-    private String specialityId;
+public class Specialty {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(nullable = false)
     private String description;
-
 }

@@ -2,8 +2,11 @@ package com.project.c17567Java.Service;
 
 import com.project.c17567Java.Dto.DoctorDto;
 import com.project.c17567Java.Entity.Doctor;
+import com.project.c17567Java.Entity.Specialty;
 import com.project.c17567Java.Repository.IDoctorRepository;
+import com.project.c17567Java.Repository.ISpecialtyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,19 +18,26 @@ public class DoctorService implements IDoctorService{
     @Autowired
     private IDoctorRepository iDoctorRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ISpecialtyRepository iSpecialtyRepository;
     @Override
     public void saveDoctor(DoctorDto doctorDto) {
 
         Doctor doctor = new Doctor();
         doctor.setUsername(doctorDto.getUsername());
-        doctor.setPassword(doctorDto.getPassword());
+        doctor.setPassword(passwordEncoder.encode(doctorDto.getPassword()));
         doctor.setEmail(doctorDto.getEmail());
         doctor.setFirstname(doctorDto.getFirstname());
         doctor.setLastname(doctorDto.getLastname());
         doctor.setCountry(doctorDto.getCountry());
         doctor.setDni(doctorDto.getDni());
         doctor.setRole(doctorDto.getRole());
-        doctor.setSpecialityId(doctorDto.getSpecialityId());
+        Specialty specialty = iSpecialtyRepository.findById(doctorDto.getSpeciality())
+                .orElseThrow(() -> new RuntimeException("No se encontró la Specialty con id " + doctorDto.getSpeciality()));
+        doctor.setSpeciality(specialty);
         doctor.setMedicalId(doctorDto.getMedicalId());
 
         iDoctorRepository.save(doctor);
@@ -46,7 +56,7 @@ public class DoctorService implements IDoctorService{
                 .country(doctor.getCountry())
                 .dni(doctor.getDni())
                 .role(doctor.getRole())
-                .specialityId(doctor.getSpecialityId())
+                .speciality(doctor.getSpeciality().getId())
                 .medicalId(doctor.getMedicalId())
                 .build();
 
@@ -72,7 +82,7 @@ public class DoctorService implements IDoctorService{
                         .country(doctor.getCountry())
                         .dni(doctor.getDni())
                         .role(doctor.getRole())
-                        .specialityId(doctor.getSpecialityId())
+                        .speciality(doctor.getSpeciality().getId())
                         .medicalId(doctor.getMedicalId())
                         .build())
                 .toList();
@@ -96,13 +106,13 @@ public class DoctorService implements IDoctorService{
             doctor.setCountry(doctorDto.getCountry());
             doctor.setDni(doctorDto.getDni());
             doctor.setRole(doctorDto.getRole());
-            doctor.setSpecialityId(doctorDto.getSpecialityId());
+            Specialty specialty = iSpecialtyRepository.findById(doctorDto.getSpeciality())
+                    .orElseThrow(() -> new RuntimeException("No se encontró la Specialty con id " + doctorDto.getSpeciality()));
+            doctor.setSpeciality(specialty);
+
             doctor.setMedicalId(doctorDto.getMedicalId());
 
             iDoctorRepository.save(doctor);
-
         }
     }
-
-
 }
