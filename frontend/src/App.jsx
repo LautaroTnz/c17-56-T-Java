@@ -67,6 +67,7 @@ function AppContent() {
   }
 
   return (
+    <div className="font-poppins">
     <>
       {/* Mostrar la Navbar y la Sidebar según el estado */}
       {showNavbarAndSidebar && (
@@ -129,6 +130,7 @@ function AppContent() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
+    </div>
   );
 }
 
