@@ -22,6 +22,7 @@ public class ReceptionistService implements IReceptionistService{
     @Override
     public void saveReceptionist(ReceptionistDTO receptionistDTO){
         Receptionist receptionist = new Receptionist();
+        receptionist.setId(receptionistDTO.getId());
         receptionist.setUsername(receptionistDTO.getUsername());
         receptionist.setPassword(passwordEncoder.encode(receptionistDTO.getPassword()));
         receptionist.setEmail(receptionistDTO.getEmail());
@@ -30,7 +31,7 @@ public class ReceptionistService implements IReceptionistService{
         receptionist.setCountry(receptionistDTO.getCountry());
         receptionist.setDni(receptionistDTO.getDni());
         receptionist.setRole(receptionistDTO.getRole());
-        receptionist.setId(receptionistDTO.getId());
+        receptionist.setReceptionistId(receptionistDTO.getReceptionistId());
         iReceptionistRepository.save(receptionist);
 
     }
@@ -40,15 +41,15 @@ public class ReceptionistService implements IReceptionistService{
 
 
           ReceptionistDTO receptionistDto =ReceptionistDTO.builder()
+                  .id(receptionist.getId())
                   .username(receptionist.getUsername())
-                  .password(receptionist.getPassword())
                   .email(receptionist.getEmail())
                   .firstname(receptionist.getFirstname())
                   .lastname(receptionist.getLastname())
                   .country(receptionist.getCountry())
                   .dni(receptionist.getDni())
                   .role(receptionist.getRole())
-                  .id(receptionist.getId())
+                  .receptionistId(receptionist.getReceptionistId())
                   .build();
 
         return receptionistDto;
@@ -64,9 +65,11 @@ public class ReceptionistService implements IReceptionistService{
         List<ReceptionistDTO> receptionistDTO=iReceptionistRepository.findAll()
                 .stream()
                 .map(receptionist -> ReceptionistDTO.builder()
+                        .id(receptionist.getId())
                         .username(receptionist.getUsername())
-                        .password(receptionist.getPassword())
+                        .email(receptionist.getEmail())
                         .firstname(receptionist.getFirstname())
+                        .lastname(receptionist.getLastname())
                         .dni(receptionist.getDni())
                         .country(receptionist.getCountry())
                         .role(receptionist.getRole())
