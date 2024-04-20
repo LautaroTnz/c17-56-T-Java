@@ -15,6 +15,11 @@ public class Doctor extends User {
     @ManyToOne
     @JoinColumn(name = "speciality_id", nullable = false)
     private Specialty speciality;
+
     @Column(nullable = false)
     private long medicalId;
+
+    @Column(nullable = false)
+    private boolean active;
+
 }

@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/prescription")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"https://mydoctorapp.vercel.app/"})
+@CrossOrigin(origins = {"http://localhost:5173"})
 public class PrescriptionController {
 
     @Autowired

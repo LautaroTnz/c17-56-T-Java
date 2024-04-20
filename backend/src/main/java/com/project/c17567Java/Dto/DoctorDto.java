@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DoctorDto {
+    private Integer id;
     private String username;
     private String password;
     private String email;
@@ -21,4 +22,10 @@ public class DoctorDto {
     private Role role;
     private Integer speciality;
     private long medicalId;
+    private boolean active;
+
+
+    public boolean getActive() {
+        return active;
+    }
 }

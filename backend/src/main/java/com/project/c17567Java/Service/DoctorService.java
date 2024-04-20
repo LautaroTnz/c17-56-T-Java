@@ -39,6 +39,8 @@ public class DoctorService implements IDoctorService{
                 .orElseThrow(() -> new RuntimeException("No se encontró la Specialty con id " + doctorDto.getSpeciality()));
         doctor.setSpeciality(specialty);
         doctor.setMedicalId(doctorDto.getMedicalId());
+        doctor.setActive(doctorDto.getActive());
+
 
         iDoctorRepository.save(doctor);
     }
@@ -48,9 +50,9 @@ public class DoctorService implements IDoctorService{
         Doctor doctor = iDoctorRepository.findById(id).orElse(null);
 
         DoctorDto doctorDto = DoctorDto.builder()
+                .id(doctor.getId())
                 .username(doctor.getUsername())
-                .password(doctor.getPassword())
-                .email(doctor.getPassword())
+                .email(doctor.getEmail())
                 .firstname(doctor.getFirstname())
                 .lastname(doctor.getLastname())
                 .country(doctor.getCountry())
@@ -58,6 +60,7 @@ public class DoctorService implements IDoctorService{
                 .role(doctor.getRole())
                 .speciality(doctor.getSpeciality().getId())
                 .medicalId(doctor.getMedicalId())
+                .active(doctor.isActive())
                 .build();
 
         return doctorDto;
@@ -74,9 +77,9 @@ public class DoctorService implements IDoctorService{
         List<DoctorDto> doctorDtoList = iDoctorRepository.findAll()
                 .stream()
                 .map(doctor -> DoctorDto.builder()
+                        .id(doctor.getId())
                         .username(doctor.getUsername())
-                        .password(doctor.getPassword())
-                        .email(doctor.getPassword())
+                        .email(doctor.getEmail())
                         .firstname(doctor.getFirstname())
                         .lastname(doctor.getLastname())
                         .country(doctor.getCountry())
@@ -84,6 +87,7 @@ public class DoctorService implements IDoctorService{
                         .role(doctor.getRole())
                         .speciality(doctor.getSpeciality().getId())
                         .medicalId(doctor.getMedicalId())
+                        .active(doctor.isActive())
                         .build())
                 .toList();
 
@@ -109,8 +113,8 @@ public class DoctorService implements IDoctorService{
             Specialty specialty = iSpecialtyRepository.findById(doctorDto.getSpeciality())
                     .orElseThrow(() -> new RuntimeException("No se encontró la Specialty con id " + doctorDto.getSpeciality()));
             doctor.setSpeciality(specialty);
-
             doctor.setMedicalId(doctorDto.getMedicalId());
+            doctor.setActive(doctorDto.getActive());
 
             iDoctorRepository.save(doctor);
         }
