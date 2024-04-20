@@ -1,9 +1,10 @@
 import React from 'react'
 
-function CardForm( { data } ) {
+function CardForm( { data, especialidades } ) {
+
   return (
-    <div className='flex flex-col items-center text-center
-                    h-[300px] w-[227px] rounded-lg border border-black
+    <div className='flex flex-col items-center text-center bg-white
+                    h-[300px] w-[227px] rounded-lg border border-primarygrey
                     text-primarygrey
     '>
       <div className='mt-6'>

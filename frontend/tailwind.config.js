@@ -17,7 +17,8 @@ export default {
         celestediez: "#E9F4FE",
         texto: "#514D4D",
         iconoinputs: "#838080",
-        iconoayudainputs: "#C1C0C0",
+        iconoayudainputs: "#C1C0C0", 
+        textoinputs: "#9CA3AF",
         fondoclaro: "#E6E6E6",
         fondodiez: "#EEEDED",
         alertas: "#E54A1A",
@@ -25,7 +26,9 @@ export default {
         alertasdos: "#027A48",
         alertasdostreinta: "#ADD1C2",
         activo: "#D1FAE5",
+        activoletra: "#065F46",
         inactivo: "#F1C2B4",
+
       },
       // Extiende los colores de texto
       textColor: {

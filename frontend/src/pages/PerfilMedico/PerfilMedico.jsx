@@ -1,38 +1,53 @@
-import React from 'react'
-import { CardForm, Form } from '../../components'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { CardForm, Form } from "../../components";
+import { fetchSpecialties } from "../../redux/actions/actions";
 
 const dataMedico = {
-    especialidad: 'Especialidad',
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QeNbxV5_oeH7Iuxx-KoqlrdUffr_j-zse_2P_3tl8w&s",
-}
+  especialidad: "Especialidad",
+  imagen:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QeNbxV5_oeH7Iuxx-KoqlrdUffr_j-zse_2P_3tl8w&s",
+};
 
 function PerfilMedico() {
-    return (
-        <div className='flex justify-center'>
-            <div className='
-            mt-[100px] ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0'>
+  const dispatch = useDispatch();
+  const especialidades = useSelector((state) => state.specialty.especialidades);
 
-                <div className='hidden xl:flex xl:justify-start xl:mt-[36px] xl:mb-3 '>
-                    <h1 className='text-[20px] '>Perfil personal médico</h1>
-                </div>
+  // Despachadores
+  useEffect(() => {
+    dispatch(fetchSpecialties());
+  }, [dispatch]);
 
-                <div className='xl:w-[1026px] xl:h-[573px]
-                    xl:flex xl:flex-row xl:border xl:border-black xl:rounded-md xl: xl:'>
-
-                    <div className='xl:ml-[25px] xl:mt-[61px]
-                    mb-[40px] flex justify-center'>
-                        <CardForm data={dataMedico} />
-                    </div>
-
-                    <div className='w-[328px]'>
-                        <Form data={dataMedico} />
-                    </div>
-
-                </div>
-
-            </div>
+  return (
+    <div className="flex justify-center">
+      <div
+        className="
+            mt-[100px] ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0"
+      >
+        <div className="hidden xl:flex xl:justify-start xl:mt-[36px] xl:mb-3 ">
+          <h1 className="text-[20px] font-medium text-principal ">
+            Crear nuevo perfil médico
+          </h1>
         </div>
-    )
+
+        <div
+          className="xl:w-[1026px] xl:h-[573px] bg-celestediez
+                    xl:flex xl:flex-row xl:rounded-md xl: xl:"
+        >
+          <div
+            className="xl:ml-[25px] xl:mt-[61px]
+                    mb-[40px] flex justify-center"
+          >
+            <CardForm data={dataMedico} especialidades={especialidades} />
+          </div>
+
+          <div className="w-[328px] ">
+            <Form data={dataMedico} especialidades={especialidades} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default PerfilMedico
+export default PerfilMedico;

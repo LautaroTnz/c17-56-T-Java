@@ -1,9 +1,6 @@
 import React from "react";
 
 function CardRecepcionista({ especialidades, data }) {
-  console.log("Esto recibo desde la card", especialidades);
-  console.log("Esto recibo desde la card", data);
-
   // Contador de médicos por especialidad
   const medicoPorEspecialidad = {};
 
@@ -70,7 +67,9 @@ function CardRecepcionista({ especialidades, data }) {
                     }}
                   ></div>
                 </div>
-                <span className="text-[14px] text-primarygrey">{porcentaje.toFixed(2)}%</span>
+                <span className="text-[14px] text-primarygrey">
+                  {porcentaje.toFixed(2)}%
+                </span>
               </div>
             </div>
           );

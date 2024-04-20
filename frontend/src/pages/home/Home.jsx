@@ -5,69 +5,6 @@ import { fetchSpecialties } from "../../redux/actions/actions";
 import { fetchDoctors } from "../../redux/actions/doctorActions";
 import { AvatarPaciente, AvatarRecepcionista, Avatarmedico } from "../../assets";
 
-const data = [
-  {
-    nombre: "Adrian",
-    especialidad: "Cirujano",
-    estado: "Activo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Monchi",
-    especialidad: "Chaman",
-    estado: "Activo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Carlos",
-    especialidad: "Dermatólogo",
-    estado: "Desactivo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Daniela",
-    especialidad: "Cardiólogo",
-    estado: "Activo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Esteban",
-    especialidad: "Neurólogo",
-    estado: "Desactivo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Fernanda",
-    especialidad: "Oftalmólogo",
-    estado: "Activo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Gabriel",
-    especialidad: "Ginecólogo",
-    estado: "Desactivo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Hugo",
-    especialidad: "Endocrinólogo",
-    estado: "Activo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Irene",
-    especialidad: "Urología",
-    estado: "Activo",
-    mail: "ejemplo@gmail.com",
-  },
-  {
-    nombre: "Javier",
-    especialidad: "Psiquiatra",
-    estado: "Desactivo",
-    mail: "ejemplo@gmail.com",
-  },
-];
-
 const estadisticas1 = {
   titulo: "Pacientes",
   subtitulo: "Pacientes último semestre",
@@ -104,13 +41,9 @@ function Home() {
   const doctorLoading = useSelector((state) => state.doctor.loading);
   const doctorError = useSelector((state) => state.doctor.error);
 
-
-
-
-
+  // Despachadores
   useEffect(() => {
     dispatch(fetchSpecialties());
-    // Despachar la acción para cargar médicos
     dispatch(fetchDoctors());
   }, [dispatch]);
 
@@ -129,9 +62,6 @@ function Home() {
   if (error) {
     return <div>Error al cargar datos: {errorSpecialties || errorDoctors}</div>;
   }
-
-  console.log('Estas especialidades recibod en Home: ',especialidades);
-  console.log('Estos dotores en Home: ',doctors);
 
   return (
     <div className="flex justify-center">

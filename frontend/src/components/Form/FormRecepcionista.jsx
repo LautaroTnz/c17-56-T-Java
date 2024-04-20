@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createDoctorActions } from "../../redux/actions/createDoctorActions";
-import Dropdownsespecialidades from "../Dropdowns/Dropdownsespecialidades";
+import { createRecepcionista } from "../../redux/actions/createRecepcionista";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
-function Form({ data, especialidades }) {
+function FormRecepcionista({ data }) {
+
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
     dni: "",
-    especialidad: null, // ID de especialidad seleccionada
     direccion: "",
     telefono: "",
     email: "",
@@ -29,8 +28,8 @@ function Form({ data, especialidades }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const medicalId = Math.floor(Math.random() * 100) + 1;
-    const medico = {
+    const receptionistId = Math.floor(Math.random() * 100) + 1;
+    const recepcionista = {
       username: formData.nombre,
       password: formData.password,
       email: formData.email,
@@ -38,26 +37,21 @@ function Form({ data, especialidades }) {
       lastname: formData.apellido,
       country: formData.direccion,
       dni: formData.dni,
-      role: "MEDICO",
-      speciality: formData.especialidad,
-      medicalId: medicalId,
-      active: true,
+      role: "RECEPCIONISTA",
+      receptionistId: receptionistId,
     };
-  
-    // Enviar solicitud POST al servidor
-    dispatch(createDoctorActions(medico))
+
+    dispatch(createRecepcionista(recepcionista))
       .then(() => {
         MySwal.fire({
           icon: "success",
           title: "¡Éxito!",
-          text: "El médico se ha creado correctamente.",
+          text: "El recepcionista se ha creado correctamente.",
         });
-        // Limpiar los campos del formulario después de enviarlos
         setFormData({
           nombre: "",
           apellido: "",
           dni: "",
-          especialidad: null,
           direccion: "",
           telefono: "",
           email: "",
@@ -68,7 +62,7 @@ function Form({ data, especialidades }) {
         MySwal.fire({
           icon: "error",
           title: "¡Error!",
-          text: "Hubo un problema al crear el médico. Por favor, inténtalo de nuevo.",
+          text: "Hubo un problema al crear el recepcionista. Por favor, inténtalo de nuevo.",
         });
       });
   };
@@ -159,13 +153,16 @@ function Form({ data, especialidades }) {
                 htmlFor="especialidad"
                 className="block text-texto font-meduim mb-2"
               >
-                {data?.especialidad}:
+                Sector:
               </label>
-              <Dropdownsespecialidades
-                especialidades={especialidades}
-                onChange={(selectedId) =>
-                  setFormData({ ...formData, especialidad: selectedId })
-                }
+              <input
+                value="Recepcionista"
+                type="text"
+                id="sector"
+                name="sector"
+                placeholder="Sector"
+                className="placeholder:text-textoinputs placeholder:text-[16px] xl:h-[50px] xl:w-[350px]
+              h-[50px] appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
 
@@ -286,4 +283,4 @@ function Form({ data, especialidades }) {
   );
 }
 
-export default Form;
+export default FormRecepcionista;

@@ -76,27 +76,21 @@ function Navbar({ onLogout, redirectToLogin }) {
                 />
               </div>
               <div className="flex items-center">
-                <img
-                  className="h-5 w-5 mr-4"
-                  src={IconCampana}
-                  alt=""
-                />
+                <img className="h-5 w-5 mr-[30px]" src={IconCampana} alt="" />
                 <LogoutButton
                   onLogout={onLogout}
                   redirectToLogin={redirectToLogin}
-                  className="hidden xl:flex xl:mr-5 xl:ml-5"
+                  className="hidden xl:flex"
                 />
                 <div className="h-8 w-8 bg-gray-400 rounded-full xl:hidden ml-3"></div>
 
-                <div className="hidden bg-primaryazul w-52 h-11 rounded-[5px] text-center text-white justify-center gap-x-5 items-center xl:flex xl:ml-5">
+                <div className="hidden bg-primaryazul w-52 h-11 rounded-[5px] text-center text-white justify-center gap-x-5 items-center xl:flex xl:ml-[30px]">
                   <div className="h-[36px] w-[36px] bg-gray-100 rounded-full"></div>
                   <div className="flex flex-col">
-                  <p className="text-[14px]">Administrador</p>{" "}
-                  <p className="text-[14px]">ver perfil</p>
+                    <p className="text-[14px]">Administrador</p>{" "}
+                    <p className="text-[12px]">ver perfil</p>
                   </div>
-                  
                 </div>
-                
               </div>
             </>
           )}

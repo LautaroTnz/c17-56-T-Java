@@ -6,3 +6,13 @@
 .rbc-day-slot .rbc-selected.rbc-background-event {
   background-color: #800080; /* Cambia este valor al color que desees */
 }
+
+.no-scrollbar {
+  /* Para navegadores basados en WebKit como Chrome y Safari */
+  -webkit-overflow-scrolling: touch;
+  -webkit-scrollbar {
+    display: none;
+  }
+  /* Para Firefox y otros navegadores */
+  scrollbar-width: none;
+}
