@@ -1,4 +1,5 @@
-import React from "react";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -31,6 +32,25 @@ function TableRegistrosRecep({ dataRegistros }) {
     });
   };
 
+  const [avatars, setAvatars] = useState([]);
+
+
+   // Obtener avatares aleatorios al montar el componente
+   useEffect(() => {
+    const fetchAvatars = async () => {
+      try {
+        const response = await axios.get('https://randomuser.me/api/?results=10');
+        const users = response.data.results;
+        const avatarUrls = users.map(user => user.picture.thumbnail); // Puedes usar "medium" para una imagen más grande
+        setAvatars(avatarUrls);
+      } catch (error) {
+        console.error("Error al obtener avatares:", error);
+      }
+    };
+    
+    fetchAvatars();
+  }, []);
+
   return (
     <div className="w-full">
       <div className="h-[500px] overflow-y-auto border border-primarygrey rounded-lg no-scrollbar">
@@ -47,7 +67,7 @@ function TableRegistrosRecep({ dataRegistros }) {
               <tr key={index} className="border-b border-gray-200 text-center">
                 <td className="py-4 px-6 flex items-center">
                   <img
-                    src={receptionist.imagenUrl || "https://cdn-icons-png.flaticon.com/512/0/14.png"}
+                    src={avatars[index % avatars.length]}
                     alt={`Imagen de ${receptionist.firstname}`}
                     className="w-8 h-8 rounded-full mr-2"
                   />

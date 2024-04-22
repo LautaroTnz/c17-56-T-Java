@@ -1,10 +1,10 @@
 import React from "react";
 import { CardForm, FormRecepcionista } from "../../components";
+import { AvatarRecepcionista } from "../../assets";
 
 const dataRecepcionista = {
   especialidad: "Sector",
-  imagen:
-    "https://static.vecteezy.com/system/resources/previews/006/974/405/non_2x/receptionist-line-circle-background-icon-vector.jpg",
+  imagen: AvatarRecepcionista,
 };
 
 function PerfilRecepcionista() {
@@ -15,7 +15,7 @@ function PerfilRecepcionista() {
     mt-[100px] ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0"
       >
         <div className="hidden xl:flex xl:justify-start xl:mt-[36px] xl:mb-3  ">
-        <h1 className="text-[20px] font-medium text-principal ">
+          <h1 className="text-[20px] font-medium text-principal ">
             Crear nuevo perfil recepcionista
           </h1>
         </div>

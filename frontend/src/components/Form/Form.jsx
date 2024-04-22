@@ -27,32 +27,64 @@ function Form({ data, especialidades }) {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const medicalId = Math.floor(Math.random() * 100) + 1;
-    const medico = {
-      username: formData.nombre,
-      password: formData.password,
-      email: formData.email,
-      firstname: formData.nombre,
-      lastname: formData.apellido,
-      country: formData.direccion,
-      dni: formData.dni,
-      role: "MEDICO",
-      speciality: formData.especialidad,
-      medicalId: medicalId,
-      active: true,
-    };
-  
-    // Enviar solicitud POST al servidor
-    dispatch(createDoctorActions(medico))
-      .then(() => {
-        MySwal.fire({
-          icon: "success",
-          title: "¡Éxito!",
-          text: "El médico se ha creado correctamente.",
-        });
-        // Limpiar los campos del formulario después de enviarlos
+
+    MySwal.fire({
+      title: "¿Deseas crear un nuevo médico?",
+      text: "Por favor, elige una opción:",
+      icon: "question",
+      showCancelButton: true,
+      showDenyButton: true,
+      confirmButtonText: "Guardar",
+      denyButtonText: "No guardar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const medicalId = Math.floor(Math.random() * 100) + 1;
+        const medico = {
+          username: formData.nombre,
+          password: formData.password,
+          email: formData.email,
+          firstname: formData.nombre,
+          lastname: formData.apellido,
+          country: formData.direccion,
+          dni: formData.dni,
+          role: "MEDICO",
+          speciality: formData.especialidad,
+          medicalId,
+          active: true,
+        };
+
+        // Enviar solicitud POST al servidor
+        dispatch(createDoctorActions(medico))
+          .then(() => {
+            MySwal.fire({
+              icon: "success",
+              title: "¡Éxito!",
+              text: "El médico se ha creado correctamente.",
+            });
+            // Limpiar los campos del formulario después de enviarlos
+            setFormData({
+              nombre: "",
+              apellido: "",
+              dni: "",
+              especialidad: null,
+              direccion: "",
+              telefono: "",
+              email: "",
+              password: "",
+            });
+          })
+          .catch((error) => {
+            MySwal.fire({
+              icon: "error",
+              title: "¡Error!",
+              text: "Hubo un problema al crear el médico. Por favor, inténtalo de nuevo.",
+            });
+          });
+      } else if (result.isDenied) {
+        // No guardar, limpiar el formulario
         setFormData({
           nombre: "",
           apellido: "",
@@ -63,14 +95,9 @@ function Form({ data, especialidades }) {
           email: "",
           password: "",
         });
-      })
-      .catch((error) => {
-        MySwal.fire({
-          icon: "error",
-          title: "¡Error!",
-          text: "Hubo un problema al crear el médico. Por favor, inténtalo de nuevo.",
-        });
-      });
+      }
+      // Si es cancelado, no hacer nada, solo cerrar el diálogo.
+    });
   };
 
   return (
@@ -236,7 +263,7 @@ function Form({ data, especialidades }) {
               id="email"
               name="email"
               placeholder="Correo electrónico"
-              className="placeholder:text-textoinputs placeholder:text-[16px] xl:h-[50px] xl:w-[350px] placeholder:text-textoinputs placeholder:text-[16px]
+              className="placeholder:text-textoinputs placeholder:text-[16px] xl:h-[50px] xl:w-[350px]
             h-[50px] appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>

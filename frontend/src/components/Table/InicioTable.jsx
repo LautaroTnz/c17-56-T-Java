@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 function truncateText(text, maxLength) {
   if (text.length > maxLength) {
@@ -9,6 +10,23 @@ function truncateText(text, maxLength) {
 
 function InicioTable({ data, especialidades }) {
   const maxNameLength = 8; // Máximo de caracteres para el recorte
+  const [avatars, setAvatars] = useState([]);
+  
+  // Obtener avatares aleatorios al montar el componente
+  useEffect(() => {
+    const fetchAvatars = async () => {
+      try {
+        const response = await axios.get('https://randomuser.me/api/?results=10');
+        const users = response.data.results;
+        const avatarUrls = users.map(user => user.picture.thumbnail); // Puedes usar "medium" para una imagen más grande
+        setAvatars(avatarUrls);
+      } catch (error) {
+        console.error("Error al obtener avatares:", error);
+      }
+    };
+    
+    fetchAvatars();
+  }, []);
 
   return (
     <div className="overflow-hidden w-[328px] h-[301px] border border-primarygrey xl:w-[834.01px] xl:h-[301px] rounded-xl shadow-md">
@@ -39,6 +57,7 @@ function InicioTable({ data, especialidades }) {
               const especialidad = especialidades.find(
                 (esp) => esp.specialityId === row.speciality
               );
+              const avatarUrl = avatars[index % avatars.length]; // Asignar un avatar aleatorio a cada fila
 
               return (
                 <tr
@@ -47,7 +66,7 @@ function InicioTable({ data, especialidades }) {
                 >
                   <td className="px-4 py-2 text-[12px] xl:flex xl:items-center xl:space-x-2 xl:justify-start xl:ml-4 xl:mt-3">
                     <div className="hidden xl:block">
-                      <div className="circle"></div>
+                    <img src={avatarUrl} alt="Avatar" className='h-[40px] w-[40px] rounded-full' />
                     </div>
                     <div className="truncate"> {/* Aplicar truncado y puntos suspensivos */}
                       {truncateText(row.username, maxNameLength)}

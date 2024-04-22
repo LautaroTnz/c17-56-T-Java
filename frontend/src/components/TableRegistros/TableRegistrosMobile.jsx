@@ -1,11 +1,12 @@
-import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux"; // Importar useDispatch
 import { deleteMedic } from "../../redux/actions/deleteMedicActions"; // Importar la acción
 import Swal from "sweetalert2"; // Importar SweetAlert2
 import { Iconoborrar, Iconoeditarazul } from "../../assets";
-
+ 
 
 function TableRegistrosMobile({ dataRegistros, especialidades }) {
 
@@ -39,6 +40,26 @@ function TableRegistrosMobile({ dataRegistros, especialidades }) {
     return especialidad ? especialidad.description : "Desconocido";
   };
 
+  const [avatars, setAvatars] = useState([]);
+
+  // Obtener avatares aleatorios al montar el componente
+  useEffect(() => {
+    const fetchAvatars = async () => {
+      try {
+        const response = await axios.get(
+          "https://randomuser.me/api/?results=10"
+        );
+        const users = response.data.results;
+        const avatarUrls = users.map((user) => user.picture.thumbnail); // Puedes usar "medium" para una imagen más grande
+        setAvatars(avatarUrls);
+      } catch (error) {
+        console.error("Error al obtener avatares:", error);
+      }
+    };
+
+    fetchAvatars();
+  }, []);
+
 
   return (
     <div className="flex flex-col w-full">
@@ -49,7 +70,7 @@ function TableRegistrosMobile({ dataRegistros, especialidades }) {
         >
           {/* Imagen */}
           <img
-            src="https://cdn-icons-png.flaticon.com/512/0/14.png"
+            src={avatars[index % avatars.length]}
             alt={`Imagen de ${registro.username}`}
             className="w-10 h-10 rounded-full mr-2"
           />

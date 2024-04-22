@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CardForm, Form } from "../../components";
 import { fetchSpecialties } from "../../redux/actions/actions";
+import { Avatarmedico } from "../../assets";
 
 const dataMedico = {
   especialidad: "Especialidad",
-  imagen:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QeNbxV5_oeH7Iuxx-KoqlrdUffr_j-zse_2P_3tl8w&s",
+  imagen: Avatarmedico,
 };
 
 function PerfilMedico() {
