@@ -1,7 +1,6 @@
 package com.project.c17567Java.Dto;
 
-import com.project.c17567Java.Entity.Doctor;
-import com.project.c17567Java.Entity.Patient;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -103,6 +103,7 @@ public class TurnService implements ITurnService{
         List<TurnDto> turnsDtoByPatient = iTurnRepository.findByPatient(id)
                 .stream()
                 .map(turn -> TurnDto.builder()
+                        .id(turn.getId())
                         .patient(turn.getPatient().getId())
                         .doctor(turn.getDoctor().getId())
                         .date(turn.getDate())
