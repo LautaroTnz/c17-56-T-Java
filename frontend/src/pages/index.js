@@ -12,3 +12,5 @@ export { default as HistorialClinica } from './HistorialClinica/HistorialClinica
 export { default as RegistroPaciente } from './RegistroPacientes/RegistroPaciente'
 export { default as SeleccionTurno } from './SeleccionTurno/SeleccionTurno'
 export { default as TurnoPaciente } from './TurnoPaciente/TurnoPaciente'
+export { default as EditarMedico } from './EditarMedico/EditarMedico'
+export { default as EditarRecepcionista } from './EditarRecepcionista/EditarRecepcionista'

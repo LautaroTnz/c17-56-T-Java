@@ -15,7 +15,7 @@ const estadisticas1 = {
 
 const estadisticas2 = {
   titulo: "Doctores",
-  subtitulo: "Recepcionistas en el último semestre",
+  subtitulo: "Doctores en el último semestre",
   avatar: Avatarmedico,
   pacientes: "50+",
   descripcion: "3 doctores se crearon esta semana",
@@ -23,7 +23,7 @@ const estadisticas2 = {
 
 const estadisticas3 = {
   titulo: "Recepcionistas",
-  subtitulo: "Doctores en el último semestre",
+  subtitulo: "Recepcionistas en el último semestre",
   avatar: AvatarRecepcionista,
   pacientes: "105+",
   descripcion: "10 recepcionistas se crearon esta semana",

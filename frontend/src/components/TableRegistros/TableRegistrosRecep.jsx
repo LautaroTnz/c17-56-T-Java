@@ -1,17 +1,18 @@
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux"; // Importar useDispatch
-import { deleteMedic } from "../../redux/actions/deleteMedicActions"; // Importar la acción
-import Swal from "sweetalert2"; // Importar SweetAlert2
+import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
+import { deleteReceptionist } from "../../redux/actions/deleteReceptionistActions";
+import { useParams } from 'react-router-dom';
 
-function TableRegistros({ dataRegistros, especialidades }) {
-  const dispatch = useDispatch(); // Obtener el dispatch de Redux
 
-  const handleEditClick = (medicoId) => `/editarmedico/${medicoId}`;
+function TableRegistrosRecep({ dataRegistros }) {
+  const dispatch = useDispatch();
+  const { recepcionistaId } = useParams(); // Obtiene el ID de la URL
+  console.log("Recepcionista ID:", recepcionistaId);
 
-  // Función para eliminar médico con confirmación
-  const handleDeleteClick = (medicId) => {
+  const handleDeleteClick = (receptionistId) => {
     Swal.fire({
       title: "¿Estás seguro?",
       text: "No podrás revertir esta acción",
@@ -23,17 +24,10 @@ function TableRegistros({ dataRegistros, especialidades }) {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(deleteMedic(medicId)); // Acción para eliminar médico
-        Swal.fire("Eliminado", "El médico ha sido eliminado", "success"); // Confirmación visual
+        dispatch(deleteReceptionist(receptionistId)); // Acción para eliminar recepcionista
+        Swal.fire("Eliminado", "La recepcionista ha sido eliminada", "success");
       }
     });
-  };
-
-  const getEspecialidadDescripcion = (specialityId) => {
-    const especialidad = especialidades.find(
-      (esp) => esp.specialityId === specialityId
-    );
-    return especialidad ? especialidad.description : "Desconocido";
   };
 
   return (
@@ -43,29 +37,29 @@ function TableRegistros({ dataRegistros, especialidades }) {
           <thead>
             <tr className="bg-celestediez sticky top-0">
               <th className="text-[14px] text-texto py-3 px-6 text-left pl-[50px]">Nombre</th>
-              <th className="text-[14px] text-texto py-3 px-6">Especialidad</th>
+              <th className="text-[14px] text-texto py-3 px-6">Correo</th>
               <th className="text-[14px] text-texto py-3 px-6 flex justify-end">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {dataRegistros.map((medico, index) => (
+            {dataRegistros.map((receptionist, index) => (
               <tr key={index} className="border-b border-gray-200 text-center">
                 <td className="py-4 px-6 flex items-center">
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/0/14.png"
-                    alt={`Imagen de ${medico.username}`}
+                    src={receptionist.imagenUrl || "https://cdn-icons-png.flaticon.com/512/0/14.png"}
+                    alt={`Imagen de ${receptionist.firstname}`}
                     className="w-8 h-8 rounded-full mr-2"
                   />
                   <div>
-                    <p className="text-base font-semibold">{medico.username}</p>
+                    <p className="text-base font-semibold">{`${receptionist.firstname} ${receptionist.lastname}`}</p>
                   </div>
                 </td>
-                <td className="py-4 px-6">{getEspecialidadDescripcion(medico.speciality)}</td>
+                <td className="py-4 px-6">{receptionist.email}</td>
                 <td className="py-4 px-6 flex justify-end gap-7">
-                  <Link to={handleEditClick(medico.id)}>
+                  <Link to={`/editarreceptionista/${receptionist.id}`}>
                     <FaEdit className="text-blue-500" />
                   </Link>
-                  <button onClick={() => handleDeleteClick(medico.id)}>
+                  <button onClick={() => handleDeleteClick(receptionist.id)}>
                     <FaTrash className="text-red-500" />
                   </button>
                 </td>
@@ -78,4 +72,4 @@ function TableRegistros({ dataRegistros, especialidades }) {
   );
 }
 
-export default TableRegistros;
+export default TableRegistrosRecep;

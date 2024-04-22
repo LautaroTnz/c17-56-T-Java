@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoSearchOutline, IoFilter, IoChevronDown } from "react-icons/io5";
 
-function Searchbar({ onSearchChange, onSpecialityChange, especialidades }) {
+function SearchbarRecep({ onSearchChange, onSpecialityChange, especialidades }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [showSpecialitiesDropdown, setShowSpecialitiesDropdown] =
     useState(false);
@@ -49,13 +49,13 @@ function Searchbar({ onSearchChange, onSpecialityChange, especialidades }) {
       {showFilters && (
         <div className="xl:hidden flex flex-row gap-2 mt-2">
           <button
-            className="bg-primarygrey w-1/2 h-[50px] rounded-md"
+            className="bg-primarygrey w-[150px] h-[50px] rounded-md "
             onClick={handleResetFilters}
           >
             Borrar filtros
           </button>
           {/* Aquí puedes añadir más opciones de filtros si lo necesitas */}
-          <div
+         {/*  <div
             className="xl:flex xl:flex-row bg-principal justify-center gap-2 items-center w-[170px] text-white rounded-md relative"
             onClick={() =>
               setShowSpecialitiesDropdown(!showSpecialitiesDropdown)
@@ -91,7 +91,7 @@ function Searchbar({ onSearchChange, onSpecialityChange, especialidades }) {
                 </div>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       )}
 
@@ -105,7 +105,7 @@ function Searchbar({ onSearchChange, onSpecialityChange, especialidades }) {
           </button>
         </div>
 
-        <div
+        {/* <div
           className="xl:flex xl:flex-row bg-principal justify-center gap-2 items-center w-[170px] text-white rounded-md relative"
           onClick={() => setShowSpecialitiesDropdown(!showSpecialitiesDropdown)}
         >
@@ -136,10 +136,10 @@ function Searchbar({ onSearchChange, onSpecialityChange, especialidades }) {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
 
-export default Searchbar;
+export default SearchbarRecep;

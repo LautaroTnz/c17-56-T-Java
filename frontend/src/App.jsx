@@ -16,6 +16,8 @@ import {
   SeleccionTurno,
   PerfilPaciente,
   TurnoPaciente,
+  EditarMedico,
+  EditarRecepcionista,
 } from "./pages";
 import { NotFound } from "./errors";
 import { Navbar, Sidebar, LoadingPage } from "./layouts";
@@ -68,68 +70,82 @@ function AppContent() {
 
   return (
     <div className="font-poppins">
-    <>
-      {/* Mostrar la Navbar y la Sidebar según el estado */}
-      {showNavbarAndSidebar && (
-        <>
-          <Navbar onLogout={handleLogout} redirectToLogin={redirectToLogin} />
-          <Sidebar />
-        </>
-      )}
-      <Routes>
-        <Route path="/" element={<Login onLogin={handleLogin} />} />
-        {userRole !== null && (
+      <>
+        {/* Mostrar la Navbar y la Sidebar según el estado */}
+        {showNavbarAndSidebar && (
           <>
-            {userRole === "admin" && (
-              <>
-                <Route path="/inicio" element={<Home />} />
-                <Route path="/perfilmedico" element={<PerfilMedico />} />
-                <Route
-                  path="/perfilrecepcionista"
-                  element={<PerfilRecepcionista />}
-                />
-                <Route path="/registromedico" element={<RegistroMedico />} />
-                <Route
-                  path="/registrorecepcionista"
-                  element={<RegistroRecepcionista />}
-                />
-              </>
-            )}
-            {userRole === "medico" && (
-              <>
-                <Route path="/agendamedico" element={<AgendaMedico />} />
-                <Route path="/historiaclinica" element={<HistorialClinica />} />
-                <Route
-                  path="/registropaciente"
-                  element={<RegistroPaciente />}
-                />
-              </>
-            )}
-            {userRole === "recepcionista" && (
-              <>
-                <Route
-                  path="/agendarecepcionista"
-                  element={<AgendaRecepcionista />}
-                />
-                <Route
-                  path="/registropaciente"
-                  element={<RegistroPaciente />}
-                />
-                <Route path="/seleccionturno" element={<SeleccionTurno />} />
-                <Route path="/perfilpaciente" element={<PerfilPaciente />} />
-              </>
-            )}
-            {userRole === "paciente" && (
-              <>
-                <Route path="/agendapaciente" element={<AgendaPaciente />} />
-                <Route path="/elegirturnopaciente" element={<TurnoPaciente />} />
-              </>
-            )}
+            <Navbar onLogout={handleLogout} redirectToLogin={redirectToLogin} />
+            <Sidebar />
           </>
         )}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
+        <Routes>
+          <Route path="/" element={<Login onLogin={handleLogin} />} />
+          {userRole !== null && (
+            <>
+              {userRole === "admin" && (
+                <>
+                  <Route path="/inicio" element={<Home />} />
+                  <Route path="/perfilmedico" element={<PerfilMedico />} />
+                  <Route
+                    path="/perfilrecepcionista"
+                    element={<PerfilRecepcionista />}
+                  />
+                  <Route path="/registromedico" element={<RegistroMedico />} />
+                  <Route
+                    path="/registrorecepcionista"
+                    element={<RegistroRecepcionista />}
+                  />
+                  <Route
+                    path="/editarmedico/:medicoId"
+                    element={<EditarMedico />}
+                  />
+                  <Route
+                    path="/editarreceptionista/:recepcionistaId"
+                    element={<EditarRecepcionista />}
+                  />
+                </>
+              )}
+              {userRole === "medico" && (
+                <>
+                  <Route path="/agendamedico" element={<AgendaMedico />} />
+                  <Route
+                    path="/historiaclinica"
+                    element={<HistorialClinica />}
+                  />
+                  <Route
+                    path="/registropaciente"
+                    element={<RegistroPaciente />}
+                  />
+                </>
+              )}
+              {userRole === "recepcionista" && (
+                <>
+                  <Route
+                    path="/agendarecepcionista"
+                    element={<AgendaRecepcionista />}
+                  />
+                  <Route
+                    path="/registropaciente"
+                    element={<RegistroPaciente />}
+                  />
+                  <Route path="/seleccionturno" element={<SeleccionTurno />} />
+                  <Route path="/perfilpaciente" element={<PerfilPaciente />} />
+                </>
+              )}
+              {userRole === "paciente" && (
+                <>
+                  <Route path="/agendapaciente" element={<AgendaPaciente />} />
+                  <Route
+                    path="/elegirturnopaciente"
+                    element={<TurnoPaciente />}
+                  />
+                </>
+              )}
+            </>
+          )}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </>
     </div>
   );
 }
