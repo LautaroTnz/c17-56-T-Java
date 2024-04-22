@@ -8,16 +8,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class TurnDto {
-
+    private Integer id;
     private Integer patient;
     private Integer doctor;
-//    private LocalDate date;
-//    private LocalDate time;
+    private LocalDate date;
+    private LocalTime time;
     private Boolean state;
+
 }

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @NoArgsConstructor
@@ -27,7 +28,7 @@ public class Turn {
     private Doctor doctor;
 
     private LocalDate date;
-    private LocalDate time;
+    private LocalTime time;
     private Boolean state;
 
 }
