@@ -4,6 +4,7 @@ import { CardRecepcionista, CardUniones, InicioTable } from "../../components";
 import { fetchSpecialties } from "../../redux/actions/actions";
 import { fetchDoctors } from "../../redux/actions/doctorActions";
 import { AvatarPaciente, AvatarRecepcionista, Avatarmedico } from "../../assets";
+import {LoadingPage} from "../../layouts";
 
 const estadisticas1 = {
   titulo: "Pacientes",
@@ -47,22 +48,19 @@ function Home() {
     dispatch(fetchDoctors());
   }, [dispatch]);
 
-  if (doctorLoading) {
-    return <div>Cargando datos de médicos...</div>;
+   // Muestra el componente de carga si cualquiera de los dos estados está cargando
+   if (loading || doctorLoading) {
+    return <LoadingPage />;
   }
 
-  if (doctorError) {
-    return <div>Error al cargar datos de médicos: {doctorError}</div>;
+  // Muestra errores si alguno de los dos estados tiene errores
+  if (error || doctorError) {
+    return (
+      <div>
+        Error al cargar datos: {error || doctorError}
+      </div>
+    );
   }
-
-  if (loading) {
-    return <div>Cargando datos...</div>;
-  }
-
-  if (error) {
-    return <div>Error al cargar datos: {errorSpecialties || errorDoctors}</div>;
-  }
-
   return (
     <div className="flex justify-center">
       <div className="mt-16 ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0">

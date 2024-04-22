@@ -6,12 +6,12 @@ function TablaPacientes({ pacientes }) {
     return (
         <div className="overflow-x-auto xl:w-[1112px] xl:h-[543px] w-full xl:rounded-md xl:border xl:border-black">
             <table className="min-w-full divide-y divide-gray-200 ">
-                <thead className="sticky top-0 xl:bg-primarygrey xl:text-white">
+                <thead className="sticky top-0 xl:bg-celestediez xl:text-texto">
                     <tr>
-                        <th className="py-3 px-2 xl:px-20 xl:py-3 text-left text-xs font-medium  uppercase tracking-wider">
+                        <th className="py-3 px-2 xl:px-20 xl:py-3 text-left text-[14px] font-medium  uppercase tracking-wider">
                             Nombre
                         </th>
-                        <th className="py-3 px-2 xl:px-6 xl:py-3 text-right text-xs font-medium  uppercase tracking-wider">
+                        <th className="py-3 px-2 xl:px-6 xl:py-3 text-right text-[14px] font-medium  uppercase tracking-wider">
                             Acción
                         </th>
                     </tr>
@@ -25,8 +25,8 @@ function TablaPacientes({ pacientes }) {
                                         <div className="h-10 w-10 rounded-full bg-gray-200"></div>
                                     </div>
                                     <div className="ml-4">
-                                        <div className="text-sm font-medium text-gray-900">{paciente.nombre}</div>
-                                        <div className="text-sm text-gray-500">{paciente.numeroAfiliado}</div>
+                                        <div className="text-texto text=[14px] font-medium">{paciente.username}</div>
+                                        <div className="text-texto text=[14px]">{paciente.patientId}</div>
                                     </div>
                                 </div>
                             </td>

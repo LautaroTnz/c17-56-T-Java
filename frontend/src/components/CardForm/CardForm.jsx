@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CardForm( { data, especialidades } ) {
+function CardForm( { data } ) {
 
   return (
     <div className='flex flex-col items-center text-center bg-white

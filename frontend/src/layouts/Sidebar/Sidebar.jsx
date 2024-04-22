@@ -9,9 +9,14 @@ import {
   RegistroMedico,
   HistoriaClinica,
 } from "../../assets";
+import { ButtonSidebar } from "../../components";
+import { useLocation } from "react-router-dom";
 
 function Sidebar() {
   const [expanded, setExpanded] = useState(false);
+  const location = useLocation(); // Obtiene la ruta actual
+
+  const isActive = (path) => location.pathname === path;
 
   const toggleSidebar = () => {
     setExpanded(!expanded);
@@ -29,50 +34,94 @@ function Sidebar() {
 
   return (
     <div
-      className={`hidden xl:block z-10 absolute h-screen bg-white mt-[78px] border-r border-black ${
+      className={`hidden xl:block z-10 absolute h-screen bg-white mt-[78px] border-r border-primarygrey shadow-xl ${
         expanded ? "w-[292px]" : "w-[90px]"
       }`}
     >
-      <button
-        className="absolute top-10 h-6 w-6 transform -translate-y-1/2 right-[-12px] bg-primarygrey text-white rounded-full"
+      <div
         onClick={toggleSidebar}
+        className="absolute top-2 h-6 w-6 transform -translate-y-1/2 right-[-1px]"
       >
-        {expanded ? "<" : ">"}
-      </button>
-
+        {expanded ? (
+          <ButtonSidebar
+            onClick={toggleSidebar} // Pasar la función de evento
+            expanded={expanded} // Pasar el estado para cambiar el SVG
+          />
+        ) : (
+          <ButtonSidebar
+            onClick={toggleSidebar} // Pasar la función de evento
+            expanded={expanded} // Pasar el estado para cambiar el SVG
+          />
+        )}
+      </div>
       {/* Aca empieza la sidebar condicional del admin */}
 
       {userRole === "admin" && (
         <div className="mt-20">
           {/* Mostrar iconos en columna cuando la barra lateral no está expandida */}
           {!expanded && (
-            <div className="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
+            <div className="flex flex-col items-start ml-7 gap-y-5 pt-2.5">
               <a href="/inicio">
-                <div className="h-10">
-                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/inicio") ? "bg-fondodiez rounded-full" : ""
+                  }`} // Aplica estilo para el fondo y forma cuando está activo
+                >
+                  <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
                 </div>
               </a>
               <a href="/perfilmedico">
-                <div className="h-10">
-                  <img className="h-6 w-6" src={IconDoctor} alt="Inicio" />
-                </div>
-              </a>
-              <a href="/perfilrecepcionista">
-                <div className="h-10">
-                  <img className="h-6 w-6" src={IconReception} alt="Inicio" />
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/perfilmedico") ? "bg-fondodiez rounded-full" : ""
+                  }`} // Aquí también
+                >
+                  <img className="h-7 w-7" src={IconDoctor} alt="Doctor" />
                 </div>
               </a>
               <a href="/registromedico">
-                <div className="h-10">
-                  <img className="h-6 w-6" src={IconBookMedical} alt="Inicio" />
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/registromedico")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`} // Y aquí
+                >
+                  <img
+                    className="h-7 w-7"
+                    src={IconBookMedical}
+                    alt="Registro Médico"
+                  />
                 </div>
               </a>
-              <a href="/registrorecepcionista">
-                <div className="h-10">
+              <a href="/perfilrecepcionista">
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/perfilrecepcionista")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`} // Y aquí
+                >
                   <img
-                    className="h-6 w-6"
+                    className="h-7 w-7"
+                    src={IconReception}
+                    alt="Recepcionista"
+                  />
+                </div>
+              </a>
+
+              <a href="/registrorecepcionista">
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/registrorecepcionista")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`} // Aquí también
+                >
+                  <img
+                    className="h-7 w-7"
                     src={IconBookReception}
-                    alt="Inicio"
+                    alt="Registro Recepcionista"
                   />
                 </div>
               </a>
@@ -83,39 +132,40 @@ function Sidebar() {
             <div className="flex flex-col items-start ml-9 ">
               <div className="mb-4 flex items-center h-11">
                 <a href="/inicio">
-                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                  <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
                 </a>
-                <span className="ml-10 text-sm">Inicio</span>
+                <span className="ml-3.5 text-sm">Inicio</span>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/perfilmedico">
-                  <img className="h-6 w-6" src={IconDoctor} alt="Inicio" />
+                  <img className="h-7 w-7" src={IconDoctor} alt="Inicio" />
                 </a>
-                <span className="ml-10 text-sm">Crear perfil médico</span>
-              </div>
-              <div className="mb-4 flex items-center h-11">
-                <a href="/perfilrecepcionista">
-                  <img className="h-6 w-6" src={IconReception} alt="Inicio" />
-                </a>
-                <span className="ml-10 text-sm">
-                  Crear perfil recepcionista
-                </span>
+                <span className="ml-3.5 text-sm">Crear perfil médico</span>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registromedico">
-                  <img className="h-6 w-6" src={IconBookMedical} alt="Inicio" />
+                  <img className="h-7 w-7" src={IconBookMedical} alt="Inicio" />
                 </a>
-                <span className="ml-10 text-sm">Registro de médicos</span>
+                <span className="ml-3.5 text-sm">Registro de médicos</span>
               </div>
+              <div className="mb-4 flex items-center h-11">
+                <a href="/perfilrecepcionista">
+                  <img className="h-7 w-7" src={IconReception} alt="Inicio" />
+                </a>
+                <span className="ml-3.5 text-sm">
+                  Crear perfil recepcionista
+                </span>
+              </div>
+
               <div className="mb-4 flex items-center h-11">
                 <a href="/registorecepcionista">
                   <img
-                    className="h-6 w-6"
+                    className="h-7 w-7"
                     src={IconBookReception}
                     alt="Inicio"
                   />
                 </a>
-                <span className="ml-10 text-sm">
+                <span className="ml-3.5 text-sm">
                   Registro de recepcionistas
                 </span>
               </div>
@@ -250,7 +300,6 @@ function Sidebar() {
                   <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
                 </div>
               </a>
-              
             </div>
           )}
           {/* Mostrar iconos con etiqueta cuando la barra lateral está expandida */}
@@ -267,7 +316,7 @@ function Sidebar() {
                   <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
                 </a>
                 <span className="ml-10 text-sm">Elegir Turno</span>
-              </div>              
+              </div>
             </div>
           )}
         </div>

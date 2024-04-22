@@ -1,35 +1,33 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPatients } from "../../redux/actions/patientActions";
 import { SearchbarSola, TablaPacientes } from "../../components";
+import { Link } from "react-router-dom";
 
 function RegistroPaciente() {
-  const pacientes = [
-    { nombre: "Juan Pérez", numeroAfiliado: "123456" },
-    { nombre: "María Rodríguez", numeroAfiliado: "789012" },
-    { nombre: "Juan Pérez", numeroAfiliado: "123456" },
-    { nombre: "María Rodríguez", numeroAfiliado: "789012" },
-    { nombre: "Juan Pérez", numeroAfiliado: "123456" },
-    { nombre: "María Rodríguez", numeroAfiliado: "789012" },
-    { nombre: "Juan Pérez", numeroAfiliado: "123456" },
-    { nombre: "María Rodríguez", numeroAfiliado: "789012" },
-    { nombre: "Juan Pérez", numeroAfiliado: "123456" },
-    { nombre: "María Rodríguez", numeroAfiliado: "789012" },
-    { nombre: "Juan Pérez", numeroAfiliado: "123456" },
-    { nombre: "María Rodríguez", numeroAfiliado: "789012" },
-    { nombre: "Juan Pérez", numeroAfiliado: "123456" },
-    { nombre: "María Rodríguez", numeroAfiliado: "789012" },
-    { nombre: "Juan Pérez", numeroAfiliado: "123456" },
-    { nombre: "María Rodríguez", numeroAfiliado: "789012" },
-  ];
+  const dispatch = useDispatch();
 
+  // Obtener el estado de los pacientes desde Redux
+  const { patients } = useSelector((state) => state.patient);
+  console.log("Pacientes desde RegistroPaciente.jsx: ", patients);
   const [userRole, setUserRole] = useState(null);
+  // Estado para el término de búsqueda
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const role = localStorage.getItem("userRole");
     if (role) {
       setUserRole(role);
     }
-  }, []);
-  console.log("Aca esta el rol desde RegistroPaciente:", userRole);
+
+    // Llamar a la acción para obtener pacientes al cargar el componente
+    dispatch(fetchPatients());
+  }, [dispatch]);
+
+  // Filtrar pacientes por nombre según el término de búsqueda
+  const filteredPatients = patients.filter((p) =>
+    p.username.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="flex justify-center ">
@@ -39,7 +37,7 @@ function RegistroPaciente() {
       >
         <div>
           <h1
-            className="mt-5 mb-5 ml-5
+            className="mt-5 mb-5 ml-5 text-principal font-medium
                     xl:text-[20px] xl:mb-[13px] xl:ml-[50px] xl:mt-[36px]"
           >
             Registro de pacientes
@@ -48,15 +46,20 @@ function RegistroPaciente() {
             className="mb-5 ml-5 gap-y-5
                     xl:ml-[50px] xl:mt-[36px] xl:mb-0 xl:flex xl:flex-row xl:justify-between flex flex-col"
           >
-            <SearchbarSola />
+            <SearchbarSola
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
             {userRole === "recepcionista" && (
-              <div className="mr-[95px] xl:w-[149px] h-[36px] w-[328px]">
-                <button
-                  className=" w-full bg-primarygrey hover:bg-primarygreenhover text-white font-bold py-2 px-4 rounded"
-                  type="submit"
-                >
-                  Crear Paciente
-                </button>
+              <div className="mr-[95px] ">
+                <Link to="/perfilpaciente">
+                  <button
+                    className="xl:mt-[10px] xl:w-[157px] h-[39px] w-[328px] bg-principal text-center text-white py-2 px-3 rounded text-[14px] font-medium"
+                    type="submit"
+                  >
+                    Agregar paciente
+                  </button>
+                </Link>
               </div>
             )}
           </div>
@@ -64,9 +67,9 @@ function RegistroPaciente() {
 
         <div
           className="
-                xl:mt-5 xl:ml-[50px]"
+                xl:mt-3 xl:ml-[50px]"
         >
-          <TablaPacientes pacientes={pacientes} />
+          <TablaPacientes pacientes={filteredPatients} />
         </div>
       </div>
     </div>

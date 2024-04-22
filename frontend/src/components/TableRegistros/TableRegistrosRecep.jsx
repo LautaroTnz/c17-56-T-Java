@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { deleteReceptionist } from "../../redux/actions/deleteReceptionistActions";
 import { useParams } from 'react-router-dom';
+import { Iconoborrar, Iconoeditarazul } from "../../assets";
 
 
 function TableRegistrosRecep({ dataRegistros }) {
@@ -57,10 +58,12 @@ function TableRegistrosRecep({ dataRegistros }) {
                 <td className="py-4 px-6">{receptionist.email}</td>
                 <td className="py-4 px-6 flex justify-end gap-7">
                   <Link to={`/editarreceptionista/${receptionist.id}`}>
-                    <FaEdit className="text-blue-500" />
+                  <img src={Iconoeditarazul} alt="Editar" />
+
                   </Link>
                   <button onClick={() => handleDeleteClick(receptionist.id)}>
-                    <FaTrash className="text-red-500" />
+                  <img src={Iconoborrar} alt="Borrar" />
+
                   </button>
                 </td>
               </tr>

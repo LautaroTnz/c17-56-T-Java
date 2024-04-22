@@ -5,8 +5,11 @@ import {
   IconCampana,
   IconDoctor,
   IconInicio,
+  IconMenuBlanco,
   IconReception,
+  IconoMyDoctorApp,
   LogoBaja,
+  LogoMyDoctorApp,
   LogoMyDoctorAppNavbar,
 } from "../../assets";
 import LogoutButton from "./LogoutButton";
@@ -20,15 +23,15 @@ function Navbar({ onLogout, redirectToLogin }) {
 
   return (
     <div className="absolute w-full mt-0 ">
-      <nav className="bg-primaryazul p-4 relative z-10 xl:border-b xl:border-black">
-        <div className="flex justify-between items-center">
+      <nav className="bg-principal xl:bg-principal p-4 relative z-10 xl:border-b xl:border-black">
+        <div className="flex justify-between items-center ">
           {isOpen ? (
-            <div className="md:hidden flex justify-between items-center">
-              <img src={LogoBaja} alt="Logo" />
-              <div className="flex justify-end w-full">
+            <div className="md:hidden flex justify-between items-center ">
+              <img src={IconoMyDoctorApp} alt="Logo" />
+              <div className="flex justify-end w-full ">
                 <button
                   onClick={toggleMenu}
-                  className="text-black flex items-end ml-[260px]"
+                  className="text-white flex items-end ml-[260px]"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -54,21 +57,11 @@ function Navbar({ onLogout, redirectToLogin }) {
                   onClick={toggleMenu}
                   className="text-black focus:outline-none"
                 >
-                  <svg
-                    className="h-6 w-6 fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M4 5h16v2H4V5zm0 7h16v2H4v-2zm0 7h16v2H4v-2z"
-                    />
-                  </svg>
+                  <img src={IconMenuBlanco} alt="hamburguesa" className="w-[24px] h-[24px]" />
                 </button>
-                <img className="ml-6" src={LogoBaja} alt="Logo" />
+                <img className="ml-6" src={IconoMyDoctorApp} alt="Logo" />
               </div>
-              <div className="hidden md:flex items-center">
+              <div className="hidden md:flex items-center ">
                 <img
                   className="ml-[12px] xl:w-[147px] xl:h-[35px]"
                   src={LogoMyDoctorAppNavbar}
@@ -76,19 +69,21 @@ function Navbar({ onLogout, redirectToLogin }) {
                 />
               </div>
               <div className="flex items-center">
-                <img className="h-5 w-5 mr-[30px]" src={IconCampana} alt="" />
+                <img className="h-7 w-7 mr-[16px]" src={IconCampana} alt="" />
+                <div className="hidden xl:flex">
                 <LogoutButton
                   onLogout={onLogout}
                   redirectToLogin={redirectToLogin}
                   className="hidden xl:flex"
                 />
+                </div>
                 <div className="h-8 w-8 bg-gray-400 rounded-full xl:hidden ml-3"></div>
 
                 <div className="hidden bg-primaryazul w-52 h-11 rounded-[5px] text-center text-white justify-center gap-x-5 items-center xl:flex xl:ml-[30px]">
                   <div className="h-[36px] w-[36px] bg-gray-100 rounded-full"></div>
                   <div className="flex flex-col">
                     <p className="text-[14px]">Administrador</p>{" "}
-                    <p className="text-[12px]">ver perfil</p>
+                    <p className="text-[12px] flex">ver perfil</p>
                   </div>
                 </div>
               </div>
@@ -96,65 +91,69 @@ function Navbar({ onLogout, redirectToLogin }) {
           )}
         </div>
         {isOpen && (
+          <div className="bg-white w-[360px] h-[238px] absolute left-0 mt-4 ">
           <>
-            <div className="fixed  " onClick={toggleMenu}></div>
-            <div className="md:hidden mt-2 relative z-50 flex flex-col ">
+            <div className="fixed " onClick={toggleMenu}></div>
+            <div className="md:hidden mt-2 relative z-50 flex flex-col ml-4">
               <div className="flex flex-row">
-                <img className="h-6 w-6 mt-1.5" src={IconInicio} alt="Inicio" />
-                <a href="/inicio" className="block text-black px-3 py-2">
+                <img className="h-7 w-7 mt-1.5" src={IconInicio} alt="Inicio" />
+                <a href="/inicio" className="block text-black px-3 py-2 text-[16px] text-texto font-medium">
                   Inicio
                 </a>
               </div>
               <div className="flex flex-row">
-                <img className="h-6 w-6 mt-1.5" src={IconDoctor} alt="Inicio" />
-                <a href="/perfilmedico" className="block text-black px-3 py-2">
+                <img className="h-7 w-7 mt-1.5" src={IconDoctor} alt="Inicio" />
+                <a href="/perfilmedico" className="block text-black px-3 py-2 text-[16px] text-texto font-medium">
                   Crear perfil médico
                 </a>
               </div>
               <div className="flex flex-row">
                 <img
-                  className="h-6 w-6 mt-1.5"
-                  src={IconReception}
-                  alt="Inicio"
-                />
-                <a
-                  href="/perfilrecepcionista"
-                  className="block text-black px-3 py-2"
-                >
-                  Crear perfil recepcionista
-                </a>
-              </div>
-              <div className="flex flex-row">
-                <img
-                  className="h-6 w-6 mt-1.5"
+                  className="h-7 w-7 mt-1.5"
                   src={IconBookMedical}
                   alt="Inicio"
                 />
                 <a
                   href="/registromedico"
-                  className="block text-black px-3 py-2"
+                  className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
                 >
                   Registro de médicos
                 </a>
               </div>
               <div className="flex flex-row">
                 <img
-                  className="h-6 w-6 mt-1.5"
+                  className="h-7 w-7 mt-1.5"
+                  src={IconReception}
+                  alt="Inicio"
+                />
+                <a
+                  href="/perfilrecepcionista"
+                  className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                >
+                  Crear perfil recepcionista
+                </a>
+              </div>
+              
+              <div className="flex flex-row">
+                <img
+                  className="h-7 w-7 mt-1.5"
                   src={IconBookReception}
                   alt="Inicio"
                 />
                 <a
                   href="/registrorecepcionista"
-                  className="block text-black px-3 py-2"
+                  className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
                 >
                   Registro de recepcionistas
                 </a>
               </div>
             </div>
           </>
+          </div>
         )}
       </nav>
     </div>
+    
   );
 }
 

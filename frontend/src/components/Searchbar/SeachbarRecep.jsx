@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoSearchOutline, IoFilter, IoChevronDown } from "react-icons/io5";
+import { IoSearchOutline, IoFilter } from "react-icons/io5";
 
 function SearchbarRecep({ onSearchChange, onSpecialityChange, especialidades }) {
   const [searchTerm, setSearchTerm] = useState("");

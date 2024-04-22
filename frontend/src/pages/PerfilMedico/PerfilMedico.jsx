@@ -31,7 +31,7 @@ function PerfilMedico() {
         </div>
 
         <div
-          className="xl:w-[1026px] xl:h-[573px] bg-celestediez
+          className="xl:w-[1026px] xl:h-[573px] xl:bg-celestediez bg-white
                     xl:flex xl:flex-row xl:rounded-md xl: xl:"
         >
           <div

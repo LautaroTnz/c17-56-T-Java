@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux"; // Importar useDispatch
 import { deleteMedic } from "../../redux/actions/deleteMedicActions"; // Importar la acción
 import Swal from "sweetalert2"; // Importar SweetAlert2
+import { Iconoborrar, Iconoeditarazul } from "../../assets";
 
 
 function TableRegistrosMobile({ dataRegistros, especialidades }) {
@@ -58,12 +59,12 @@ function TableRegistrosMobile({ dataRegistros, especialidades }) {
             <p>{registro.especialidad}</p>
           </div>
           {/* Iconos de editar y eliminar */}
-          <div className="flex items-end justify-end">
+          <div className="flex items-end justify-end gap-x-6">
             <Link to={handleEditClick(registro.id)}>
-                    <FaEdit className="text-blue-500 mr-2" />
+                    <img src={Iconoeditarazul} alt="Editar" />
                   </Link>
                   <button onClick={() => handleDeleteClick(registro.id)}>
-                    <FaTrash className="text-red-500" />
+                    <img src={Iconoborrar} alt="Basura" />
                   </button>
           </div>
         </div>

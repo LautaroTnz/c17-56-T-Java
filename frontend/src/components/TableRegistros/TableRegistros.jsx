@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux"; // Importar useDispatch
 import { deleteMedic } from "../../redux/actions/deleteMedicActions"; // Importar la acción
 import Swal from "sweetalert2"; // Importar SweetAlert2
+import { LoadingPage } from "../../layouts";
+import { Iconoborrar, Iconoeditarazul } from "../../assets";
 
-function TableRegistros({ dataRegistros, especialidades }) {
+function TableRegistros({ dataRegistros, especialidades, loading }) {
   const dispatch = useDispatch(); // Obtener el dispatch de Redux
 
   const handleEditClick = (medicoId) => `/editarmedico/${medicoId}`;
@@ -36,15 +38,24 @@ function TableRegistros({ dataRegistros, especialidades }) {
     return especialidad ? especialidad.description : "Desconocido";
   };
 
+  // Muestra el componente de carga si está en estado de carga
+  if (loading) {
+    return <LoadingPage />;
+  }
+
   return (
     <div className="w-full">
       <div className="h-[500px] overflow-y-auto border border-primarygrey rounded-lg no-scrollbar">
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-celestediez sticky top-0">
-              <th className="text-[14px] text-texto py-3 px-6 text-left pl-[50px]">Nombre</th>
+              <th className="text-[14px] text-texto py-3 px-6 text-left pl-[50px]">
+                Nombre
+              </th>
               <th className="text-[14px] text-texto py-3 px-6">Especialidad</th>
-              <th className="text-[14px] text-texto py-3 px-6 flex justify-end">Acciones</th>
+              <th className="text-[14px] text-texto py-3 px-6 flex justify-end">
+                Acciones
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -60,13 +71,15 @@ function TableRegistros({ dataRegistros, especialidades }) {
                     <p className="text-base font-semibold">{medico.username}</p>
                   </div>
                 </td>
-                <td className="py-4 px-6">{getEspecialidadDescripcion(medico.speciality)}</td>
+                <td className="py-4 px-6">
+                  {getEspecialidadDescripcion(medico.speciality)}
+                </td>
                 <td className="py-4 px-6 flex justify-end gap-7">
                   <Link to={handleEditClick(medico.id)}>
-                    <FaEdit className="text-blue-500" />
+                    <img src={Iconoeditarazul} alt="Editar" />
                   </Link>
                   <button onClick={() => handleDeleteClick(medico.id)}>
-                    <FaTrash className="text-red-500" />
+                    <img src={Iconoborrar} alt="Borrar" />
                   </button>
                 </td>
               </tr>

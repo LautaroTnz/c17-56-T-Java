@@ -9,19 +9,19 @@ const dataRecepcionista = {
 
 function PerfilRecepcionista() {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center  ">
       <div
         className="
     mt-[100px] ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0"
       >
-        <div className="hidden xl:flex xl:justify-start xl:mt-[36px] xl:mb-3 ">
+        <div className="hidden xl:flex xl:justify-start xl:mt-[36px] xl:mb-3  ">
         <h1 className="text-[20px] font-medium text-principal ">
             Crear nuevo perfil recepcionista
           </h1>
         </div>
 
         <div
-          className="xl:w-[1026px] xl:h-[573px] bg-celestediez
+          className="xl:w-[1026px] xl:h-[573px] xl:bg-celestediez bg-white
             xl:flex xl:flex-row xl:rounded-md xl: xl:"
         >
           <div
