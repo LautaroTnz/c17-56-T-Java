@@ -1,16 +1,11 @@
 package com.project.c17567Java.Controller;
 
-import com.project.c17567Java.Dto.DoctorDto;
 import com.project.c17567Java.Dto.TurnDto;
-import com.project.c17567Java.Entity.Doctor;
-import com.project.c17567Java.Service.DoctorService;
 import com.project.c17567Java.Service.TurnService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
