@@ -42,6 +42,7 @@ com\project\c17567Java\Dto\SpecialtyDto.class
 com\project\c17567Java\Auth\Dto\UserResponse$UserResponseBuilder.class
 com\project\c17567Java\Auth\Jwt\JwtAuthenticationFilter.class
 com\project\c17567Java\Controller\DoctorController.class
+com\project\c17567Java\Entity\History$HistoryBuilder.class
 com\project\c17567Java\Dto\SpecialtyDto$SpecialtyDtoBuilder.class
 com\project\c17567Java\Service\IReceptionistService.class
 com\project\c17567Java\Auth\Dto\RegisterRequest.class
