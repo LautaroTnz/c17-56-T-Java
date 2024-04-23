@@ -69,10 +69,17 @@ function HistorialClinica() {
     <div className="flex justify-center">
       <div className="w-full mt-[80px] ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0">
         <div className=" ml-4 mr-4 xl:mt-[46px] xl:ml-[50px] xl:flex xl:flex-col xl:mr-10 ">
-          <h1 className="mb-4 text-[14px] xl:text-[20px] text-primarygrey">
+          <h1 className="mb-4 text-[14px] xl:text-[20px] text-principal font-medium">
             Historia clínica
           </h1>
           <HistoriaClinica event={{ historialMedico }} />
+        </div>
+        <div className="xl:mt-10 xl:mb-[-80px] xl:flex xl:justify-end xl:mr-14">
+          <a href="/crearreceta">
+            <button className="xl:w-[149px] w-full xl:mt-0 mt-5 h-[39px] bg-principal text-[12px] text-white rounded-md">
+              Agregar historía
+            </button>
+          </a>
         </div>
 
         <div className="xl:flex xl:item-center xl:justify-center xl:text-center xl:mt-[90px] mt-[20px]">

@@ -11,7 +11,7 @@ function TablaPacientes({ pacientes }) {
           "https://randomuser.me/api/?results=10"
         );
         const users = response.data.results;
-        const avatarUrls = users.map((user) => user.picture.thumbnail); // Puedes usar "medium" para una imagen más grande
+        const avatarUrls = users.map((user) => user.picture.thumbnail); // Para obtener imágenes más grandes, usa "medium"
         setAvatars(avatarUrls);
       } catch (error) {
         console.error("Error al obtener avatares:", error);
@@ -22,8 +22,18 @@ function TablaPacientes({ pacientes }) {
   }, []);
 
   return (
-    <div className="overflow-x-auto xl:w-[1112px] xl:h-[543px] w-full xl:rounded-md xl:border xl:border-primarygrey">
-      <table className="min-w-full divide-y divide-gray-200 ">
+    <div
+      className="overflow-x-auto xl:w-[1112px] xl:h-[543px] w-full xl:rounded-md xl:border xl:border-primarygrey"
+      style={{ scrollbarWidth: "none" }} // Para Firefox
+    >
+      <style>
+        {`
+          ::-webkit-scrollbar {
+            display: none; // Para Chrome, Safari y otros navegadores basados en WebKit
+          }
+        `}
+      </style>
+      <table className="min-w-full divide-y divide-gray-200">
         <thead className="sticky top-0 xl:bg-celestediez xl:text-texto">
           <tr>
             <th className="py-3 px-2 xl:px-20 xl:py-3 text-left text-[14px] font-medium  uppercase tracking-wider">
@@ -47,7 +57,7 @@ function TablaPacientes({ pacientes }) {
                     />
                   </div>
                   <div className="ml-4">
-                    <div className="text-texto text=[14px] font-medium">
+                    <div className="text-texto text-[14px] font-medium">
                       {paciente.username}
                     </div>
                     <div className="text-texto text=[14px]">

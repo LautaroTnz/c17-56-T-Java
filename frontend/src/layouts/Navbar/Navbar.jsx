@@ -19,6 +19,7 @@ import {
   RegistroMedico,
   HistoriaClinica,
   Iconoagregarpaciente,
+  Iconorecetas,
 } from "../../assets";
 import LogoutButton from "./LogoutButton";
 
@@ -264,6 +265,52 @@ function Navbar({ onLogout, redirectToLogin }) {
                         className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
                       >
                         Crear perfil de paciente
+                      </a>
+                    </div>
+                  </>
+                )}
+
+                {userRole === "medico" && (
+                  <>
+                   <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconInicio}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/agendamedico"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Inicio
+                      </a>
+                    </div>
+
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconBookReception}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/registropaciente"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Registro de pacientes
+                      </a>
+                    </div>
+
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={Iconorecetas}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/crearreceta"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Crear Receta
                       </a>
                     </div>
                   </>

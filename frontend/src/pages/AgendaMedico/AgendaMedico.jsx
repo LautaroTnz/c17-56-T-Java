@@ -105,7 +105,7 @@ function AgendaMedico() {
       <div className="mt-16 ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0">
         <div className="flex flex-col xl:flex-row">
           <div className=" mt-5 mb-4 xl:mt-12 xl:mb-0 xl:mr-4">
-            <h1 className="text-[14px] xl:text-[20px] text-primarygrey mb-5">
+            <h1 className="text-[14px] xl:text-[20px] text-principal font-medium mb-5">
               Turno del día seleccionado
             </h1>
             <div className="w-[328px] h-[385px] xl:w-[575px] xl:h-[260px]">
@@ -119,7 +119,7 @@ function AgendaMedico() {
           </div>
 
           <div className="mt-5 mb-4 xl:mt-12 xl:mb-0">
-            <h1 className="text-[14px] xl:text-[20px] text-primarygrey mb-5">
+            <h1 className="text-[14px] xl:text-[20px] text-principal font-medium mb-5">
               Pacientes del día
             </h1>
             <div className="w-[328px] h-[274px] xl:w-[575px] xl:h-[260px]">
@@ -136,7 +136,7 @@ function AgendaMedico() {
         </div>
 
         <div className="mt-11 xl:flex xl:flex-col">
-          <h1 className="mb-4 text-[14px] xl:text-[20px] text-primarygrey">
+          <h1 className="mb-4 text-[14px] xl:text-[20px] text-principal font-medium">
             Resumen de historia clínica
           </h1>
           {selectedEvent && selectedEvent.start && selectedEvent.end && (

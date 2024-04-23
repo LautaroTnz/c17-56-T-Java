@@ -9,6 +9,7 @@ import {
   RegistroMedico,
   HistoriaClinica,
   Iconoagregarpaciente,
+  Iconorecetas,
 } from "../../assets";
 import { ButtonSidebar } from "../../components";
 import { useLocation } from "react-router-dom";
@@ -199,12 +200,12 @@ function Sidebar() {
               </a>
               <a href="/registropaciente">
                 <div className="h-10">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                  <img className="h-6 w-6" src={IconBookReception} alt="Inicio" />
                 </div>
               </a>
-              <a href="/historiaclinica">
+              <a href="/crearreceta">
                 <div className="h-10">
-                  <img className="h-6 w-6" src={HistoriaClinica} alt="Inicio" />
+                  <img className="h-6 w-6" src={Iconorecetas} alt="Inicio" />
                 </div>
               </a>
             </div>
@@ -222,18 +223,18 @@ function Sidebar() {
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registropaciente">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                  <img className="h-6 w-6" src={IconBookReception} alt="Inicio" />
                 </a>
                 <a href="/registropaciente">
                   <span className="ml-10 text-sm">Registro de pacientes</span>
                 </a>
               </div>
               <div className="mb-4 flex items-center h-11">
-                <a href="/historiaclinica">
-                  <img className="h-6 w-6" src={HistoriaClinica} alt="Inicio" />
+                <a href="/crearreceta">
+                  <img className="h-6 w-6" src={Iconorecetas} alt="Inicio" />
                 </a>
-                <a href="/registropaciente">
-                  <span className="ml-10 text-sm">Historia Clínica</span>
+                <a href="/crearreceta">
+                  <span className="ml-10 text-sm">Crear Receta</span>
                 </a>
               </div>
             </div>

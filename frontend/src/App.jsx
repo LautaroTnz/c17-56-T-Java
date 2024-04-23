@@ -18,6 +18,7 @@ import {
   TurnoPaciente,
   EditarMedico,
   EditarRecepcionista,
+  CrearReceta,
 } from "./pages";
 import { NotFound } from "./errors";
 import { Navbar, Sidebar, LoadingPage } from "./layouts";
@@ -115,6 +116,11 @@ function AppContent() {
                   <Route
                     path="/registropaciente"
                     element={<RegistroPaciente />}
+                  />
+                  <Route path="/perfilpaciente" element={<PerfilPaciente />} />
+                  <Route
+                    path="/crearreceta"
+                    element={<CrearReceta />}
                   />
                 </>
               )}
