@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   IconBookMedical,
   IconBookReception,
@@ -11,6 +11,14 @@ import {
   LogoBaja,
   LogoMyDoctorApp,
   LogoMyDoctorAppNavbar,
+  AvatarPaciente,
+  AvatarRecepcionista,
+  Avatarmedico,
+  Avataradmin,
+  IconAyuda,
+  RegistroMedico,
+  HistoriaClinica,
+  Iconoagregarpaciente,
 } from "../../assets";
 import LogoutButton from "./LogoutButton";
 
@@ -21,9 +29,19 @@ function Navbar({ onLogout, redirectToLogin }) {
     setIsOpen(!isOpen);
   };
 
+  const [userRole, setUserRole] = useState("");
+
+  useEffect(() => {
+    const role = localStorage.getItem("userRole");
+    if (role) {
+      setUserRole(role);
+    }
+  }, []);
+  console.log("Aca esta el rol desde la sidebar:", userRole);
+
   return (
     <div className="absolute w-full mt-0 ">
-      <nav className="bg-principal xl:bg-principal p-4 relative z-10 xl:border-b xl:border-black">
+      <nav className="bg-principal xl:bg-principal p-4 relative z-10">
         <div className="flex justify-between items-center ">
           {isOpen ? (
             <div className="md:hidden flex justify-between items-center ">
@@ -84,9 +102,47 @@ function Navbar({ onLogout, redirectToLogin }) {
                 <div className="h-8 w-8 bg-gray-400 rounded-full xl:hidden ml-3"></div>
 
                 <div className="hidden bg-primaryazul w-52 h-11 rounded-[5px] text-center text-white justify-center gap-x-5 items-center xl:flex ">
-                  <div className="h-[36px] w-[36px] bg-gray-100 rounded-full"></div>
+                  {userRole === "medico" && (
+                    <img
+                      className="h-[36px] w-[36px] rounded-full"
+                      src={Avatarmedico}
+                      alt="Avatar"
+                    />
+                  )}
+                  {userRole === "recepcionista" && (
+                    <img
+                      className="h-[36px] w-[36px] rounded-full"
+                      src={AvatarRecepcionista}
+                      alt="Avatar"
+                    />
+                  )}
+                  {userRole === "admin" && (
+                    <img
+                      className="h-[36px] w-[36px] rounded-full"
+                      src={Avataradmin}
+                      alt="Avatar"
+                    />
+                  )}
+                  {userRole === "paciente" && (
+                    <img
+                      className="h-[36px] w-[36px] rounded-full"
+                      src={AvatarPaciente}
+                      alt="Avatar"
+                    />
+                  )}
                   <div className="flex flex-col">
-                    <p className="text-[14px]">Administrador</p>{" "}
+                    {userRole === "medico" && (
+                      <p className="text-[14px]">Doctor</p>
+                    )}
+                    {userRole === "recepcionista" && (
+                      <p className="text-[14px]">Recepcionista</p>
+                    )}
+                    {userRole === "admin" && (
+                      <p className="text-[14px]">Administrador</p>
+                    )}
+                    {userRole === "paciente" && (
+                      <p className="text-[14px]">Paciente</p>
+                    )}
                     <p className="text-[12px] flex">ver perfil</p>
                   </div>
                 </div>
@@ -99,72 +155,119 @@ function Navbar({ onLogout, redirectToLogin }) {
             <>
               <div className="fixed " onClick={toggleMenu}></div>
               <div className="md:hidden mt-2 relative z-50 flex flex-col ml-4">
-                <div className="flex flex-row">
-                  <img
-                    className="h-7 w-7 mt-1.5"
-                    src={IconInicio}
-                    alt="Inicio"
-                  />
-                  <a
-                    href="/inicio"
-                    className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
-                  >
-                    Inicio
-                  </a>
-                </div>
-                <div className="flex flex-row">
-                  <img
-                    className="h-7 w-7 mt-1.5"
-                    src={IconDoctor}
-                    alt="Inicio"
-                  />
-                  <a
-                    href="/perfilmedico"
-                    className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
-                  >
-                    Crear perfil médico
-                  </a>
-                </div>
-                <div className="flex flex-row">
-                  <img
-                    className="h-7 w-7 mt-1.5"
-                    src={IconBookMedical}
-                    alt="Inicio"
-                  />
-                  <a
-                    href="/registromedico"
-                    className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
-                  >
-                    Registro de médicos
-                  </a>
-                </div>
-                <div className="flex flex-row">
-                  <img
-                    className="h-7 w-7 mt-1.5"
-                    src={IconReception}
-                    alt="Inicio"
-                  />
-                  <a
-                    href="/perfilrecepcionista"
-                    className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
-                  >
-                    Crear perfil recepcionista
-                  </a>
-                </div>
+                {userRole === "admin" && (
+                  <>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconInicio}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/inicio"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Inicio
+                      </a>
+                    </div>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconDoctor}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/perfilmedico"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Crear perfil médico
+                      </a>
+                    </div>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconBookMedical}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/registromedico"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Registro de médicos
+                      </a>
+                    </div>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconReception}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/perfilrecepcionista"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Crear perfil recepcionista
+                      </a>
+                    </div>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconBookReception}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/registrorecepcionista"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Registro de recepcionistas
+                      </a>
+                    </div>
+                  </>
+                )}
 
-                <div className="flex flex-row">
-                  <img
-                    className="h-7 w-7 mt-1.5"
-                    src={IconBookReception}
-                    alt="Inicio"
-                  />
-                  <a
-                    href="/registrorecepcionista"
-                    className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
-                  >
-                    Registro de recepcionistas
-                  </a>
-                </div>
+                {userRole === "recepcionista" && (
+                  <>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconInicio}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/agendarecepcionista"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Inicio
+                      </a>
+                    </div>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconBookReception}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/registropaciente"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Registro de pacientes
+                      </a>
+                    </div>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={Iconoagregarpaciente}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/perfilpaciente"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Crear perfil de paciente
+                      </a>
+                    </div>
+                  </>
+                )}
               </div>
             </>
           </div>

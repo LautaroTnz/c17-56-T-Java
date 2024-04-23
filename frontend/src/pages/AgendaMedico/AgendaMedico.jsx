@@ -62,6 +62,28 @@ function AgendaMedico() {
       historialMedico: historialMedico, // <-- Aquí
     },
     {
+      id: 1,
+      title: "Tercer evento mismo día y hora",
+      description: "Reunión semanal para revisar avances y asignar tareas",
+      start: dayjs("2024-04-09T09:00:00").toDate(),
+      end: dayjs("2024-04-09T10:00:00").toDate(),
+      location: "Oficina principal",
+      attendees: ["Juan", "María", "Pedro"],
+      recep: "Juana de Arco",
+      historialMedico: historialMedico, // <-- Aquí
+    },
+    {
+      id: 1,
+      title: "Vaca Loca",
+      description: "Reunión semanal para revisar avances y asignar tareas",
+      start: dayjs("2024-04-09T09:00:00").toDate(),
+      end: dayjs("2024-04-09T10:00:00").toDate(),
+      location: "Oficina principal",
+      attendees: ["Juan", "María", "Pedro"],
+      recep: "Juana de Arco",
+      historialMedico: historialMedico, // <-- Aquí
+    },
+    {
       id: 2,
       title: "Revisión rutinaria",
       description: "Reunión semanal para revisar avances y asignar tareas",

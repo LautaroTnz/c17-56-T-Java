@@ -8,6 +8,7 @@ import {
   IconReception,
   RegistroMedico,
   HistoriaClinica,
+  Iconoagregarpaciente,
 } from "../../assets";
 import { ButtonSidebar } from "../../components";
 import { useLocation } from "react-router-dom";
@@ -134,40 +135,50 @@ function Sidebar() {
                 <a href="/inicio">
                   <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
                 </a>
-                <span className="ml-3.5 text-sm">Inicio</span>
+                <a href="/inicio">
+                  <span className="ml-3.5 text-sm">Inicio</span>
+                </a>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/perfilmedico">
                   <img className="h-7 w-7" src={IconDoctor} alt="Inicio" />
                 </a>
-                <span className="ml-3.5 text-sm">Crear perfil médico</span>
+                <a href="/perfilmedico">
+                  <span className="ml-3.5 text-sm">Crear perfil médico</span>
+                </a>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registromedico">
                   <img className="h-7 w-7" src={IconBookMedical} alt="Inicio" />
                 </a>
-                <span className="ml-3.5 text-sm">Registro de médicos</span>
+                <a href="/registromedico">
+                  <span className="ml-3.5 text-sm">Registro de médicos</span>
+                </a>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/perfilrecepcionista">
                   <img className="h-7 w-7" src={IconReception} alt="Inicio" />
                 </a>
-                <span className="ml-3.5 text-sm">
-                  Crear perfil recepcionista
-                </span>
+                <a href="/perfilrecepcionista">
+                  <span className="ml-3.5 text-sm">
+                    Crear perfil recepcionista
+                  </span>{" "}
+                </a>
               </div>
 
               <div className="mb-4 flex items-center h-11">
-                <a href="/registorecepcionista">
+                <a href="/registrorecepcionista">
                   <img
                     className="h-7 w-7"
                     src={IconBookReception}
                     alt="Inicio"
                   />
                 </a>
-                <span className="ml-3.5 text-sm">
-                  Registro de recepcionistas
-                </span>
+                <a href="/registrorecepcionista">
+                  <span className="ml-3.5 text-sm">
+                    Registro de recepcionistas
+                  </span>
+                </a>
               </div>
             </div>
           )}
@@ -205,19 +216,25 @@ function Sidebar() {
                 <a href="/agendamedico">
                   <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
                 </a>
-                <span className="ml-10 text-sm">Inicio</span>
+                <a href="/registropaciente">
+                  <span className="ml-10 text-sm">Inicio</span>
+                </a>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registropaciente">
                   <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
                 </a>
-                <span className="ml-10 text-sm">Registro de pacientes</span>
+                <a href="/registropaciente">
+                  <span className="ml-10 text-sm">Registro de pacientes</span>
+                </a>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/historiaclinica">
                   <img className="h-6 w-6" src={HistoriaClinica} alt="Inicio" />
                 </a>
-                <span className="ml-10 text-sm">Historia Clínica</span>
+                <a href="/registropaciente">
+                  <span className="ml-10 text-sm">Historia Clínica</span>
+                </a>
               </div>
             </div>
           )}
@@ -233,22 +250,26 @@ function Sidebar() {
             <div className="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
               <a href="/agendarecepcionista">
                 <div className="h-10">
-                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                  <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
                 </div>
               </a>
               <a href="/registropaciente">
                 <div className="h-10">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                  <img
+                    className="h-7 w-7"
+                    src={IconBookReception}
+                    alt="Inicio"
+                  />
                 </div>
               </a>
-              <a href="/seleccionturno">
-                <div className="h-10">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
-                </div>
-              </a>
+
               <a href="/perfilpaciente">
                 <div className="h-10">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                  <img
+                    className="h-7 w-7"
+                    src={Iconoagregarpaciente}
+                    alt="Inicio"
+                  />
                 </div>
               </a>
             </div>
@@ -258,27 +279,36 @@ function Sidebar() {
             <div className="flex flex-col items-start ml-9 ">
               <div className="mb-4 flex items-center h-11">
                 <a href="/agendarecepcionista">
-                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                  <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
                 </a>
-                <span className="ml-10 text-sm">Inicio</span>
+                <a href="/agendarecepcionista">
+                  <span className="ml-6 text-sm">Inicio</span>
+                </a>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registropaciente">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                  <img
+                    className="h-7 w-7"
+                    src={IconBookReception}
+                    alt="Inicio"
+                  />
                 </a>
-                <span className="ml-10 text-sm">Registro de pacientes</span>
-              </div>
-              <div className="mb-4 flex items-center h-11">
-                <a href="/seleccionturno">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                <a href="/registropaciente">
+                  <span className="ml-6 text-sm">Registro de pacientes</span>
                 </a>
-                <span className="ml-10 text-sm">Selección de turnos</span>
               </div>
+
               <div className="mb-4 flex items-center h-11">
                 <a href="/perfilpaciente">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                  <img
+                    className="h-7 w-7"
+                    src={Iconoagregarpaciente}
+                    alt="Inicio"
+                  />
                 </a>
-                <span className="ml-10 text-sm">Selección de turnos</span>
+                <a href="/perfilpaciente">
+                  <span className="ml-6 text-sm">Crear perfil de paciente</span>
+                </a>
               </div>
             </div>
           )}

@@ -30,20 +30,20 @@ function RegistroPaciente() {
   );
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center lg:items-center">
       <div
-        className="w-full
+        className="w-full max-w-screen-xl
                             mt-[80px] ml-4 mr-4 xl:mt-20 xl:ml-24 xl:mr-0"
       >
         <div>
           <h1
-            className="mt-5 mb-5 ml-5 text-principal font-medium
+            className="mt-5 mb-5 text-principal font-medium
                     xl:text-[20px] xl:mb-[13px] xl:ml-[50px] xl:mt-[36px]"
           >
             Registro de pacientes
           </h1>
           <div
-            className="mb-5 ml-5 gap-y-5
+            className="mb-5 gap-y-5
                     xl:ml-[50px] xl:mt-[36px] xl:mb-0 xl:flex xl:flex-row xl:justify-between flex flex-col"
           >
             <SearchbarSola
@@ -51,10 +51,10 @@ function RegistroPaciente() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             {userRole === "recepcionista" && (
-              <div className="mr-[95px] ">
+              <div className="xl:flex w-full xl:justify-end xl:mr-[95px]">
                 <Link to="/perfilpaciente">
                   <button
-                    className="xl:mt-[10px] xl:w-[157px] h-[39px] w-[328px] bg-principal text-center text-white py-2 px-3 rounded text-[14px] font-medium"
+                    className="xl:w-[157px] h-[39px] w-full bg-principal text-center text-white py-2 px-3 rounded text-[14px] xl:mr-0 font-medium 2xl:mr-[25px]"
                     type="submit"
                   >
                     Agregar paciente

@@ -28,7 +28,7 @@ function SeleccionTurno() {
       >
 
         <div className="flex flex-col xl:w-[1046px] xl:h-[381px] w-[328px] text-primarygrey">
-          <h1 className="text-[20px] mt-[30px] mb-[10px]">
+          <h1 className="text-[20px] text-principal font-medium mt-[30px] mb-[10px]">
             Paciente a designar turno:
           </h1>
           <div className="flex flex-col ">
@@ -42,7 +42,7 @@ function SeleccionTurno() {
                 />
               </div>
               <div className="flex flex-col gap-y-[8px]">
-                <p className="text-[16px]">Paciente a designar turno</p>
+                <p className="text-[18px] text-texto font-medium">Paciente a designar turno</p>
                 <input
                   className=" xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black"
                   type="text"
@@ -52,20 +52,20 @@ function SeleccionTurno() {
 
             {/* Version mobile */}
             <div className="xl:hidden flex flex-col gap-y-[8px] mb-[-15px]">
-              <p className="text-[16px]">Buscar paciente</p>
+              <p className="text-[18px] text-texto font-medium">Buscar paciente</p>
               <Dropdowns options={nombreOption} />
             </div>
-            <h1 className="text-[20px] mt-[43px] mb-[5px]">
+            <h1 className="text-[20px] text-principal font-medium mt-[43px] mb-[5px]">
               Seleccionar un médico
             </h1>
             <div className="flex flex-col gap-y-[17px] ">
               <div className="flex xl:flex-row flex-col justify-between">
                 <div className="flex flex-col gap-y-[8px]">
-                  <p className="text-[16px]">Seleccionar una especialidad</p>
+                  <p className="text-[18px] text-texto font-medium">Seleccionar una especialidad</p>
                   <Dropdowns options={especialidadOption} />
                 </div>
                 <div className="flex flex-col gap-y-[8px]">
-                  <p className="text-[16px]">Seleccionar una fecha</p>
+                  <p className="text-[18px] text-texto font-medium">Seleccionar una fecha</p>
 
                   <div className="xl:w-[488.14px] xl:h-[50px]">
                     <Datepiker />
@@ -75,18 +75,18 @@ function SeleccionTurno() {
 
               <div className="flex xl:flex-row flex-col justify-between">
                 <div className="flex flex-col gap-y-[8px]">
-                  <p className="text-[16px]">Seleccionar un médico</p>
+                  <p className="text-[18px] text-texto font-medium">Seleccionar un médico</p>
                   <Dropdowns options={medicoOption} />
                 </div>
                 <div className="flex flex-col gap-y-[8px]">
-                  <p className="text-[16px]">Seleccionar un horario</p>
+                  <p className="text-[18px] text-texto font-medium">Seleccionar un horario</p>
                   <Dropdowns options={horarioOption} />
                 </div>
               </div>
             </div>
           </div>
           <div className="flex justify-end mt-5">
-            <button className="text-[10px] w-[136px] h-[36px] bg-primarygrey hover:bg-primarygreenhover text-white font-bold py-2 px-4 rounded">
+            <button className="text-[14px] font-medium w-[149px] h-[39px] bg-principal hover:bg-primarygreenhover text-white py-2 px-4 rounded">
               Confirmar turno
             </button>
           </div>
