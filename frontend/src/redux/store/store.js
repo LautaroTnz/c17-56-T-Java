@@ -9,7 +9,8 @@ import deleteReceptionistSlice from '../reducer/deleteReceptionistSlice'
 import editReceptionistSlice from '../reducer/editReceptionistSlice'
 import createPatientSlice from '../reducer/createPatientSlice'
 import patientSlice from '../reducer/patientSlice'
-
+import turnSlice from '../reducer/turnSlice'
+import createTurnSlice from '../reducer/createTurnSlice'
 
 
 export const store = configureStore({
@@ -22,6 +23,8 @@ export const store = configureStore({
     deleteReceptionist: deleteReceptionistSlice,
     editReceptionist: editReceptionistSlice,
     createPatient: createPatientSlice,
-    patient: patientSlice
+    patient: patientSlice,
+    turns: turnSlice,
+    createTurn: createTurnSlice,
   },
 })

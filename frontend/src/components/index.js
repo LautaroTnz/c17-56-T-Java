@@ -21,3 +21,4 @@ export { default as SearchbarRecepcionista } from "./Searchbar/SeachbarRecep";
 export { default as FormEditRecep } from "./Form/FormEditRecep";
 export { default as FormPaciente } from "./Form/FormPaciente";
 export { default as ButtonSidebar } from "./Button/MyButton"
+export { default as DropdownsTurn } from "./Dropdowns/DropdownsTurn";

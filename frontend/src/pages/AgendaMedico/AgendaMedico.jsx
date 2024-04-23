@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTurns } from "../../redux/actions/turnActions";
+import { transformTurnData } from "../../utils/transformTurnData/TransformTurnData";
 import dayjs from "dayjs";
 import { Calendario } from "../../utils";
 import { HistoriaClinica } from "../../components";
@@ -25,6 +28,19 @@ const dayViewComponents = {
 };
 
 function AgendaMedico() {
+
+  const dispatch = useDispatch();
+  const turns = useSelector((state) => state.turns.turns); // Obten los turnos de Redux
+  console.log('Turnos desde AgendaMedico: ',turns);
+
+  useEffect(() => {
+    dispatch(fetchTurns()); // Ejecuta la acción para obtener turnos
+  }, [dispatch]);
+
+  // Transformar los datos para BigCalendar
+  const events = transformTurnData(turns);
+  console.log('Eventos desde AgendaMedico: ',events);
+
   const [selectedDate, setSelectedDate] = useState(dayjs().toDate());
   const [selectedEvent, setSelectedEvent] = useState(null);
 
@@ -49,52 +65,7 @@ function AgendaMedico() {
     electrocardiograma: "Normal",
   };
 
-  const events = [
-    {
-      id: 1,
-      title: "Revisión rutinaria",
-      description: "Reunión semanal para revisar avances y asignar tareas",
-      start: dayjs("2024-04-09T09:00:00").toDate(),
-      end: dayjs("2024-04-09T10:00:00").toDate(),
-      location: "Oficina principal",
-      attendees: ["Juan", "María", "Pedro"],
-      recep: "Juana de Arco",
-      historialMedico: historialMedico, // <-- Aquí
-    },
-    {
-      id: 1,
-      title: "Tercer evento mismo día y hora",
-      description: "Reunión semanal para revisar avances y asignar tareas",
-      start: dayjs("2024-04-09T09:00:00").toDate(),
-      end: dayjs("2024-04-09T10:00:00").toDate(),
-      location: "Oficina principal",
-      attendees: ["Juan", "María", "Pedro"],
-      recep: "Juana de Arco",
-      historialMedico: historialMedico, // <-- Aquí
-    },
-    {
-      id: 1,
-      title: "Vaca Loca",
-      description: "Reunión semanal para revisar avances y asignar tareas",
-      start: dayjs("2024-04-09T09:00:00").toDate(),
-      end: dayjs("2024-04-09T10:00:00").toDate(),
-      location: "Oficina principal",
-      attendees: ["Juan", "María", "Pedro"],
-      recep: "Juana de Arco",
-      historialMedico: historialMedico, // <-- Aquí
-    },
-    {
-      id: 2,
-      title: "Revisión rutinaria",
-      description: "Reunión semanal para revisar avances y asignar tareas",
-      start: dayjs("2024-04-10T09:00:00").toDate(),
-      end: dayjs("2024-04-10T10:00:00").toDate(),
-      location: "Oficina principal",
-      attendees: ["Juan", "María", "Pedro"],
-      recep: "Juana de Arco",
-      historialMedico: historialMedico, // <-- Aquí
-    },
-  ];
+
 
   const handleEventClick = (event) => {
     setSelectedEvent(event); // Establecer el evento seleccionado cuando se hace clic en él
