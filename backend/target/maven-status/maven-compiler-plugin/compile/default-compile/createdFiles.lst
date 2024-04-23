@@ -57,6 +57,7 @@ com\project\c17567Java\Auth\Dto\RegisterRequest$RegisterRequestBuilder.class
 com\project\c17567Java\Dto\DoctorDto.class
 com\project\c17567Java\Auth\Dto\UserDTO$UserDTOBuilder.class
 com\project\c17567Java\Auth\Dto\UserResponse.class
+com\project\c17567Java\Config\CorsConfig.class
 com\project\c17567Java\Service\TurnService.class
 com\project\c17567Java\Auth\Dto\UserRequest$UserRequestBuilder.class
 com\project\c17567Java\C17567JavaApplication.class

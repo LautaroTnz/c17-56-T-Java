@@ -10,6 +10,7 @@ C:\Proyectos\Spring Boot\c17-56-T-Java\backend\src\main\java\com\project\c17567J
 C:\Proyectos\Spring Boot\c17-56-T-Java\backend\src\main\java\com\project\c17567Java\Repository\IPatientRepository.java
 C:\Proyectos\Spring Boot\c17-56-T-Java\backend\src\main\java\com\project\c17567Java\Auth\Dto\UserRequest.java
 C:\Proyectos\Spring Boot\c17-56-T-Java\backend\src\main\java\com\project\c17567Java\Service\IReceptionistService.java
+C:\Proyectos\Spring Boot\c17-56-T-Java\backend\src\main\java\com\project\c17567Java\Config\CorsConfig.java
 C:\Proyectos\Spring Boot\c17-56-T-Java\backend\src\main\java\com\project\c17567Java\Entity\Patient.java
 C:\Proyectos\Spring Boot\c17-56-T-Java\backend\src\main\java\com\project\c17567Java\Entity\Turn.java
 C:\Proyectos\Spring Boot\c17-56-T-Java\backend\src\main\java\com\project\c17567Java\Service\TurnService.java
