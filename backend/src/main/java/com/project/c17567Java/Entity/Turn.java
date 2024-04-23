@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Data
@@ -30,5 +32,12 @@ public class Turn {
     private LocalDate date;
     private LocalTime time;
     private Boolean state;
+    private String title;
+    private String description;
 
+    @Transient // No es necesario mapear estos campos a la base de datos
+    private LocalDateTime start;
+
+    @Transient
+    private LocalDateTime end;
 }

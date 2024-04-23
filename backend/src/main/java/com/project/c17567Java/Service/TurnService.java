@@ -11,8 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TurnService implements ITurnService{
@@ -26,23 +29,47 @@ public class TurnService implements ITurnService{
     @Autowired
     private IPatientRepository iPatientRepository;
 
+
     @Override
     public void saveTurn(TurnDto turnDto) {
         Optional<Patient> patientOptional = iPatientRepository.findById(turnDto.getPatient());
         Optional<Doctor> doctorOptional = iDoctorRepository.findById(turnDto.getDoctor());
 
-        Turn turn = Turn.builder()
-                .patient(patientOptional.get())
-                .doctor(doctorOptional.get())
-                .date(turnDto.getDate())
-                .time(turnDto.getTime())
-                .state(turnDto.getState())
-                .build();
+        if (patientOptional.isPresent() && doctorOptional.isPresent()) {
 
-        iTurnRepository.save(turn);
+            LocalDateTime selectedDateTime = LocalDateTime.of(turnDto.getDate(), turnDto.getTime());
+
+
+            LocalDateTime startDateTime = selectedDateTime;
+            LocalDateTime endDateTime = selectedDateTime.plusHours(1);
+
+
+            turnDto.setStart(startDateTime);
+            turnDto.setEnd(endDateTime);
+
+
+            Turn turn = Turn.builder()
+                    .id(turnDto.getId())
+                    .patient(patientOptional.get())
+                    .doctor(doctorOptional.get())
+                    .date(turnDto.getDate())
+                    .time(turnDto.getTime())
+                    .state(turnDto.getState())
+                    .title(turnDto.getTitle())
+                    .description(turnDto.getDescription())
+                    .start(turnDto.getStart())
+                    .end(turnDto.getEnd())
+                    .build();
+
+
+            iTurnRepository.save(turn);
+        } else {
+            throw new RuntimeException("No se encontró el paciente o el doctor correspondiente");
+        }
     }
 
-   @Override
+
+    @Override
     public void deleteTurn(Integer id) {
        iTurnRepository.deleteById(id);
     }
@@ -50,19 +77,33 @@ public class TurnService implements ITurnService{
     @Override
     public List<TurnDto> getAllTurns() {
         List<TurnDto> turnDtoList = iTurnRepository.findAll()
-
                 .stream()
-                .map(turn -> TurnDto.builder()
-                        .id(turn.getId())
-                        .patient(turn.getPatient().getId())
-                        .doctor(turn.getDoctor().getId())
-                        .date(turn.getDate())
-                        .time(turn.getTime())
-                        .state(turn.getState())
-                        .build())
-                .toList();
+                .map(turn -> {
+                    TurnDto turnDto = TurnDto.builder()
+                            .id(turn.getId())
+                            .patient(turn.getPatient().getId())
+                            .doctor(turn.getDoctor().getId())
+                            .date(turn.getDate())
+                            .time(turn.getTime())
+                            .state(turn.getState())
+                            .title(turn.getTitle())
+                            .description(turn.getDescription())
+                            .start(calculateStartDateTime(turn.getDate(), turn.getTime()))
+                            .end(calculateEndDateTime(turn.getDate(), turn.getTime()))
+                            .build();
+                    return turnDto;
+                })
+                .collect(Collectors.toList());
 
         return turnDtoList;
+    }
+
+    private LocalDateTime calculateStartDateTime(LocalDate date, LocalTime time) {
+        return LocalDateTime.of(date, time);
+    }
+
+    private LocalDateTime calculateEndDateTime(LocalDate date, LocalTime time) {
+        return LocalDateTime.of(date, time).plusHours(1);
     }
 
     @Override
@@ -76,6 +117,10 @@ public class TurnService implements ITurnService{
                 .date(turn.getDate())
                 .time(turn.getTime())
                 .state(turn.getState())
+                .title(turn.getTitle())
+                .description(turn.getDescription())
+                .start(calculateStartDateTime(turn.getDate(), turn.getTime()))
+                .end(calculateEndDateTime(turn.getDate(), turn.getTime()))
                 .build();
 
         return turnDto;
@@ -87,11 +132,15 @@ public class TurnService implements ITurnService{
                 .stream()
                 .map(turn -> TurnDto.builder()
                         .id(turn.getId())
-                        .patient(turn.getPatient().getId()) // Conversión a Long
-                        .doctor(turn.getDoctor().getId()) // Conversión a Long
+                        .patient(turn.getPatient().getId())
+                        .doctor(turn.getDoctor().getId())
                         .date(turn.getDate())
                         .time(turn.getTime())
                         .state(turn.getState())
+                        .title(turn.getTitle())
+                        .description(turn.getDescription())
+                        .start(calculateStartDateTime(turn.getDate(), turn.getTime()))
+                        .end(calculateEndDateTime(turn.getDate(), turn.getTime()))
                         .build())
                 .toList();
 
@@ -109,6 +158,11 @@ public class TurnService implements ITurnService{
                         .date(turn.getDate())
                         .time(turn.getTime())
                         .state(turn.getState())
+                        .title(turn.getTitle())
+                        .description(turn.getDescription())
+                        .start(calculateStartDateTime(turn.getDate(), turn.getTime()))
+                        .end(calculateEndDateTime(turn.getDate(), turn.getTime()))
+
                         .build())
                 .toList();
 
