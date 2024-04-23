@@ -1,7 +1,6 @@
 package com.project.c17567Java.Dto;
 
-import com.project.c17567Java.Entity.Doctor;
-import com.project.c17567Java.Entity.Patient;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,8 +13,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HistoryDto {
+    private Integer id;
     private String description;
-    private Doctor doctor;
-    private Patient patient;
+    private Integer doctor;
+    private Integer patient;
     private LocalDate date;
 }
