@@ -8,16 +8,18 @@ function classNames(...classes) {
 }
 
 function DropdownsTurn({ options, onChange, selected }) {
-
-    console.log("selected se llamó");
-    console.log('Opciones: ',options);
-    console.log('Selecteds: ',selected);
+  const hasOptions = options.length > 0; // Verificar si hay médicos disponibles
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black ">
+      <div className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-primarygrey ">
         <Menu.Button className="inline-flex w-full justify-between rounded-md bg-white px-3 mt-3 text-sm font-medium text-gray-700 hover:bg-gray-50">
-          {selected?.label || "Seleccione un médico"}
+          {selected
+            ? selected.label
+            : hasOptions
+            ? "Seleccione un médico"
+            : "No hay médicos disponibles en esa especialidad"}
+
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-gray-400"
             aria-hidden="true"

@@ -31,7 +31,6 @@ function AgendaMedico() {
 
   const dispatch = useDispatch();
   const turns = useSelector((state) => state.turns.turns); // Obten los turnos de Redux
-  console.log('Turnos desde AgendaMedico: ',turns);
 
   useEffect(() => {
     dispatch(fetchTurns()); // Ejecuta la acción para obtener turnos
@@ -39,7 +38,7 @@ function AgendaMedico() {
 
   // Transformar los datos para BigCalendar
   const events = transformTurnData(turns);
-  console.log('Eventos desde AgendaMedico: ',events);
+
 
   const [selectedDate, setSelectedDate] = useState(dayjs().toDate());
   const [selectedEvent, setSelectedEvent] = useState(null);

@@ -9,6 +9,8 @@ import { DropdownsTurn } from "../../components";
 import { Datepiker } from "../../utils";
 import { TablaTurnosActivos } from "../../components";
 import { LoadingPage } from "../../layouts";
+import Dropdownsespecialidades from "../../components/Dropdowns/Dropdownsespecialidades";
+import Swal from "sweetalert2";
 
 function TurnoPaciente() {
   const dispatch = useDispatch();
@@ -21,12 +23,8 @@ function TurnoPaciente() {
   const [turnTitle, setTurnTitle] = useState(""); // Campo para el título
   const [turnDescription, setTurnDescription] = useState(""); // Campo para la descripción
 
-
-  // especialidades
   const especialidades = useSelector((state) => state.specialty.especialidades);
-  // médicos
   const doctors = useSelector((state) => state.doctor.doctors);
-  // turnos
   const turns = useSelector((state) => state.turns.turns);
   const turnCreateLoading = useSelector((state) => state.createTurn.loading);
   const turnCreateError = useSelector((state) => state.createTurn.error);
@@ -51,11 +49,26 @@ function TurnoPaciente() {
     return <LoadingPage />;
   }
 
+  // Filtrar médicos según la especialidad seleccionada
+  const filteredDoctors = selectedEspecialidad
+    ? doctors.filter((doc) => doc.speciality === selectedEspecialidad)
+    : [];
+
+  const handleEspecialidadChange = (specialityId) => {
+    setSelectedEspecialidad(specialityId);
+    setSelectedMedico(null); // Restablecer el médico cuando cambie la especialidad
+  };
+
   const registros = combineTurnsWithSpecialtiesAndDoctors(
     turns,
     especialidades,
     doctors
   );
+
+  console.log("Registros con ID:", registros); // Revisa si tienen ID
+
+  const eventId = turns.id;
+  console.log("eventID:", eventId);
 
   const doctorOptions = doctors.map((doctor) => {
     // Encuentra la especialidad del médico
@@ -79,44 +92,74 @@ function TurnoPaciente() {
 
   // Manejar selección de médico
   const handleMedicoChange = (option) => {
-    setSelectedMedico(option.value);
-    setSelectedEspecialidad(option.specialty); // Cambia la especialidad cuando seleccionas un médico
+    setSelectedMedico(option);
   };
 
   // Confirmar turno
   const handleConfirmTurno = () => {
-    if (
-      !selectedMedico ||
-      !selectedFecha ||
-      !selectedHora ||
-      turnTitle === "" ||
-      turnDescription === ""
-    ) {
-      alert("Por favor, completa todos los campos.");
-      return;
-    }
+    Swal.fire({
+      title: "¿Deseas confirmar el turno?",
+      text: "Esta acción no puede deshacerse.",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Guardar",
+      cancelButtonText: "No guardar",
+      denyButtonText: "Cancelar",
+      showDenyButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario elige "Guardar"
+        const newTurno = {
+          patient: 203,
+          doctor: selectedMedico.value,
+          date: selectedFecha.toISOString().split("T")[0],
+          time: selectedHora,
+          state: true,
+          title: turnTitle,
+          description: turnDescription,
+        };
 
-    const newTurno = {
-      patient: 0, // Placeholder para el ID del paciente
-      doctor: selectedMedico,
-      date: selectedFecha.toISOString().split("T")[0],
-      time: selectedHora,
-      state: true,
-      title: turnTitle,
-      description: turnDescription,
-    };
-
-    console.log("Enviando nuevo turno:", newTurno);
-
-    dispatch(createTurnActions(newTurno)).then(
-      () => {
-        console.log("Turno creado con éxito.");
-      },
-      (error) => {
-        console.error("Error al crear el turno:", error);
+        dispatch(createTurnActions(newTurno)).then(
+          () => {
+            Swal.fire({
+              title: "Turno enviado con éxito",
+              text: "El turno ha sido creado.",
+              icon: "success",
+            });
+            // Restablece los campos del formulario
+            setSelectedEspecialidad(null);
+            setSelectedMedico(null);
+            setSelectedFecha(new Date());
+            setSelectedHora("");
+            setTurnTitle("");
+            setTurnDescription("");
+          },
+          (error) => {
+            console.error("Error al crear el turno:", error);
+            Swal.fire({
+              title: "Error al enviar el turno",
+              text: "Intente nuevamente.",
+              icon: "error",
+            });
+          }
+        );
+      } else if (result.isDenied) {
+        // Si el usuario elige "No guardar", no hace nada, solo cierra la alerta
+        Swal.fire("El turno no fue guardado.", "", "info");
+        // Restablecer el formulario
+        setSelectedEspecialidad(null);
+        setSelectedMedico(null);
+        setSelectedFecha(new Date());
+        setSelectedHora("");
+        setTurnTitle("");
+        setTurnDescription("");
+      } else {
+        // Si el usuario elige "Cancelar", simplemente cierra la alerta sin hacer nada
+        Swal.fire("Acción cancelada.", "", "info");
       }
-    );
+    });
   };
+
   return (
     <div className="flex justify-center">
       <div
@@ -125,69 +168,84 @@ function TurnoPaciente() {
       >
         <div className="flex flex-col xl:w-[1046px] xl:h-[381px] w-[328px] text-primarygrey">
           <div className="flex flex-col ">
-            <h1 className="text-[20px] mt-[43px] mb-[5px]">
-              Seleccionar un médico
+            <h1 className="text-[20px] xl:mt-[43px] mb-[5px] font-medium text-principal">
+              Agenda tu cita
             </h1>
-            <div className="flex flex-col gap-y-[8px]">
-          <p className="text-[16px]">Título del turno</p>
-          <input
-            type="text"
-            className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black"
-            placeholder="Ingrese el título del turno"
-            value={turnTitle}
-            onChange={(e) => setTurnTitle(e.target.value)}
-          />
-        </div>
-        <div className="flex flex-col gap-y-[8px]">
-          <p className="text-[16px]">Descripción del turno</p>
-          <input
-            type="text"
-            className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black"
-            placeholder="Ingrese una descripción del turno"
-            value={turnDescription}
-            onChange={(e) => setTurnDescription(e.target.value)}
-          />
-        </div>
+
             <div className="flex flex-col gap-y-[17px] ">
               <div className="flex xl:flex-row flex-col justify-between">
                 <div className="flex flex-col gap-y-[8px]">
-                  <p className="text-[16px]">Seleccionar una especialidad</p>
+                  <p className="text-[16px] text-texto">Título del turno</p>
                   <input
                     type="text"
-                    className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black"
-                    placeholder="Especialidad"
-                    value={selectedEspecialidad}
-                    read-only
+                    className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-primarygrey pl-3"
+                    placeholder="Ingrese el título del turno"
+                    value={turnTitle}
+                    onChange={(e) => setTurnTitle(e.target.value)}
                   />
                 </div>
                 <div className="flex flex-col gap-y-[8px]">
-                  <p className="text-[16px]">Seleccionar una fecha</p>
+                  <p className="text-[16px] text-texto">
+                    Descripción del turno
+                  </p>
+                  <input
+                    type="text"
+                    className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-primarygrey pl-3"
+                    placeholder="Ingrese una descripción del turno"
+                    value={turnDescription}
+                    onChange={(e) => setTurnDescription(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="flex xl:flex-row flex-col justify-between">
+                <div className="flex flex-col gap-y-[8px]">
+                  <p className="text-[16px] text-texto">
+                    Seleccionar una especialidad
+                  </p>
+                  <div className="xl:w-[488.14px] w-[328px] h-[50px]">
+                    <Dropdownsespecialidades
+                      especialidades={especialidades}
+                      onChange={handleEspecialidadChange}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-y-[8px]">
+                  <p className="text-[16px] text-texto mt-3 xl:mt-0">
+                    Seleccionar una fecha
+                  </p>
 
                   <div className="xl:w-[488.14px] xl:h-[50px]">
-                    <Datepiker
-                      value={selectedFecha}
-                      onChange={(date) => setSelectedFecha(date)}
-                    />
+                    <div className="xl:w-[488.14px] w-[328px] h-[50px]">
+                      <Datepiker
+                        value={selectedFecha}
+                        onChange={(date) => setSelectedFecha(date)}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="flex xl:flex-row flex-col justify-between">
                 <div className="flex flex-col gap-y-[8px]">
-                  <p className="text-[16px]">Seleccionar un médico</p>
+                  <p className="text-[16px] text-texto">
+                    Seleccionar un médico
+                  </p>
                   <DropdownsTurn
-                    options={doctorOptions} // Asegúrate de pasar la lista de médicos
-                    selected={doctorOptions.find(
-                      (o) => o.value === selectedMedico
-                    )}
+                    options={filteredDoctors.map((doc) => ({
+                      label: `${doc.firstname} ${doc.lastname}`,
+                      value: doc.id,
+                    }))}
+                    selected={selectedMedico} // Aquí se pasa el objeto seleccionado
                     onChange={handleMedicoChange}
                   />
                 </div>
                 <div className="flex flex-col gap-y-[8px]">
-                  <p className="text-[16px]">Seleccionar un horario</p>
+                  <p className="text-[16px] text-texto mt-3 xl:mt-0">
+                    Seleccionar un horario
+                  </p>
                   <input
                     type="text"
-                    className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black"
+                    className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-primarygrey pl-3"
                     placeholder="Ingrese hora (HH:MM)"
                     value={selectedHora}
                     onChange={(e) => setSelectedHora(e.target.value)}
@@ -200,7 +258,7 @@ function TurnoPaciente() {
             <button
               onClick={handleConfirmTurno}
               disabled={turnCreateLoading}
-              className="text-[10px] w-[136px] h-[36px] bg-primarygrey hover:bg-primarygreenhover text-white font-bold py-2 px-4 rounded"
+              className="text-[14px] w-[149px] h-[39px] bg-principal hover:bg-primarygreenhover text-white font-medium rounded"
             >
               Confirmar turno
             </button>
@@ -210,9 +268,11 @@ function TurnoPaciente() {
             <p className="text-red-600">Error: {turnCreateError}</p>
           )}
 
-          <div className="xl:flex xl:flex-col xl:item-center xl:justify-center xl:text-center xl:mt-[17px] mt-[20px]">
-            <h1 className="flex xl:mb-5 xl:text-[20px]">Turnos activos</h1>
-            <TablaTurnosActivos registros={registros} />
+          <div className="xl:flex xl:flex-col xl:item-center xl:justify-center xl:text-center mt-[20px]">
+            <h1 className="flex xl:mb-5 text-[20px] mt-[23px] mb-[5px] font-medium text-principal">
+              Turnos activos
+            </h1>
+            <TablaTurnosActivos registros={registros} eventId={eventId} />
           </div>
         </div>
       </div>

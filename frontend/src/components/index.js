@@ -22,3 +22,4 @@ export { default as FormEditRecep } from "./Form/FormEditRecep";
 export { default as FormPaciente } from "./Form/FormPaciente";
 export { default as ButtonSidebar } from "./Button/MyButton"
 export { default as DropdownsTurn } from "./Dropdowns/DropdownsTurn";
+export { default as CardPaciente } from "./CardUniones/CardPaciente"

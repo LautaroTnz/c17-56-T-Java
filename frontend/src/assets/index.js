@@ -28,3 +28,8 @@ export { default as Avataradmin } from "./Navbar/Avataradmin.png";
 export { default as Iconoagregarpaciente } from "./Navbar/Iconoagregarpaciente.svg";
 export { default as Iconorecetas } from "./Navbar/Iconorecetas.svg";
 export { default as Iconoverazul } from "./Tables/Iconoverazul.svg";
+export { default as Bannerpaciente } from "./img/Bannerpaciente.png";
+export { default as Avatarestudios } from "./Avatars/Avatarestudios.png";
+export { default as Avatarmedico2 } from "./Avatars/Avatarmedico2.png";
+export { default as Avatarturnos } from "./Avatars/Avatarturnos.png";
+export { default as Iconohola } from "./Utils/Iconohola.svg";

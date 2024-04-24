@@ -11,6 +11,7 @@ export const combineTurnsWithSpecialtiesAndDoctors = (turns, specialties, doctor
     if (!doctor) {
       console.warn(`No se encontró un médico con ID ${turn.doctor}`);
       return {
+        id: turn.id, // Incluir el ID del turno
         fecha: `${turn.date} ${turn.time}`,
         especialidad: "Desconocida",
         doctor: "Desconocido",
@@ -22,6 +23,7 @@ export const combineTurnsWithSpecialtiesAndDoctors = (turns, specialties, doctor
     );
 
     return {
+      id: turn.id, // Incluir el ID del turno
       fecha: `${turn.date} ${turn.time}`,
       especialidad: specialty ? specialty.description : "Desconocida",
       doctor: `${doctor.firstname} ${doctor.lastname}`,

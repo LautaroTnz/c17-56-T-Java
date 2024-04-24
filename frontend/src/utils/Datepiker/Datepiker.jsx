@@ -26,7 +26,7 @@ function Datepiker() {
         <Popover placement="bottom">
           <PopoverHandler>
             <Input
-              className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black"
+              className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-primarygrey"
               onChange={() => null}
               value={formattedDate}
             />
@@ -38,7 +38,7 @@ function Datepiker() {
               onSelect={handleDateChange}
               showOutsideDays
               locale={es}
-              className="border-0 h-full rounded-[5px] border border-black"
+              className="border-0 w-full h-full rounded-[5px] border-black p-5" // Modifica las dimensiones del contenedor
               // Resto de tu configuración de DayPicker
             />
           </PopoverContent>

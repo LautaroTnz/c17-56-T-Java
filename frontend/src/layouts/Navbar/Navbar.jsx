@@ -272,7 +272,7 @@ function Navbar({ onLogout, redirectToLogin }) {
 
                 {userRole === "medico" && (
                   <>
-                   <div className="flex flex-row">
+                    <div className="flex flex-row">
                       <img
                         className="h-7 w-7 mt-1.5"
                         src={IconInicio}
@@ -311,6 +311,37 @@ function Navbar({ onLogout, redirectToLogin }) {
                         className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
                       >
                         Crear Receta
+                      </a>
+                    </div>
+                  </>
+                )}
+
+                {userRole === "paciente" && (
+                  <>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconInicio}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/agendapaciente"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Inicio
+                      </a>
+                    </div>
+                    <div className="flex flex-row">
+                      <img
+                        className="h-7 w-7 mt-1.5"
+                        src={IconBookReception}
+                        alt="Inicio"
+                      />
+                      <a
+                        href="/elegirturnopaciente"
+                        className="block text-black px-3 py-2 text-[16px] text-texto font-medium"
+                      >
+                        Sacar Turno
                       </a>
                     </div>
                   </>

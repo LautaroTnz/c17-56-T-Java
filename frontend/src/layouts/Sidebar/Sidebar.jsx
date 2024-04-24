@@ -200,7 +200,11 @@ function Sidebar() {
               </a>
               <a href="/registropaciente">
                 <div className="h-10">
-                  <img className="h-6 w-6" src={IconBookReception} alt="Inicio" />
+                  <img
+                    className="h-6 w-6"
+                    src={IconBookReception}
+                    alt="Inicio"
+                  />
                 </div>
               </a>
               <a href="/crearreceta">
@@ -223,7 +227,11 @@ function Sidebar() {
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registropaciente">
-                  <img className="h-6 w-6" src={IconBookReception} alt="Inicio" />
+                  <img
+                    className="h-6 w-6"
+                    src={IconBookReception}
+                    alt="Inicio"
+                  />
                 </a>
                 <a href="/registropaciente">
                   <span className="ml-10 text-sm">Registro de pacientes</span>
@@ -316,37 +324,86 @@ function Sidebar() {
         </div>
       )}
 
+      {/* Sidebar para el rol de paciente */}
       {userRole === "paciente" && (
         <div className="mt-20">
           {/* Mostrar iconos en columna cuando la barra lateral no está expandida */}
           {!expanded && (
-            <div className="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
+            <div class="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
               <a href="/agendapaciente">
-                <div className="h-10">
-                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/agendapaciente")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`}
+                >
+                  <img
+                    className="h-7 w-7"
+                    src={IconInicio}
+                    alt="Agenda Paciente"
+                  />
                 </div>
               </a>
               <a href="/elegirturnopaciente">
-                <div className="h-10">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/elegirturnopaciente")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`}
+                >
+                  <img
+                    class="h-7 w-7"
+                    src={IconBookReception}
+                    alt="Sacar Turno"
+                  />
                 </div>
               </a>
             </div>
           )}
-          {/* Mostrar iconos con etiqueta cuando la barra lateral está expandida */}
+          {/* Mostrar iconos con etiquetas cuando la barra lateral está expandida */}
           {expanded && (
-            <div className="flex flex-col items-start ml-9 ">
-              <div className="mb-4 flex items-center h-11">
+            <div className="flex flex-col items-start ml-9">
+              <div class="mb-4 flex items-center h-11">
                 <a href="/agendapaciente">
-                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/agendapaciente")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img
+                      className="h-7 w-7"
+                      src={IconInicio}
+                      alt="Agenda Paciente"
+                    />
+                  </div>
                 </a>
-                <span className="ml-10 text-sm">Inicio</span>
+                <a href="/agendapaciente">
+                  <span class="ml-3.5 text-sm">Inicio</span>
+                </a>
               </div>
-              <div className="mb-4 flex items-center h-11">
+              <div class="mb-4 flex items-center h-11">
                 <a href="/elegirturnopaciente">
-                  <img className="h-6 w-6" src={RegistroMedico} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/elegirturnopaciente")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img
+                      class="h-7 w-7"
+                      src={IconBookReception}
+                      alt="Sacar Turno"
+                    />
+                  </div>
                 </a>
-                <span className="ml-10 text-sm">Elegir Turno</span>
+                <a href="/elegirturnopaciente">
+                  <span class="ml-3.5 text-sm">Sacar Turno</span>
+                </a>
               </div>
             </div>
           )}
@@ -356,7 +413,7 @@ function Sidebar() {
       {/* Este es el icono ayuda para todos */}
       {!expanded && (
         <div className="absolute bottom-10 ml-9 mb-0">
-          <img className="h-6 w-6" src={IconAyuda} alt="Inicio" />
+          <img className="h-8 w-8" src={IconAyuda} alt="Inicio" />
         </div>
       )}
 

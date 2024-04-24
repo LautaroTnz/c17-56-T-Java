@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: { 
+      backgroundImage: {
+        fondocard: "url('./src/assets/img/Bannerpaciente.png')",
+      },
       // Extiende los colores de fondo
       colors: {
         primary: "#FFFFFF",
