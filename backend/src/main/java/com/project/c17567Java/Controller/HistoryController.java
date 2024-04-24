@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/history")
 @RequiredArgsConstructor
+@CrossOrigin(origins = {"https://mydoctorapp.vercel.app"})
 public class HistoryController {
     @Autowired
     private HistoryService historyService;
