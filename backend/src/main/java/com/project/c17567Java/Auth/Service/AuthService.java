@@ -28,9 +28,11 @@ public class AuthService {
         User user = userRepository.findByUsername(request.getUsername()).orElseThrow();
         String token = jwtService.getToken(user);
         String role = user.getRole().toString();
+        Integer id = user.getId();
         return AuthResponse.builder()
                 .token(token)
                 .role(role)
+                .id(id)
                 .build();
     }
 
