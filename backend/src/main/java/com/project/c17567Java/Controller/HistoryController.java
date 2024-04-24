@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/history")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:5173"})
 public class HistoryController {
     @Autowired
     private HistoryService historyService;
