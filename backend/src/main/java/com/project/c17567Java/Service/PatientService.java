@@ -49,8 +49,8 @@ public class PatientService implements IPatientService{
         List<PatientDto> patientDtoList = iPatientRepository.findAll()
                 .stream()
                 .map(patient -> PatientDto.builder()
+                        .id(patient.getId())
                         .username(patient.getUsername())
-                        .password(patient.getPassword())
                         .email(patient.getEmail())
                         .firstname(patient.getFirstname())
                         .lastname(patient.getLastname())
@@ -62,6 +62,24 @@ public class PatientService implements IPatientService{
                 .toList();
 
         return patientDtoList;
+    }
+
+    @Override
+    public PatientDto findPatientById(Integer id){
+        Patient patient = iPatientRepository.findById(id).orElse(null);
+
+        PatientDto patientDto = PatientDto.builder()
+                .id(patient.getId())
+                .username(patient.getUsername())
+                .email(patient.getEmail())
+                .firstname(patient.getFirstname())
+                .lastname(patient.getLastname())
+                .country(patient.getCountry())
+                .dni(patient.getDni())
+                .role(patient.getRole())
+                .patientId(patient.getPatientId())
+                .build();
+        return patientDto;
     }
 
     @Override

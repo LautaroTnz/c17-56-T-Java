@@ -1,5 +1,6 @@
 package com.project.c17567Java.Controller;
 
+import com.project.c17567Java.Dto.DoctorDto;
 import com.project.c17567Java.Dto.PatientDto;
 import com.project.c17567Java.Service.PatientService;
 import lombok.RequiredArgsConstructor;
@@ -38,5 +39,11 @@ public class PatientController {
     public ResponseEntity<List<PatientDto>> findAll(){
         List<PatientDto> patientDtoList = patientService.getPatients();
         return ResponseEntity.ok(patientDtoList);
+    }
+
+    @GetMapping("/find/{id}")
+    public ResponseEntity<PatientDto> findById(@PathVariable Integer id){
+        PatientDto patientDto = patientService.findPatientById(id);
+        return ResponseEntity.ok(patientDto);
     }
 }
