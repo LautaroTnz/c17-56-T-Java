@@ -4,6 +4,7 @@ import { editDoctor } from '../../redux/actions/editDoctorActions'; // Importar 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import Dropdownsespecialidades from '../Dropdowns/Dropdownsespecialidades';
+import DropdownsespecialidadesForm from "../Dropdowns/DropdownsespecialidadesForm";
 
 const MySwal = withReactContent(Swal);
 
@@ -172,14 +173,15 @@ function FormEditMedic({ data, especialidades }) {
                 htmlFor="especialidad"
                 className="block text-texto font-meduim mb-2"
               >
-                {data?.especialidad}:
+                Especialidades:
               </label>
-              <Dropdownsespecialidades
+              <div className="xl:w-[488.14px] w-[328px] h-[50px]" >
+              <DropdownsespecialidadesForm
                 especialidades={especialidades}
                 onChange={(selectedId) =>
                   setFormData({ ...formData, especialidad: selectedId })
                 }
-              />
+              /></div>
             </div>
 
             <div
@@ -249,7 +251,7 @@ function FormEditMedic({ data, especialidades }) {
               id="email"
               name="email"
               placeholder="Correo electrónico"
-              className="placeholder:text-textoinputs placeholder:text-[16px] xl:h-[50px] xl:w-[350px] placeholder:text-textoinputs placeholder:text-[16px]
+              className="placeholder:text-textoinputs placeholder:text-[16px] xl:h-[50px] xl:w-[350px]
             h-[50px] appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
