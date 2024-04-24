@@ -1,0 +1,23 @@
+.react-big-calendar {
+    border-radius: 20px; /* Agregar bordes redondeados */
+  }
+
+  /* Aumentar el tamaño del calendario emergente */
+.DayPicker-wrapper {
+  width: 100%; /* Puedes ajustar este valor para hacer el calendario más grande */
+  padding: 20px; /* Ajusta el espacio interno del calendario */
+}
+
+.DayPicker {
+  width: 100%; /* Ancho del calendario */
+}
+
+.DayPicker-Caption {
+  font-size: 1.2em; /* Tamaño de fuente del título del calendario */
+}
+
+.DayPicker-Day {
+  width: 30px; /* Tamaño del día individual */
+  height: 30px;
+  font-size: 1em; /* Tamaño de la fuente del día */
+}

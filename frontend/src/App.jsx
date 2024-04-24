@@ -1,25 +1,159 @@
-import './App.css'
-import { Counter } from './components/Counter/Counter'
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import "./App.css";
+import {
+  Home,
+  Login,
+  PerfilMedico,
+  PerfilRecepcionista,
+  RegistroMedico,
+  RegistroRecepcionista,
+  AgendaRecepcionista,
+  AgendaMedico,
+  AgendaPaciente,
+  HistorialClinica,
+  RegistroPaciente,
+  SeleccionTurno,
+  PerfilPaciente,
+  TurnoPaciente,
+  EditarMedico,
+  EditarRecepcionista,
+  CrearReceta,
+} from "./pages";
+import { NotFound } from "./errors";
+import { Navbar, Sidebar, LoadingPage } from "./layouts";
 
 function App() {
-
   return (
-    <>
-      <div className="mt-10 p-8 bg-secondary rounded-lg shadow-xl ml-10 mr-10 text-center flex flex-col gap-y-10">
-        <h1 className='text-primary text-4xl font-bold leading-relaxed text-center'>¡Hola NoCountry!</h1>
-        <h1 className='text-primary text-2xl text-center'>HandOff web - fronentd - Pruebas de clases TailwindConfig - My Doctor App</h1>
-        <h1 className="text-primary text-2xl">Primary Heading + bg-secondary</h1>
-        <p className="text-primary">Primary Text + bg-secondary</p>
-        <div className="bg-primary text-secondary p-4 rounded-md">
-          <p className="text-secondary">Secondary Text + bg-primary</p>
-        </div>
-      </div>
-
-      <h1 className='text-secondary text-4xl font-bold leading-relaxed text-center mt-5'>¡Instalado y configurado Redux Toolkit! Pruebalo:</h1>
-
-      <Counter />
-    </>
-  )
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
 }
 
-export default App
+function AppContent() {
+  const location = useLocation();
+  // Definir un estado para controlar la visibilidad de la Navbar y la Sidebar
+  const showNavbarAndSidebar = !["/"].includes(location.pathname);
+
+  const [userRole, setUserRole] = useState(null);
+  const [loading, setLoading] = useState(true); // Estado para controlar si se está cargando
+
+  useEffect(() => {
+    const storedUserRole = localStorage.getItem("userRole");
+    if (storedUserRole) {
+      setUserRole(storedUserRole);
+    }
+    setLoading(false); // Marca el estado de carga como falso una vez que se haya verificado la autenticación
+  }, []);
+
+  const handleLogin = (role) => {
+    // Guardar el rol del usuario en el localStorage después de iniciar sesión
+    localStorage.setItem("userRole", role);
+    setUserRole(role);
+  };
+
+  const handleLogout = () => {
+    // Eliminar el rol del usuario del localStorage al cerrar sesión
+    localStorage.removeItem("userRole");
+    setUserRole(null);
+  };
+
+  const redirectToLogin = () => {
+    window.location.href = "/"; // Redirige al usuario a la página de inicio de sesión
+  };
+
+  console.log("userRole", userRole);
+
+  if (loading) {
+    return <LoadingPage />; // Renderiza la página de carga si se está cargando
+  }
+
+  return (
+    <div className="font-poppins">
+      <>
+        {/* Mostrar la Navbar y la Sidebar según el estado */}
+        {showNavbarAndSidebar && (
+          <>
+            <Navbar onLogout={handleLogout} redirectToLogin={redirectToLogin} />
+            <Sidebar />
+          </>
+        )}
+        <Routes>
+          <Route path="/" element={<Login onLogin={handleLogin} />} />
+          {userRole !== null && (
+            <>
+              {userRole === "admin" && (
+                <>
+                  <Route path="/inicio" element={<Home />} />
+                  <Route path="/perfilmedico" element={<PerfilMedico />} />
+                  <Route
+                    path="/perfilrecepcionista"
+                    element={<PerfilRecepcionista />}
+                  />
+                  <Route path="/registromedico" element={<RegistroMedico />} />
+                  <Route
+                    path="/registrorecepcionista"
+                    element={<RegistroRecepcionista />}
+                  />
+                  <Route
+                    path="/editarmedico/:medicoId"
+                    element={<EditarMedico />}
+                  />
+                  <Route
+                    path="/editarreceptionista/:recepcionistaId"
+                    element={<EditarRecepcionista />}
+                  />
+                </>
+              )}
+              {userRole === "medico" && (
+                <>
+                  <Route path="/agendamedico" element={<AgendaMedico />} />
+                  <Route
+                    path="/historiaclinica"
+                    element={<HistorialClinica />}
+                  />
+                  <Route
+                    path="/registropaciente"
+                    element={<RegistroPaciente />}
+                  />
+                  <Route path="/perfilpaciente" element={<PerfilPaciente />} />
+                  <Route
+                    path="/crearreceta"
+                    element={<CrearReceta />}
+                  />
+                </>
+              )}
+              {userRole === "recepcionista" && (
+                <>
+                  <Route
+                    path="/agendarecepcionista"
+                    element={<AgendaRecepcionista />}
+                  />
+                  <Route
+                    path="/registropaciente"
+                    element={<RegistroPaciente />}
+                  />
+                  <Route path="/seleccionturno" element={<SeleccionTurno />} />
+                  <Route path="/perfilpaciente" element={<PerfilPaciente />} />
+                </>
+              )}
+              {userRole === "paciente" && (
+                <>
+                  <Route path="/agendapaciente" element={<AgendaPaciente />} />
+                  <Route
+                    path="/elegirturnopaciente"
+                    element={<TurnoPaciente />}
+                  />
+                </>
+              )}
+            </>
+          )}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </>
+    </div>
+  );
+}
+
+export default App;
