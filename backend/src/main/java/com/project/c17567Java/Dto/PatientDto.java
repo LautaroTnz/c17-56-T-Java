@@ -1,6 +1,5 @@
 package com.project.c17567Java.Dto;
 
-import com.project.c17567Java.Auth.Dto.UserDTO;
 import com.project.c17567Java.Auth.User.Role;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -16,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PatientDto {
 
+    private Integer id;
     private String username;
     private String password;
     private String email;
