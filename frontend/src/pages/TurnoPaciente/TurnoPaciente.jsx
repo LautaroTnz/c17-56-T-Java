@@ -65,10 +65,8 @@ function TurnoPaciente() {
     doctors
   );
 
-  console.log("Registros con ID:", registros); // Revisa si tienen ID
 
   const eventId = turns.id;
-  console.log("eventID:", eventId);
 
   const doctorOptions = doctors.map((doctor) => {
     // Encuentra la especialidad del médico
@@ -87,8 +85,6 @@ function TurnoPaciente() {
     };
   });
 
-  // Verifica las opciones generadas
-  console.log("Opciones de doctores:", doctorOptions);
 
   // Manejar selección de médico
   const handleMedicoChange = (option) => {

@@ -110,7 +110,7 @@ function AgendaMedico() {
             Resumen de historia clínica
           </h1>
           {selectedEvent && selectedEvent.start && selectedEvent.end && (
-            <HistoriaClinica event={selectedEvent} />
+            <HistoriaClinica event={{ historialMedico }} />
           )}{" "}
           {/* Mostrar HistoriaClinica solo si hay un evento seleccionado y proviene del segundo calendario */}
         </div>

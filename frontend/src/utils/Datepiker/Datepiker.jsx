@@ -11,14 +11,14 @@ import { DayPicker } from "react-day-picker";
 
  
 
-function Datepiker() {
-    const [date, setDate] = React.useState(new Date());
+function Datepiker({ value, onChange, selectedDate }) {
 
+    
     const handleDateChange = (newDate) => {
         setDate(newDate);
     };
 
-    const formattedDate = date ? format(date, "PPP", { locale: es }) : ""; // Formatea la fecha en español
+    const formattedDate = value ? format(value, "PPP", { locale: es }) : "";
 
  
     return (
@@ -34,8 +34,8 @@ function Datepiker() {
           <PopoverContent>
             <DayPicker
               mode="single"
-              selected={date}
-              onSelect={handleDateChange}
+              selected={value}
+              onSelect={onChange}
               showOutsideDays
               locale={es}
               className="border-0 w-full h-full rounded-[5px] border-black p-5" // Modifica las dimensiones del contenedor

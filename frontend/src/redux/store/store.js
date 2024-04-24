@@ -12,6 +12,7 @@ import patientSlice from '../reducer/patientSlice'
 import turnSlice from '../reducer/turnSlice'
 import createTurnSlice from '../reducer/createTurnSlice'
 import deletedTurnSlice from '../reducer/deletedTurnSlice'
+import crearRecetaSlice from '../reducer/crearRecetaSlice'
 
 export const store = configureStore({
   reducer: {
@@ -27,5 +28,7 @@ export const store = configureStore({
     turns: turnSlice,
     createTurn: createTurnSlice,
     deletedTurn: deletedTurnSlice,
+    receta: crearRecetaSlice,
+
   },
 })
