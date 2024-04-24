@@ -134,7 +134,13 @@ function Sidebar() {
             <div className="flex flex-col items-start ml-9 ">
               <div className="mb-4 flex items-center h-11">
                 <a href="/inicio">
-                  <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/inicio") ? "bg-fondodiez rounded-full" : ""
+                    }`}
+                  >
+                    <img className="h-7 w-7" src={IconInicio} alt="Inicio" />{" "}
+                  </div>
                 </a>
                 <a href="/inicio">
                   <span className="ml-3.5 text-sm">Inicio</span>
@@ -142,7 +148,15 @@ function Sidebar() {
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/perfilmedico">
-                  <img className="h-7 w-7" src={IconDoctor} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/perfilmedico")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img className="h-7 w-7" src={IconDoctor} alt="Inicio" />
+                  </div>
                 </a>
                 <a href="/perfilmedico">
                   <span className="ml-3.5 text-sm">Crear perfil médico</span>
@@ -150,7 +164,19 @@ function Sidebar() {
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registromedico">
-                  <img className="h-7 w-7" src={IconBookMedical} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/registromedico")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img
+                      className="h-7 w-7"
+                      src={IconBookMedical}
+                      alt="Inicio"
+                    />{" "}
+                  </div>
                 </a>
                 <a href="/registromedico">
                   <span className="ml-3.5 text-sm">Registro de médicos</span>
@@ -158,7 +184,15 @@ function Sidebar() {
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/perfilrecepcionista">
-                  <img className="h-7 w-7" src={IconReception} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/perfilrecepcionista")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img className="h-7 w-7" src={IconReception} alt="Inicio" />
+                  </div>
                 </a>
                 <a href="/perfilrecepcionista">
                   <span className="ml-3.5 text-sm">
@@ -169,11 +203,19 @@ function Sidebar() {
 
               <div className="mb-4 flex items-center h-11">
                 <a href="/registrorecepcionista">
-                  <img
-                    className="h-7 w-7"
-                    src={IconBookReception}
-                    alt="Inicio"
-                  />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/registrorecepcionista")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img
+                      className="h-7 w-7"
+                      src={IconBookReception}
+                      alt="Inicio"
+                    />{" "}
+                  </div>
                 </a>
                 <a href="/registrorecepcionista">
                   <span className="ml-3.5 text-sm">
@@ -194,12 +236,22 @@ function Sidebar() {
           {!expanded && (
             <div className="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
               <a href="/agendamedico">
-                <div className="h-10">
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/agendamedico") ? "bg-fondodiez rounded-full" : ""
+                  }`}
+                >
                   <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
                 </div>
               </a>
               <a href="/registropaciente">
-                <div className="h-10">
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/registropaciente")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`}
+                >
                   <img
                     className="h-6 w-6"
                     src={IconBookReception}
@@ -208,7 +260,11 @@ function Sidebar() {
                 </div>
               </a>
               <a href="/crearreceta">
-                <div className="h-10">
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ${
+                    isActive("/crearreceta") ? "bg-fondodiez rounded-full" : ""
+                  }`}
+                >
                   <img className="h-6 w-6" src={Iconorecetas} alt="Inicio" />
                 </div>
               </a>
@@ -219,30 +275,54 @@ function Sidebar() {
             <div className="flex flex-col items-start ml-9 ">
               <div className="mb-4 flex items-center h-11">
                 <a href="/agendamedico">
-                  <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/agendamedico")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img className="h-6 w-6" src={IconInicio} alt="Inicio" />
+                  </div>
                 </a>
                 <a href="/registropaciente">
-                  <span className="ml-10 text-sm">Inicio</span>
+                  <span className="ml-4 text-sm">Inicio</span>
                 </a>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registropaciente">
-                  <img
-                    className="h-6 w-6"
-                    src={IconBookReception}
-                    alt="Inicio"
-                  />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/registropaciente")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img
+                      className="h-6 w-6"
+                      src={IconBookReception}
+                      alt="Inicio"
+                    />
+                  </div>
                 </a>
                 <a href="/registropaciente">
-                  <span className="ml-10 text-sm">Registro de pacientes</span>
+                  <span className="ml-4 text-sm">Registro de pacientes</span>
                 </a>
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/crearreceta">
-                  <img className="h-6 w-6" src={Iconorecetas} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ${
+                      isActive("/crearreceta")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img className="h-6 w-6" src={Iconorecetas} alt="Inicio" />
+                  </div>
                 </a>
                 <a href="/crearreceta">
-                  <span className="ml-10 text-sm">Crear Receta</span>
+                  <span className="ml-4 text-sm">Crear Receta</span>
                 </a>
               </div>
             </div>
@@ -258,12 +338,24 @@ function Sidebar() {
           {!expanded && (
             <div className="flex flex-col items-start ml-9 gap-y-5 pt-2.5">
               <a href="/agendarecepcionista">
-                <div className="h-10">
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ml-[-10px] ${
+                    isActive("/agendarecepcionista")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`}
+                >
                   <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
                 </div>
               </a>
               <a href="/registropaciente">
-                <div className="h-10">
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ml-[-10px] ${
+                    isActive("/registropaciente")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`}
+                >
                   <img
                     className="h-7 w-7"
                     src={IconBookReception}
@@ -273,7 +365,13 @@ function Sidebar() {
               </a>
 
               <a href="/perfilpaciente">
-                <div className="h-10">
+                <div
+                  className={`h-[40px] w-[40px] flex justify-center items-center ml-[-10px] ${
+                    isActive("/perfilpaciente")
+                      ? "bg-fondodiez rounded-full"
+                      : ""
+                  }`}
+                >
                   <img
                     className="h-7 w-7"
                     src={Iconoagregarpaciente}
@@ -288,7 +386,15 @@ function Sidebar() {
             <div className="flex flex-col items-start ml-9 ">
               <div className="mb-4 flex items-center h-11">
                 <a href="/agendarecepcionista">
-                  <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ml-[-10px] ${
+                      isActive("/agendarecepcionista")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img className="h-7 w-7" src={IconInicio} alt="Inicio" />
+                  </div>
                 </a>
                 <a href="/agendarecepcionista">
                   <span className="ml-6 text-sm">Inicio</span>
@@ -296,11 +402,19 @@ function Sidebar() {
               </div>
               <div className="mb-4 flex items-center h-11">
                 <a href="/registropaciente">
-                  <img
-                    className="h-7 w-7"
-                    src={IconBookReception}
-                    alt="Inicio"
-                  />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ml-[-10px] ${
+                      isActive("/registropaciente")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img
+                      className="h-7 w-7"
+                      src={IconBookReception}
+                      alt="Inicio"
+                    />
+                  </div>
                 </a>
                 <a href="/registropaciente">
                   <span className="ml-6 text-sm">Registro de pacientes</span>
@@ -309,11 +423,19 @@ function Sidebar() {
 
               <div className="mb-4 flex items-center h-11">
                 <a href="/perfilpaciente">
-                  <img
-                    className="h-7 w-7"
-                    src={Iconoagregarpaciente}
-                    alt="Inicio"
-                  />
+                  <div
+                    className={`h-[40px] w-[40px] flex justify-center items-center ml-[-10px] ${
+                      isActive("/perfilpaciente")
+                        ? "bg-fondodiez rounded-full"
+                        : ""
+                    }`}
+                  >
+                    <img
+                      className="h-7 w-7"
+                      src={Iconoagregarpaciente}
+                      alt="Inicio"
+                    />
+                  </div>
                 </a>
                 <a href="/perfilpaciente">
                   <span className="ml-6 text-sm">Crear perfil de paciente</span>
