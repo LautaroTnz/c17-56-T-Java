@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { CardForm, FormEditMedic } from "../../components";
 import { fetchSpecialties } from "../../redux/actions/actions";
 import { useParams } from "react-router-dom";
+import { Avatarmedico } from "../../assets";
 
 const dataMedico = {
   especialidad: "Especialidad",
-  imagen:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QeNbxV5_oeH7Iuxx-KoqlrdUffr_j-zse_2P_3tl8w&s",
+  imagen: Avatarmedico,
 };
 
 function EditarMedico() {

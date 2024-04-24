@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CardForm, FormEditRecep } from "../../components";
 import { useParams } from "react-router-dom";
+import { AvatarRecepcionista } from "../../assets";
 
 const dataMedico = {
   especialidad: "Especialidad",
-  imagen:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QeNbxV5_oeH7Iuxx-KoqlrdUffr_j-zse_2P_3tl8w&s",
+  imagen: AvatarRecepcionista,
 };
 
 function EditarRecepcionista() {
@@ -46,7 +46,7 @@ function EditarRecepcionista() {
         </div>
 
         <div
-          className="xl:w-[1026px] xl:h-[573px] bg-celestediez
+          className="xl:w-[1026px] xl:h-[573px] xl:bg-celestediez bg-white
                     xl:flex xl:flex-row xl:rounded-md xl: xl:"
         >
           <div

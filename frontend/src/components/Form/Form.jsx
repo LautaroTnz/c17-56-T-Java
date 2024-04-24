@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createDoctorActions } from "../../redux/actions/createDoctorActions";
 import Dropdownsespecialidades from "../Dropdowns/Dropdownsespecialidades";
+import DropdownsespecialidadesForm from "../Dropdowns/DropdownsespecialidadesForm";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -186,14 +187,17 @@ function Form({ data, especialidades }) {
                 htmlFor="especialidad"
                 className="block text-texto font-meduim mb-2"
               >
-                {data?.especialidad}:
+                Especialidad:
               </label>
-              <Dropdownsespecialidades
-                especialidades={especialidades}
-                onChange={(selectedId) =>
-                  setFormData({ ...formData, especialidad: selectedId })
-                }
-              />
+              <div className="xl:w-[488.14px] w-[328px] h-[50px]" >
+                <DropdownsespecialidadesForm
+                
+                  especialidades={especialidades}
+                  onChange={(selectedId) =>
+                    setFormData({ ...formData, especialidad: selectedId })
+                  }
+                />
+              </div>
             </div>
 
             <div
@@ -206,6 +210,7 @@ function Form({ data, especialidades }) {
               >
                 Dirección:
               </label>
+
               <input
                 onChange={handleChange}
                 value={formData.direccion}

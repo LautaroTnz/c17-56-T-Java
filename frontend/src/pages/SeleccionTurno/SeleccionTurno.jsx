@@ -168,7 +168,7 @@ function SeleccionTurno() {
               <div className="flex flex-col gap-y-[8px]">
                 <p className="text-[16px]">Buscar paciente</p>
                 <input
-                  className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black"
+                  className="xl:w-[488.14px] w-[328px] h-[50px] rounded-[5px] border border-black pl-2"
                   type="text"
                   placeholder="Buscar paciente por nombre"
                   value={searchTerm}
@@ -210,7 +210,7 @@ function SeleccionTurno() {
                 </div>
               )}
             </div>
-            <h1 className="text-[20px] text-principal font-medium mt-[43px] mb-[5px]">
+            <h1 className="text-[18px] text-texto font-medium mt-[43px] mb-[5px]">
               Seleccionar un médico
             </h1>
             <div className="flex flex-col gap-y-[17px] ">
@@ -224,7 +224,7 @@ function SeleccionTurno() {
                     onChange={handleEspecialidadChange}
                   />
                 </div>
-                <div className="flex flex-col gap-y-[8px]">
+                <div className="flex flex-col gap-y-[8px] xl:mt-[-35px]">
                   <p className="text-[18px] text-texto font-medium">
                     Seleccionar una fecha
                   </p>
