@@ -1,20 +1,26 @@
+<!-- Logo -->
+<img src="frontend/src/assets/img/LogoProyecto.png">
+  
 # 🏥MyDoctorApp - c17-56-T-Java
 My Doctor App es una solución innovadora para gestionar citas médicas de manera sencilla y personalizada. Desde reservar citas hasta administrar recetas, nuestra plataforma conecta a pacientes con médicos en diversas especialidades. Para médicos, proporcionamos una herramienta centralizada para gestionar agendas, acceder a registros de pacientes y crear recetas digitales de forma eficiente.
 
 ### 🏭 Industría o rubro: Health Tech
 
+<!-- Mockup -->
+<img src="frontend/src/assets/img/Mockup.png">
+
 ## 👥 Colaboradores:
 
-| Nombre | Linkedin | Rol |
-|--------------|--------------|--------------|
-| Kevin Flores | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kevinstudioux/) | UX/UI Designer & Product Manager |
-| Susana Cucurullo | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/susanacucurullo/) | UX/UI Designer & Graphic Designer |
-| Adrián Sanchez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/desarrolloadrianjr/) | Frontend Developer |
-| Lautaro Tintez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lautarotintez/) | Backend Developer |
-| Diego Paez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/diego-andres-paez-ab5a8416b/) | Backend Developer |
-| Belén Gimenez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/belengimenez/) | Backend Developer |
-| Emiliano Barrientos | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emiliano-barrientos/) | Backend Developer |
-| Juan Reyes | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/juanestebanreyes/) | Backend Developer |
+| Nombre | Linkedin | Github/Portfolio | Rol |
+|--------------|--------------|--------------|--------------|
+| Kevin Flores | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kevinstudioux/) | [![Bio.site](https://img.shields.io/badge/Bio.site-black.svg?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyBjbGFzcz0iaW5kZXhfc3ltYm9sX18zVVg5bSIgd2lkdGg9IjQ5IiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgNDkgNDAiIGZpbGw9IndoaXRlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik00OC4xMTM0IDM1Ljc5MDhDNDguMTEzNCAzOC4wNzYzIDQ2LjI2MDcgMzkuOTI5MSA0My45NzUyIDM5LjkyOTFDNDEuNjg5NyAzOS45MjkxIDM5LjgzNjkgMzguMDc2MyAzOS44MzY5IDM1Ljc5MDhDMzkuODM2OSAzMy41MDUzIDQxLjY4OTcgMzEuNjUyNiA0My45NzUyIDMxLjY1MjZDNDYuMjYwNyAzMS42NTI2IDQ4LjExMzQgMzMuNTA1MyA0OC4xMTM0IDM1Ljc5MDhaIj48L3BhdGg+PHBhdGggZD0iTTQwIDIwQzQwIDMxLjA0NTcgMzEuMDQ1NyA0MCAyMCA0MEM4Ljk1NDMgNDAgMCAzMS4wNDU3IDAgMjBDMCA4Ljk1NDMgOC45NTQzIDAgMjAgMEMzMS4wNDU3IDAgNDAgOC45NTQzIDQwIDIwWiI+PC9wYXRoPjwvc3ZnPg==)](https://bio.site/kevinflores.ux) | UX/UI Designer & Product Manager |
+| Susana Cucurullo | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/susanacucurullo/) | [![Behance](https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white)](https://www.behance.net/susanacucu) | UX/UI Designer & Graphic Designer |
+| Adrián Sanchez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/desarrolloadrianjr/) | [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AdrianEmaST) | Frontend Developer |
+| Lautaro Tintez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lautarotintez/) | [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LautaroTnz) | Backend Developer |
+| Diego Paez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/diego-andres-paez-ab5a8416b/) | [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DiegoAPaez) | Backend Developer |
+| Belén Gimenez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/belengimenez/) | [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/belensb) | Backend Developer |
+| Emiliano Barrientos | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emiliano-barrientos/) | [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EmiBarrientos) | Backend Developer |
+| Juan Reyes | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/juanestebanreyes/) | [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JuanReyes273) | Backend Developer |
 
 ## 💻 Tecnologías: 
 #### Frontend:
