@@ -48,7 +48,7 @@ My Doctor App es una solución innovadora para gestionar citas médicas de maner
 
 
 ## 🔗 Enlaces de proyectos:
-- 🩺 [My Doctor App - Deploy](https://c17-35-m-java.vercel.app/)
+- 🩺 [My Doctor App - Deploy](https://mydoctorapp.vercel.app/)
 - 🎨 [Diseño en Figma](https://www.figma.com/file/aDLjYA3x9vsiC3XJW56n1J/Handoff-Development---MyDoctorApp?type=design&node-id=1-33&mode=design)
 - 📖 [Documentación de la API en Postman](https://documenter.getpostman.com/view/29415049/2sA3BrWpHY#introduccion)
 
