@@ -1,18 +1,20 @@
-# c17-56-T-Java
+# 🏥MyDoctorApp - c17-56-T-Java
+My Doctor App es una solución innovadora para gestionar citas médicas de manera sencilla y personalizada. Desde reservar citas hasta administrar recetas, nuestra plataforma conecta a pacientes con médicos en diversas especialidades. Para médicos, proporcionamos una herramienta centralizada para gestionar agendas, acceder a registros de pacientes y crear recetas digitales de forma eficiente.
 
-## 🚀 Título: MyDoctorApp
-
-## 🏭 Industría o rubro: Health Tech
+### 🏭 Industría o rubro: Health Tech
 
 ## 👥 Colaboradores:
-- Kevin Flores
-- Adrian Sanchez
-- Susana Cucurullo
-- Belen Gimenez
-- Emiliano Barrientos
-- Diego Paez
-- Juan Reyes
-- Lautaro Tintez
+
+| Nombre | Linkedin | Rol |
+|--------------|--------------|--------------|
+| Kevin Flores | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kevinstudioux/) | UX/UI Designer & Product Manager |
+| Susana Cucurullo | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/susanacucurullo/) | UX/UI Designer & Graphic Designer |
+| Adrián Sanchez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/desarrolloadrianjr/) | Frontend Developer |
+| Lautaro Tintez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lautarotintez/) | Backend Developer |
+| Diego Paez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/diego-andres-paez-ab5a8416b/) | Backend Developer |
+| Belén Gimenez | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/belengimenez/) | Backend Developer |
+| Emiliano Barrientos | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emiliano-barrientos/) | Backend Developer |
+| Juan Reyes | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/juanestebanreyes/) | Backend Developer |
 
 ## 💻 Tecnologías: 
 #### Frontend:
@@ -39,4 +41,9 @@
 [![Jira Status](https://img.shields.io/badge/Jira-Up-brightgreen?style=for-the-badge&logo=jira&logoColor=white)](https://tu-url-de-jira)
 
 
-## 🔗 Enlaces de proyectos: - 
+## 🔗 Enlaces de proyectos:
+- 🩺 [My Doctor App - Deploy](https://c17-35-m-java.vercel.app/)
+- 🎨 [Diseño en Figma](https://www.figma.com/file/aDLjYA3x9vsiC3XJW56n1J/Handoff-Development---MyDoctorApp?type=design&node-id=1-33&mode=design)
+- 📖 [Documentación de la API en Postman](https://documenter.getpostman.com/view/29415049/2sA3BrWpHY#introduccion)
+
+---
